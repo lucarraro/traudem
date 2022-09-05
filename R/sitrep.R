@@ -37,6 +37,15 @@ taudem_sitrep <- function() {
     )
   }
 
+  if (!fs::dir_exists(Sys.getenv("TAUDEM_PATH"))) {
+    rlang::abort(
+      message = c(
+        x = sprintf("Can't find directory `%s` (TauDEM executables)", Sys.getenv("TAUDEM_PATH")),
+        i = "Fix `TAUDEM_PATH` environment variable pointing to TauDEM executables. See `?taudem_sitrep`"
+      )
+    )
+  }
+
   # TODO list algorithms
 
   # TODO run hello world
