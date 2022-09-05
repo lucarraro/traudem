@@ -30,11 +30,11 @@ is_taudem_registered <- function() {
 }
 
 taudem_path <- function() {
-  if (is_taudem_on_path()) {
-    return(Sys.which("taudem"))
-  }
   if (is_taudem_envvar()) {
     return(Sys.getenv("TAUDEM_PATH"))
+  }
+  if (is_taudem_on_path()) {
+    return(Sys.which("taudem"))
   }
   return(NA)
 }
