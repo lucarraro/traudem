@@ -18,9 +18,26 @@
     Code
       taudem_sitrep()
     Message <cliMessage>
-      v Found GDAL version 3.0.4.
-      v Found mpiexec (OpenRTE) 4.0.3 (MPI).
+      v Found GDAL version ...
+      v Found mpiexec (OpenRTE) .. (MPI).
       v Found `TAUDEM_PATH` environment variable (/usr/local/taudem).
       v Found TauDEM executables directory (/usr/local/taudem).
       v Found all TauDEM executables.
+      i Testing TauDEM on an example file...
+      -- TauDEM output ---------------------------------------------------------------
+    Output
+      PitRemove version ..
+      Input file MED__.tif has projected coordinate system.
+      Nodata value input to create partition from file: -.
+      Nodata value recast to float used in partition raster: -.
+      Processes: 
+      Header read time: .
+      Data read time: .
+      Compute time: .
+      Write time: .
+      Total time: .
+    Message <cliMessage>
+      -- End of TauDEM output --------------------------------------------------------
+      v Was able to launch a TauDEM example!
+      ! Make sure you see no serious error message above.
 
