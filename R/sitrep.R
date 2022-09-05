@@ -86,7 +86,7 @@ taudem_sitrep <- function() {
   }
 
   # TauDEM registered ---------
-  if (!is_taudem_registered()) {
+  if (!can_register_taudem()) {
     rlang::abort(
       message = c(
         x = "Can't find TauDEM on PATH nor `TAUDEM_PATH` environment variable",

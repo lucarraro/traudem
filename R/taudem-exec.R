@@ -25,8 +25,12 @@ is_taudem_envvar <- function() {
   nzchar(Sys.getenv("TAUDEM_PATH"))
 }
 
-is_taudem_registered <- function() {
+can_register_taudem <- function() {
   is_taudem_on_path() || is_taudem_envvar()
+}
+
+is_taudem_registered <- function() {
+  is_taudem_on_path() || grepl(taudem_path(), Sys.getenv("PATH"))
 }
 
 taudem_path <- function() {
