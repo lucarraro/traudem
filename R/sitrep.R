@@ -59,7 +59,7 @@ taudem_sitrep <- function() {
       rlang::warn(
         message = c(
           x = "Can't find GDAL via gdal-config nor gdalinfo.",
-          i = "Are you sure you installed GDAL? See vignette('taudem')."
+          i = "Are you sure you installed GDAL? See vignette('taudem-installation')."
         )
       )
     }
@@ -81,7 +81,7 @@ taudem_sitrep <- function() {
     rlang::abort(
       message = c(
         x = "Can't find MPI",
-        i = "Please install MPI. See vignette('taudem')."
+        i = "Please install MPI. See vignette('taudem-installation')."
       )
     )
   }
@@ -91,7 +91,7 @@ taudem_sitrep <- function() {
     rlang::abort(
       message = c(
         x = "Can't find `TAUDEM_PATH` environment variable",
-        i = "Add `TAUDEM_PATH` environment variable pointing to TauDEM executables. See `?taudem_sitrep`"
+        i = "Add `TAUDEM_PATH` environment variable pointing to TauDEM executables. See vignette('taudem-installation')."
       )
     )
   } else {
@@ -103,7 +103,7 @@ taudem_sitrep <- function() {
     rlang::abort(
       message = c(
         x = sprintf("Can't find directory `%s` (TauDEM executables)", taudem_path),
-        i = "Fix `TAUDEM_PATH` environment variable pointing to TauDEM executables. See `?taudem_sitrep`"
+        i = "Fix `TAUDEM_PATH` environment variable pointing to TauDEM executables. See vignette('taudem-installation')."
       )
     )
   } else {

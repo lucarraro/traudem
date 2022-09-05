@@ -1,12 +1,12 @@
 # taudem_sitrem() works - problems
 
     x Can't find `TAUDEM_PATH` environment variable
-    i Add `TAUDEM_PATH` environment variable pointing to TauDEM executables. See `?taudem_sitrep`
+    i Add `TAUDEM_PATH` environment variable pointing to TauDEM executables. See vignette('taudem-installation').
 
 ---
 
     x Can't find directory `blop` (TauDEM executables)
-    i Fix `TAUDEM_PATH` environment variable pointing to TauDEM executables. See `?taudem_sitrep`
+    i Fix `TAUDEM_PATH` environment variable pointing to TauDEM executables. See vignette('taudem-installation').
 
 ---
 
