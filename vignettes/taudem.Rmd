@@ -1,0 +1,40 @@
+---
+title: "Get started"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Get started}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(rtaudem)
+```
+
+## How to install TauDEM
+
+Installing TauDEM actually means installing 3 tools
+
+* GDAL that TauDEM uses under the hood;
+* MPI that R will call to launch TauDEM;
+* TauDEM itself.
+
+No matter your operating system, take notes of the steps you follow.
+This way, if anything goes wrong, you will be able to open an informative bug report and get help more easily.
+
+### Windows
+
+You're in luck! 
+The TauDEM Windows installer will install all three tools at once! 
+Refer to <https://hydrology.usu.edu/taudem/taudem5/downloads.html>.
+
+```{r, child="_sitrep.Rmd"}
+
+```

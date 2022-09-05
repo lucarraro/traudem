@@ -1,0 +1,28 @@
+### Finalize your installation
+
+Once you are done,
+
+#### Register TauDEM in R
+
+Add an R environmental variable called `TAUDEM_PATH` that points to the location where the TauDEM executables can be found (on Windows it might be `C:\Program Files\TauDEM`, on Ubuntu `/usr/local/taudem`).
+
+For instance on Ubuntu it could be adding this line in `.Renviron`
+(see `usethis::edit_r_environ()`)
+and then re-starting R:
+
+```
+TAUDEM_PATH='/usr/local/taudem'
+```
+
+or, for just the session, running this line of R code:
+
+```r
+Sys.setenv(TAUDEM_PATH='/usr/local/taudem')
+```
+
+#### Check your installation 
+
+Run `rtaudem::taudem_sitrep()` and read its output carefully. Pay attention to any error that might indicate part of the installation was not successful.
+
+If all is well (no error, only normal output from TauDEM), congratulations!
+Your system is ready to apply TauDEM to your own data.
