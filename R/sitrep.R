@@ -28,6 +28,7 @@
 #' taudem_sitrep()
 #' }
 taudem_sitrep <- function() {
+  # Environment variable ---------
   if (!nzchar(Sys.getenv("TAUDEM_PATH"))) {
     rlang::abort(
       message = c(
@@ -35,8 +36,11 @@ taudem_sitrep <- function() {
         i = "Add `TAUDEM_PATH` environment variable pointing to TauDEM executables. See `?taudem_sitrep`"
       )
     )
+  } else {
+    cli::cli_alert_success("Found `TAUDEM_PATH` environment variable.")
   }
 
+  # Folder with executables ------------
   if (!fs::dir_exists(Sys.getenv("TAUDEM_PATH"))) {
     rlang::abort(
       message = c(
@@ -44,9 +48,23 @@ taudem_sitrep <- function() {
         i = "Fix `TAUDEM_PATH` environment variable pointing to TauDEM executables. See `?taudem_sitrep`"
       )
     )
+  } else {
+    cli::cli_alert_success("Found `TAUDEM_PATH` executables directory.")
   }
 
-  # TODO list algorithms
+  # Algorithms in executables folder -----
+  missing_algos <- taudem_official_list()[!(tolower(taudem_official_list()) %in% taudem_algorithms())]
+  if (length(missing_algos) > 0) {
+    rlang::abort(
+      message = c(
+        x = sprintf("Can't find executables for %s", toString(sprintf("`%s`", missing_algos))),
+        i = "Try re-installing TauDEM and write down any problem."
+      )
+    )
+  } else {
+    cli::cli_alert_success("Found all `TAUDEM_PATH` executables.")
+  }
 
-  # TODO run hello world
+
+  # TODO run hello world -----
 }
