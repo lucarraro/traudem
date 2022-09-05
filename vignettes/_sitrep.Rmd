@@ -4,6 +4,13 @@ Once you are done,
 
 ### Register TauDEM in R
 
+#### Add TauDEM to the PATH
+
+- The Windows installer might have done this automatically.
+- For other operating systems (macOS, Linux) use your usual method to add a directory to the PATH.
+
+#### OR add an environmental variable
+
 Add an R environmental variable called `TAUDEM_PATH` that points to the location where the TauDEM executables can be found (on Windows it might be `C:\Program Files\TauDEM`, on Ubuntu `/usr/local/taudem`).
 
 For instance on Ubuntu it could be adding this line in `.Renviron`
