@@ -29,6 +29,63 @@
 #' }
 taudem_sitrep <- function() {
   taudem_path <- Sys.getenv("TAUDEM_PATH")
+
+  # gdal installed -----
+  # not sure which one TauDEM uses by default
+  # https://gis.stackexchange.com/questions/246615/different-output-of-gdalinfo-version-and-gdal-config-in-xenial
+  gdal_config_res <- withr::local_tempfile()
+  gdal_config_ok <- try(sys::exec_wait(
+    "gdal-config",
+    "--version",
+    std_out = gdal_config_res
+  ),
+    silent = TRUE
+  )
+  if ((!inherits(gdal_config_ok, "try-error")) && gdal_config_ok == 0) {
+    gdal_version <- readLines(gdal_config_res)
+    cli_success(sprintf("Found GDAL version %s.", gdal_version))
+  } else {
+    gdal_info_res <- withr::local_tempfile()
+    gdal_info_ok <- try(sys::exec_wait(
+      "gdalinfo",
+      "--version",
+      std_out = gdal_info_res
+    ), silent = TRUE)
+    if ((!inherits(gdal_info_ok, "try-error")) && gdal_info_ok == 0) {
+      gdal_version <- readLines(gdal_info_res)
+      cli_success(sprintf("Found GDAL version %s.", gdal_version))
+    } else {
+      # Warning, not abording, as we could have missed GDAL
+      rlang::warn(
+        message = c(
+          x = "Can't find GDAL via gdal-config nor gdalinfo.",
+          i = "Are you sure you installed GDAL? See vignette('taudem')."
+        )
+      )
+    }
+  }
+
+  # MPI -----
+  mpi_version_res <- withr::local_tempfile()
+  mpi_version_ok <- try(sys::exec_wait(
+    "mpiexec",
+    "--version",
+    std_out = mpi_version_res
+  ),
+    silent = TRUE
+  )
+  if ((!inherits(mpi_version_ok, "try-error")) && mpi_version_ok == 0) {
+    mpi_version <- readLines(mpi_version_res)[1]
+    cli_success(sprintf("Found %s (MPI).", mpi_version))
+  } else {
+    rlang::abort(
+      message = c(
+        x = "Can't find MPI",
+        i = "Please install MPI. See vignette('taudem')."
+      )
+    )
+  }
+
   # Environment variable ---------
   if (!nzchar(taudem_path)) {
     rlang::abort(

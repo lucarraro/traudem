@@ -16,8 +16,8 @@ BugReports: https://github.com/cynkra/rtaudem/issues
 Imports: 
     cli,
     fs,
-    rlang
-Suggests: 
-    testthat (>= 3.0.0),
+    rlang,
     withr
+Suggests: 
+    testthat (>= 3.0.0)
 Config/testthat/edition: 3

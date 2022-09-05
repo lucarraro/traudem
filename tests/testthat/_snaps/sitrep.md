@@ -18,6 +18,8 @@
     Code
       taudem_sitrep()
     Message <cliMessage>
+      v Found GDAL version 3.0.4.
+      v Found mpiexec (OpenRTE) 4.0.3 (MPI).
       v Found `TAUDEM_PATH` environment variable (/usr/local/taudem).
       v Found TauDEM executables directory (/usr/local/taudem).
       v Found all TauDEM executables.
