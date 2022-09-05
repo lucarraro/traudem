@@ -15,4 +15,5 @@ URL: https://github.com/cynkra/rtaudem
 BugReports: https://github.com/cynkra/rtaudem/issues
 Imports: 
     cli,
-    fs
+    fs,
+    rlang
