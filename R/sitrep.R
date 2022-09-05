@@ -28,7 +28,6 @@
 #' taudem_sitrep()
 #' }
 taudem_sitrep <- function() {
-  taudem_path <- Sys.getenv("TAUDEM_PATH")
 
   # gdal installed -----
   # not sure which one TauDEM uses by default
@@ -86,28 +85,28 @@ taudem_sitrep <- function() {
     )
   }
 
-  # Environment variable ---------
-  if (!nzchar(taudem_path)) {
+  # TauDEM registered ---------
+  if (!is_taudem_registered()) {
     rlang::abort(
       message = c(
-        x = "Can't find `TAUDEM_PATH` environment variable",
-        i = "Add `TAUDEM_PATH` environment variable pointing to TauDEM executables. See vignette('taudem-installation')."
+        x = "Can't find TauDEM on PATH nor `TAUDEM_PATH` environment variable",
+        i = "Register your TauDEM installation. See vignette('taudem-installation')."
       )
     )
   } else {
-    cli_success(sprintf("Found `TAUDEM_PATH` environment variable (%s).", taudem_path))
+    cli_success(sprintf("Found `TAUDEM_PATH` environment variable (%s).", taudem_path()))
   }
 
   # Folder with executables ------------
-  if (!fs::dir_exists(taudem_path)) {
+  if (!fs::dir_exists(taudem_path())) {
     rlang::abort(
       message = c(
-        x = sprintf("Can't find directory `%s` (TauDEM executables)", taudem_path),
-        i = "Fix `TAUDEM_PATH` environment variable pointing to TauDEM executables. See vignette('taudem-installation')."
+        x = sprintf("Can't find directory `%s` (TauDEM executables)", taudem_path()),
+        i = "Register your TauDEM installation. See vignette('taudem-installation')."
       )
     )
   } else {
-    cli_success(sprintf("Found TauDEM executables directory (%s).", taudem_path))
+    cli_success(sprintf("Found TauDEM executables directory (%s).", taudem_path()))
   }
 
   # Algorithms in executables folder -----
