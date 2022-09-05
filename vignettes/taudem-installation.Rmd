@@ -1,8 +1,8 @@
 ---
-title: "Get started"
+title: "Install TauDEM"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Get started}
+  %\VignetteIndexEntry{Install TauDEM}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -14,12 +14,6 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
-library(rtaudem)
-```
-
-## How to install TauDEM
-
 Installing TauDEM actually means installing 3 tools
 
 * GDAL that TauDEM uses under the hood;
@@ -29,7 +23,7 @@ Installing TauDEM actually means installing 3 tools
 No matter your operating system, take notes of the steps you follow.
 This way, if anything goes wrong, you will be able to open an informative bug report and get help more easily.
 
-### Windows
+## Windows
 
 You're in luck! 
 The TauDEM Windows installer will install all three tools at once! 
