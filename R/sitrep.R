@@ -28,8 +28,9 @@
 #' taudem_sitrep()
 #' }
 taudem_sitrep <- function() {
+  taudem_path <- Sys.getenv("TAUDEM_PATH")
   # Environment variable ---------
-  if (!nzchar(Sys.getenv("TAUDEM_PATH"))) {
+  if (!nzchar(taudem_path)) {
     rlang::abort(
       message = c(
         x = "Can't find `TAUDEM_PATH` environment variable",
@@ -37,19 +38,19 @@ taudem_sitrep <- function() {
       )
     )
   } else {
-    cli::cli_alert_success("Found `TAUDEM_PATH` environment variable.")
+    cli_success(sprintf("Found `TAUDEM_PATH` environment variable (%s).", taudem_path))
   }
 
   # Folder with executables ------------
-  if (!fs::dir_exists(Sys.getenv("TAUDEM_PATH"))) {
+  if (!fs::dir_exists(taudem_path)) {
     rlang::abort(
       message = c(
-        x = sprintf("Can't find directory `%s` (TauDEM executables)", Sys.getenv("TAUDEM_PATH")),
+        x = sprintf("Can't find directory `%s` (TauDEM executables)", taudem_path),
         i = "Fix `TAUDEM_PATH` environment variable pointing to TauDEM executables. See `?taudem_sitrep`"
       )
     )
   } else {
-    cli::cli_alert_success("Found `TAUDEM_PATH` executables directory.")
+    cli_success(sprintf("Found TauDEM executables directory (%s).", taudem_path))
   }
 
   # Algorithms in executables folder -----
@@ -62,7 +63,7 @@ taudem_sitrep <- function() {
       )
     )
   } else {
-    cli::cli_alert_success("Found all `TAUDEM_PATH` executables.")
+    cli_success("Found all TauDEM executables.")
   }
 
 
