@@ -2,7 +2,7 @@ Package: rtaudem
 Title: Use 'TauDEM'
 Version: 0.0.0.9000
 Authors@R: c(
-    person("Maëlle", "Salmon", , "msmaellesalmon@gmail.com", role = c("aut"),
+    person("Maëlle", "Salmon", , "maelle@cynkra.com", role = c("aut"),
            comment = c(ORCID = "0000-0002-2815-0399")),
     person("Luca", "Carraro", , "Luca.Carraro@eawag.ch", role = c("cre", "aut"))
   )
