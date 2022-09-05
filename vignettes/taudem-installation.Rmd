@@ -30,5 +30,42 @@ The TauDEM Windows installer will install all three tools at once!
 Refer to <https://hydrology.usu.edu/taudem/taudem5/downloads.html>.
 
 ```{r, child="_sitrep.Rmd"}
+```
 
+## macOS 
+
+To be completed by reading the GHA workflow
+
+```{r, child="_sitrep.Rmd"}
+```
+
+## Linux
+
+### GDAL
+
+Do you need to install GDAL? In a terminal try `gdalinfo --version`, if it fails `gdal-config --version`. If it works and return something you do not need to install GDAL unless you want a newer version.
+You might have installed GDAL in the past for, say, using the sf R package.
+
+If you need to, install GDAL using the official [GDAL docs](https://gdal.org/download.html) (or refer to [TauDEM README](https://github.com/dtarb/TauDEM/) for further suggestions). 
+
+### MPI
+
+First try running `mpiexec --version` in a terminal.
+If it works and return something you do not need to install MPI unless you want a newer version.
+
+If you need to, install MPI using the official [MPI docs](https://www.open-mpi.org/software/ompi/v4.1/) (or refer to [TauDEM README](https://github.com/dtarb/TauDEM/) for further suggestions). 
+
+### TauDEM
+
+First you need to obtain TauDEM source for GitHub <https://github.com/dtarb/TauDEM/>.
+If you are at ease with this, you can clone the repository.
+If not, find the green button that allows you to clone, open (with GitHub CLI) or download, and download the ZIP version.
+
+We recommend using CMake because that is what we did but [TauDEM README](https://github.com/dtarb/TauDEM/) for further suggestions) also has a method using Make.
+Therefore,
+
+* install CMake or Make (check it's not already installed);
+* follow [TauDEM README](https://github.com/dtarb/TauDEM/) for further suggestions) for either CMake or Make depending on what you decided to use.
+
+```{r, child="_sitrep.Rmd"}
 ```
