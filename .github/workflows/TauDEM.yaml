@@ -19,7 +19,7 @@ jobs:
       matrix:
         config:
           - {os: macOS-latest,   r: 'release'}
-          # - {os: windows-latest, r: 'release'}
+          - {os: windows-latest, r: 'release'}
           - {os: ubuntu-latest,   r: 'release'}
 
     env:
@@ -35,14 +35,20 @@ jobs:
           sudo apt-get update
           sudo apt-get install gdal-bin libgdal-dev mpich
 
-      - name: Install require pkgs for mac
+      - name: Install required pkgs for mac
         if: runner.os == 'macOS'
         run: |
           brew install gdal mpich
-      
-      - name: Install TauDEM
+
+      - name: Install TauDEM on linux and mac
         if: runner.os != 'Windows'
         run: sh ./TauDEM.sh
+
+      - name: Install TauDEM on Windows
+        if: runner.os == 'Windows'
+        run: |
+          curl -sLO https://github.com/dtarb/TauDEM/releases/download/v5.3.7/TauDEM537_setup.exe
+          TauDEM537_setup.exe /SILENT
 
       # - uses: r-lib/actions/setup-pandoc@v2
 
