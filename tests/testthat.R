@@ -7,6 +7,6 @@
 # * https://testthat.r-lib.org/reference/test_package.html#special-files
 
 library(testthat)
-library(rtaudem)
+library(traudem)
 
-test_check("rtaudem")
+test_check("traudem")
