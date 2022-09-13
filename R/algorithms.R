@@ -1,5 +1,5 @@
 taudem_algorithms <- function() {
-  algos <- fs::dir_ls(Sys.getenv("TAUDEM_PATH"))
+  algos <- fs::dir_ls(taudem_path())
   fs::path_file(algos)
 }
 
