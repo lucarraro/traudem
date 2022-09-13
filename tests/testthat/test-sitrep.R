@@ -13,8 +13,6 @@ test_that("taudem_sitrem() works - problems", {
 
 test_that("taudem_sitrem() works - all well", {
   skip_on_cran()
-
-  withr::local_envvar(TAUDEM_PATH = "/usr/local/taudem")
   expect_snapshot(
     taudem_sitrep(),
     transform = function(x) gsub("[0-9]", "", x)
