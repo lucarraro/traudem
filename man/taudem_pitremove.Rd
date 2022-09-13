@@ -6,10 +6,10 @@
 \usage{
 taudem_pitremove(
   input_elevation_grid,
-  output_elevation_grid,
+  output_elevation_grid = NULL,
   only_4way_neighbors = FALSE,
   n_processes = getOption("traudem.n_processes", 1),
-  depmask
+  depmask = NULL
 )
 }
 \arguments{
@@ -34,12 +34,12 @@ See https://hydrology.usu.edu/taudem/taudem5/help53/PitRemove.html
 }
 \examples{
 \dontrun{
-download_dir <- withr::local_tempdir()
-curl::curl_download(
-"https://github.com/dtarb/TauDEM-Test-Data/blob/master/ReferenceResult/Base/MED_01_01.tif?raw=true",
-file.path(download_dir, "MED_01_01.tif")
-)
-output <- taudem_pitremove(file.path(download_dir, "MED_01_01.tif"))
+test_dir <- withr::local_tempdir()
+ fs::file_copy(
+   system.file("test-data", "MED_01_01.tif", package = "traudem"),
+   file.path(test_dir, "MED_01_01.tif")
+ )
+output <- taudem_pitremove(file.path(test_dir, "MED_01_01.tif"))
 output
 }
 }
