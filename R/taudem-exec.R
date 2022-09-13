@@ -19,8 +19,7 @@ exec_taudem <- function(...) {
 
 register_taudem <- function() {
   if (!is_taudem_registered()) {
-    taudem_path <- Sys.getenv("TAUDEM_PATH")
-    Sys.setenv(PATH = paste0(sprintf("%s:", taudem_path), Sys.getenv("PATH")))
+    Sys.setenv(PATH = paste0(sprintf("%s:", taudem_path()), Sys.getenv("PATH")))
   }
 }
 

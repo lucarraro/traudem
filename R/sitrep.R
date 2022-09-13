@@ -127,19 +127,15 @@ taudem_sitrep <- function() {
   # TODO: actually distribute test data with package
   # https://github.com/dtarb/TauDEM-Test-Data has no licence!
   # https://github.com/r-lib/testthat/blob/a8b6b16c82bcce6d960add9a3df9b17ef3ccd570/R/skip.R#L120
-  has_internet <- !is.null(curl::nslookup(host = "r-project.org", error = FALSE))
-  if (!has_internet) {
-    return()
-  }
   cli::cli_alert_info("Testing TauDEM on an example file...")
-  download_dir <- withr::local_tempdir()
-  curl::curl_download(
-    "https://github.com/dtarb/TauDEM-Test-Data/blob/master/ReferenceResult/Base/MED_01_01.tif?raw=true",
-    file.path(download_dir, "MED_01_01.tif")
+  test_dir <- withr::local_tempdir()
+  fs::file_copy(
+    system.file("test-data", "MED_01_01.tif", package = "traudem"),
+    file.path(test_dir, "MED_01_01.tif")
   )
   cli::cli_rule(left = "TauDEM output")
   taudem_try <- withr::with_dir(
-    download_dir, {
+    test_dir, {
       exec_taudem(
           "mpiexec",
           c("pitremove", "MED_01_01.tif")
@@ -147,7 +143,7 @@ taudem_sitrep <- function() {
     }
   )
   cli::cli_rule(left = "End of TauDEM output")
-  if (!inherits(taudem_try, "try-error") && fs::file_exists(file.path(download_dir, "MED_01_01fel.tif"))) {
+  if (!inherits(taudem_try, "try-error") && fs::file_exists(file.path(test_dir, "MED_01_01fel.tif"))) {
     cli::cli_alert_success("Was able to launch a TauDEM example!")
     cli::cli_alert_warning("Make sure you see no serious error message above.")
   } else {
