@@ -4,7 +4,7 @@
       output <- taudem_pitremove(file.path(test_dir, "MED_01_01.tif"))
     Output
       PitRemove version ..
-      Input file /tmp/RtmpfWHbS/fileacaaf/MED__.tif has projected coordinate system.
+      Input file blop.tif has projected coordinate system.
       Nodata value input to create partition from file: -.
       Nodata value recast to float used in partition raster: -.
       Processes: 
