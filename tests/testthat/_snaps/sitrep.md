@@ -1,32 +1,3 @@
-# info
-
-    Code
-      is_taudem_registered()
-    Output
-      [1] TRUE
-
----
-
-    Code
-      taudem_path()
-    Output
-      [1] "/usr/local/taudem"
-
----
-
-    Code
-      is_taudem_registered()
-    Output
-      [1] TRUE
-
----
-
-    Code
-      Sys.which("pitremove")
-    Output
-                          pitremove 
-      "/usr/local/taudem/pitremove" 
-
 # taudem_sitrem() works - problems
 
     x Can't find TauDEM on PATH nor `TAUDEM_PATH` environment variable
