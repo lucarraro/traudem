@@ -32,14 +32,7 @@ Refer to <https://hydrology.usu.edu/taudem/taudem5/downloads.html>.
 ```{r, child="_sitrep.Rmd"}
 ```
 
-## macOS 
-
-To be completed by reading the GHA workflow
-
-```{r, child="_sitrep.Rmd"}
-```
-
-## Linux
+## Linux and macOS
 
 ### GDAL
 
@@ -48,12 +41,16 @@ You might have installed GDAL in the past for, say, using the sf R package.
 
 If you need to, install GDAL using the official [GDAL docs](https://gdal.org/download.html) (or refer to [TauDEM README](https://github.com/dtarb/TauDEM/) for further suggestions). 
 
+> On macOS this might be as easy as brew install gdal.
+
 ### MPI
 
 First try running `mpiexec --version` in a terminal.
 If it works and return something you do not need to install MPI unless you want a newer version.
 
 If you need to, install MPI using the official [MPI docs](https://www.open-mpi.org/software/ompi/v4.1/) (or refer to [TauDEM README](https://github.com/dtarb/TauDEM/) for further suggestions). 
+
+> On macOS this might be as easy as brew install mpich.
 
 ### TauDEM
 
