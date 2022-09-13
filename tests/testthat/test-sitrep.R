@@ -12,8 +12,6 @@ test_that("taudem_sitrem() works - problems", {
 })
 
 test_that("taudem_sitrem() works - all well", {
-  # TODO: do not skip on CI once workflow present
-  skip_on_ci()
   skip_on_cran()
 
   withr::local_envvar(TAUDEM_PATH = "/usr/local/taudem")
