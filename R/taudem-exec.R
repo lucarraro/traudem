@@ -1,12 +1,19 @@
 exec_taudem <- function(...) {
   register_taudem()
+  std_out <- withr::local_tempfile()
+  std_err <- withr::local_tempfile()
   res <- try(
     sys::exec_wait(
-      ...
+      ...,
+      std_out = std_out,
+      std_err = std_err
     )
   )
   if (inherits(res, "try-error")) {
     print(res)
+  } else {
+    purrr::walk(readLines(std_out), cli::cat_line)
+    purrr::walk(readLines(std_err), cli::cat_line, col = "red")
   }
 }
 
