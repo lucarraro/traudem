@@ -1,0 +1,59 @@
+#' Title
+#'
+#' @param input_elevation_grid Pit filled elevation input data
+#' @param output_d8flowdir_grid D8 flow directions output
+#' @param output_d8slopes_grid D8 slopes output
+#' @param n_processes Number of processes
+#'
+#' @return List with the two output filenames
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' test_dir <- withr::local_tempdir()
+#'  fs::file_copy(
+#'    system.file("test-data", "MED_01_01.tif", package = "traudem"),
+#'    file.path(test_dir, "MED_01_01.tif")
+#'  )
+#' filled_pit <- taudem_pitremove(file.path(test_dir, "MED_01_01.tif"))
+#' outputs <- taudem_d8flowdir(filled_pit)
+#' outputs
+#' }
+taudem_d8flowdir <- function(input_elevation_grid,
+                              output_d8flowdir_grid = NULL,
+                              output_d8slopes_grid = NULL,
+                              n_processes = getOption("traudem.n_processes", 1)) {
+  if (!fs::file_exists(input_elevation_grid)) {
+    rlang::abort(sprintf("Can't find file %s (input_elevation_grid)", input_elevation_grid))
+  }
+
+  if (is.null(output_d8flowdir_grid)) {
+    output_d8flowdir_grid_file <- sprintf(
+      "%sd8flowdir",
+      fs::path_ext_remove(input_elevation_grid)
+    )
+    output_d8flowdir_grid <- fs::path_ext_set(output_d8flowdir_grid_file, "tif")
+  }
+
+  if (is.null(output_d8slopes_grid)) {
+    output_d8slopes_grid_file <- sprintf(
+      "%sd8slopes",
+      fs::path_ext_remove(input_elevation_grid)
+    )
+    output_d8slopes_grid <- fs::path_ext_set(output_d8slopes_grid_file, "tif")
+  }
+
+  args <- c(
+    "mpiexec",
+    "-n", n_processes,
+    "d8flowdir",
+    "-fel", input_elevation_grid,
+    "-p", output_d8flowdir_grid,
+    "-sd8", output_d8slopes_grid
+  )
+  exec_taudem(args)
+  return(invisible(list(
+    output_d8flowdir_grid = output_d8flowdir_grid,
+    output_d8slopes_grid = output_d8slopes_grid
+  )))
+}
