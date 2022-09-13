@@ -48,7 +48,7 @@ jobs:
         if: runner.os == 'Windows'
         run: |
           curl -sLO https://github.com/dtarb/TauDEM/releases/download/v5.3.7/TauDEM537_setup.exe
-          TauDEM537_setup.exe /SILENT
+          .\TauDEM537_setup.exe /SILENT
 
       - uses: r-lib/actions/setup-pandoc@v2
 
