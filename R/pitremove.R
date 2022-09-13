@@ -44,6 +44,7 @@ taudem_pitremove <- function(input_elevation_grid,
 
   args <- c(
     "mpiexec", "pitremove",
+    "-n", n_processes,
     "-z", input_elevation_grid,
     "-fel", output_elevation_grid
   )
