@@ -1,3 +1,6 @@
+test_that("info", {
+  expect_snapshot(Sys.which("pitremove"))
+})
 test_that("taudem_sitrem() works - problems", {
   withr::local_envvar(TAUDEM_QUIET = "quiet")
 

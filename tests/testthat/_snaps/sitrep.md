@@ -1,3 +1,11 @@
+# info
+
+    Code
+      Sys.which("pitremove")
+    Output
+                          pitremove 
+      "/usr/local/taudem/pitremove" 
+
 # taudem_sitrem() works - problems
 
     x Can't find TauDEM on PATH nor `TAUDEM_PATH` environment variable
