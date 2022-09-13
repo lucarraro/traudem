@@ -1,2 +1,5 @@
-^rtaudem\.Rproj$
+^traudem\.Rproj$
 ^\.Rproj\.user$
+^TauDEM\.sh$
+^\.github$
+^TauDEM$
