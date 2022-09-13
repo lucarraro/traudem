@@ -15,6 +15,7 @@ Imports:
     cli,
     curl,
     fs,
+    purrr,
     rlang,
     sys,
     withr
