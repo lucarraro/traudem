@@ -5,7 +5,7 @@
 
 ---
 
-    x Can't find directory `blop` (TauDEM executables)
+    x Can't find directory `/home/maelle/blop` (TauDEM executables)
     i Register your TauDEM installation. See vignette('taudem-installation').
 
 ---
