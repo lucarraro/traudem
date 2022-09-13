@@ -20,7 +20,7 @@
     Message <cliMessage>
       v Found GDAL version ...
       v Found MPI (MPI).
-      v Found `TAUDEM_PATH` environment variable (/usr/local/taudem).
+      v Found TauDEM path
       v Found TauDEM executables directory.
       v Found all TauDEM executables.
       i Testing TauDEM on an example file...

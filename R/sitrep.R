@@ -94,7 +94,7 @@ taudem_sitrep <- function() {
       )
     )
   } else {
-    cli_success(sprintf("Found `TAUDEM_PATH` environment variable (%s).", taudem_path()))
+    cli_success(sprintf("Found TauDEM path (%s).", taudem_path()))
   }
 
   # Folder with executables ------------
