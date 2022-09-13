@@ -147,8 +147,15 @@ taudem_sitrep <- function() {
     }
   )
   cli::cli_rule(left = "End of TauDEM output")
-  if (!inherits(taudem_try, "try-error")) {
+  if (!inherits(taudem_try, "try-error") && fs::file_exists(file.path(download_dir, "MED_01_01fel.tif"))) {
     cli::cli_alert_success("Was able to launch a TauDEM example!")
     cli::cli_alert_warning("Make sure you see no serious error message above.")
+  } else {
+    rlang::abort(
+      message = c(
+        x = "Couldn't launch a TauDEM example.",
+        i = "Please open a bug report in traudem repository"
+      )
+    )
   }
 }
