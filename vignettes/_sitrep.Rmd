@@ -29,7 +29,7 @@ Sys.setenv(TAUDEM_PATH='/usr/local/taudem')
 
 ### Check your installation 
 
-Run `rtaudem::taudem_sitrep()` and read its output carefully. Pay attention to any error that might indicate part of the installation was not successful.
+Run `traudem::taudem_sitrep()` and read its output carefully. Pay attention to any error that might indicate part of the installation was not successful.
 
 If all is well (no error, only normal output from TauDEM), congratulations!
 Your system is ready to apply TauDEM to your own data.
