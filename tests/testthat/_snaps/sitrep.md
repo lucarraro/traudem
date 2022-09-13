@@ -5,7 +5,7 @@
 
 ---
 
-    x Can't find directory `/home/maelle/blop` (TauDEM executables)
+    x Can't find directory `blop` (TauDEM executables)
     i Register your TauDEM installation. See vignette('taudem-installation').
 
 ---
@@ -19,9 +19,9 @@
       taudem_sitrep()
     Message <cliMessage>
       v Found GDAL version ...
-      v Found mpiexec (OpenRTE) .. (MPI).
+      v Found MPI (MPI).
       v Found `TAUDEM_PATH` environment variable (/usr/local/taudem).
-      v Found TauDEM executables directory (/usr/local/taudem).
+      v Found TauDEM executables directory.
       v Found all TauDEM executables.
       i Testing TauDEM on an example file...
       -- TauDEM output ---------------------------------------------------------------

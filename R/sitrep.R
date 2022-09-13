@@ -101,7 +101,7 @@ taudem_sitrep <- function() {
   if (!fs::dir_exists(taudem_path())) {
     rlang::abort(
       message = c(
-        x = sprintf("Can't find directory `%s` (TauDEM executables)", taudem_path()),
+        x = sprintf("Can't find directory `%s` (TauDEM executables)", .taudem_path()),
         i = "Register your TauDEM installation. See vignette('taudem-installation')."
       )
     )
