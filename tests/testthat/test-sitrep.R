@@ -1,6 +1,8 @@
 test_that("info", {
   register_taudem()
+  expect_snapshot(is_taudem_registered())
   expect_snapshot(taudem_path())
+  expect_snapshot(is_taudem_registered())
   expect_snapshot(Sys.which("pitremove"))
 })
 test_that("taudem_sitrem() works - problems", {

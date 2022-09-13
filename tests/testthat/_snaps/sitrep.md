@@ -1,9 +1,23 @@
 # info
 
     Code
+      is_taudem_registered()
+    Output
+      [1] TRUE
+
+---
+
+    Code
       taudem_path()
     Output
       [1] "/usr/local/taudem"
+
+---
+
+    Code
+      is_taudem_registered()
+    Output
+      [1] TRUE
 
 ---
 
