@@ -50,6 +50,7 @@ jobs:
       - name: Install TauDEM on Windows
         if: runner.os == 'Windows'
         run: |
+          cd $HOME
           curl -sLO https://github.com/dtarb/TauDEM/releases/download/v5.3.7/TauDEM537_setup.exe
           .\TauDEM537_setup.exe /SILENT
 
