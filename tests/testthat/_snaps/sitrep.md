@@ -1,6 +1,13 @@
 # info
 
     Code
+      taudem_path()
+    Output
+      [1] "/usr/local/taudem"
+
+---
+
+    Code
       Sys.which("pitremove")
     Output
                           pitremove 
