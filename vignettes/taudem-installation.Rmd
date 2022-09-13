@@ -64,5 +64,7 @@ Therefore,
 * install CMake or Make (check it's not already installed);
 * follow [TauDEM README](https://github.com/dtarb/TauDEM/) for further suggestions) for either CMake or Make depending on what you decided to use.
 
+> If the installation shows errors, try using <https://github.com/maelle/TauDEM/tree/more-mpi-deprecations> instead.
+
 ```{r, child="_sitrep.Rmd"}
 ```
