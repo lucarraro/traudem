@@ -11,7 +11,7 @@
 #' @examples
 #' \dontrun{
 #' test_dir <- withr::local_tempdir()
-#'  fs::file_copy(
+#'  file.copy(
 #'    system.file("test-data", "MED_01_01.tif", package = "traudem"),
 #'    file.path(test_dir, "MED_01_01.tif")
 #'  )
@@ -23,24 +23,24 @@ taudem_d8flowdir <- function(input_elevation_grid,
                               output_d8flowdir_grid = NULL,
                               output_d8slopes_grid = NULL,
                               n_processes = getOption("traudem.n_processes", 1)) {
-  if (!fs::file_exists(input_elevation_grid)) {
+  if (!file.exists(input_elevation_grid)) {
     rlang::abort(sprintf("Can't find file %s (input_elevation_grid)", input_elevation_grid))
   }
 
   if (is.null(output_d8flowdir_grid)) {
     output_d8flowdir_grid_file <- sprintf(
       "%sd8flowdir",
-      fs::path_ext_remove(input_elevation_grid)
+      tools::file_path_sans_ext(input_elevation_grid)
     )
-    output_d8flowdir_grid <- fs::path_ext_set(output_d8flowdir_grid_file, "tif")
+    output_d8flowdir_grid <- sprintf("%s.tif", output_d8flowdir_grid_file)
   }
 
   if (is.null(output_d8slopes_grid)) {
     output_d8slopes_grid_file <- sprintf(
       "%sd8slopes",
-      fs::path_ext_remove(input_elevation_grid)
+      tools::file_path_sans_ext(input_elevation_grid)
     )
-    output_d8slopes_grid <- fs::path_ext_set(output_d8slopes_grid_file, "tif")
+    output_d8slopes_grid <- sprintf("%s.tif", output_d8slopes_grid_file)
   }
 
   args <- c(

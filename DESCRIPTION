@@ -13,10 +13,10 @@ URL: https://github.com/cynkra/traudem
 BugReports: https://github.com/cynkra/traudem/issues
 Imports: 
     cli,
-    fs,
     purrr,
     rlang,
     sys,
+    tools,
     withr
 Suggests: 
     knitr,

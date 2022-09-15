@@ -1,6 +1,6 @@
 test_that("taudem_d8flowdir() works", {
   test_dir <- withr::local_tempdir()
-  fs::file_copy(
+  file.copy(
     system.file("test-data", "MED_01_01.tif", package = "traudem"),
     file.path(test_dir, "MED_01_01.tif")
   )
@@ -17,6 +17,6 @@ test_that("taudem_d8flowdir() works", {
       )
       x
     })
-  expect_true(fs::file_exists(outputs$output_d8flowdir_grid))
-  expect_true(fs::file_exists(outputs$output_d8slopes_grid))
+  expect_true(file.exists(outputs$output_d8flowdir_grid))
+  expect_true(file.exists(outputs$output_d8slopes_grid))
 })

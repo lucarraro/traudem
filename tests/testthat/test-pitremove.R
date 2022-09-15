@@ -1,6 +1,6 @@
 test_that("taudem_pitremove() works", {
   test_dir <- withr::local_tempdir()
-  fs::file_copy(
+  file.copy(
     system.file("test-data", "MED_01_01.tif", package = "traudem"),
     file.path(test_dir, "MED_01_01.tif")
   )
@@ -15,6 +15,6 @@ test_that("taudem_pitremove() works", {
       )
       x
     })
-  expect_true(fs::file_exists(output))
+  expect_true(file.exists(output))
 
 })
