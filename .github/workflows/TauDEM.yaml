@@ -59,10 +59,7 @@ jobs:
           $procMain.WaitForExit(-1)
           curl -sLO https://github.com/dtarb/TauDEM/releases/download/v5.3.7/TauDEM537exeWin64.zip
           unzip TauDEM537exeWin64.zip
-          ls "C:\Program Files\"
-          ls "C:\Program Files\Microsoft MPI\"
-          ls "C:\Program Files\Microsoft MPI\Bin\"
-          mpiexec .\pitremove MED_01_01.tif
+          C:\Program Files\Microsoft MPI\Bin\mpiexec .\pitremove inst/test-data/MED_01_01.tif
 
       - uses: mxschmitt/action-tmate@v3
 
