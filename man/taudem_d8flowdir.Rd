@@ -2,7 +2,7 @@
 % Please edit documentation in R/d8flowdir.R
 \name{taudem_d8flowdir}
 \alias{taudem_d8flowdir}
-\title{Title}
+\title{D8 Flow Directions}
 \usage{
 taudem_d8flowdir(
   input_elevation_grid,
@@ -24,7 +24,10 @@ taudem_d8flowdir(
 List with the two output filenames
 }
 \description{
-Title
+D8 Flow Directions
+}
+\details{
+See \url{https://hydrology.usu.edu/taudem/taudem5/help53/D8FlowDirections.html}
 }
 \examples{
 \dontrun{
