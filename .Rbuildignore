@@ -4,3 +4,4 @@
 ^\.github$
 ^TauDEM$
 ^LICENSE\.md$
+^README\.Rmd$

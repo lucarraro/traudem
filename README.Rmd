@@ -1,0 +1,56 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# traudem
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of traudem is to wrap the CLI TauDEM from R.
+
+## Installation
+
+Refer to `vignette("traudem-installation", package = "traudem")`.
+In particular after installing the TauDEM CLI and dependencies as well as the R package, please run `traudem::taudem_sitrep()`.
+
+```{r, echo=FALSE}
+Sys.setenv(TAUDEM_PATH="/usr/local/taudem")
+```
+
+```{r}
+traudem::taudem_sitrep()
+```
+
+You can install the development version of traudem from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("cynkra/traudem")
+```
+
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+```{r example}
+library(traudem)
+test_dir <- withr::local_tempdir()
+fs::file_copy(
+  system.file("test-data", "MED_01_01.tif", package = "traudem"),
+  file.path(test_dir, "MED_01_01.tif")
+)
+output <- taudem_pitremove(file.path(test_dir, "MED_01_01.tif"))
+output
+```
