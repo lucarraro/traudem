@@ -1,4 +1,6 @@
-#' Title
+#' D8 Flow Directions
+#'
+#' @details See https://hydrology.usu.edu/taudem/taudem5/help53/D8FlowDirections.html
 #'
 #' @param input_elevation_grid Pit filled elevation input data
 #' @param output_d8flowdir_grid D8 flow directions output
