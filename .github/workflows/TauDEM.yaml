@@ -47,13 +47,17 @@ jobs:
         if: runner.os != 'Windows'
         run: sh ./TauDEM.sh
 
+      - uses: conda-incubator/setup-miniconda@v2
+        with:
+          miniconda-version: "latest"
+
       - name: Install TauDEM on Windows
         if: runner.os == 'Windows'
         run: |
-          choco search gdal
-          choco search taudem
-          choco search mpich
-          choco search nodejs
+          conda search gdal
+          conda search taudem
+          conda search mpich
+          conda search nodejs
           curl -sLO https://download.microsoft.com/download/a/5/2/a5207ca5-1203-491a-8fb8-906fd68ae623/msmpisetup.exe
           $procMain = Start-Process ".\msmpisetup.exe" "-unattend" -NoNewWindow -PassThru
           $procMain.WaitForExit(-1)
