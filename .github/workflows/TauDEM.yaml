@@ -54,7 +54,7 @@ jobs:
           .\msmpisetup.exe -unattend
           curl -sLO https://github.com/dtarb/TauDEM/releases/download/v5.3.7/TauDEM537exeWin64.zip
           unzip TauDEM537exeWin64.zip
-          cd TauDEM537exeWin64
+          ls
 
           mpiexec .\pitremove MED_01_01.tif
 
