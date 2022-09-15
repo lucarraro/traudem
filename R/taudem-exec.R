@@ -1,4 +1,12 @@
 exec_taudem <- function(...) {
+  if (!can_register_taudem()) {
+    rlang::abort(
+      message = c(
+        x = "Can't find TauDEM",
+        i = "Refer to ?traudem::taudem_sitrep"
+      )
+    )
+  }
   register_taudem()
   std_out <- withr::local_tempfile()
   std_err <- withr::local_tempfile()
