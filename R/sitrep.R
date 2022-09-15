@@ -98,7 +98,7 @@ taudem_sitrep <- function() {
   }
 
   # Folder with executables ------------
-  if (!fs::dir_exists(taudem_path())) {
+  if (!dir.exists(taudem_path())) {
     rlang::abort(
       message = c(
         x = sprintf("Can't find directory `%s` (TauDEM executables)", .taudem_path()),
@@ -129,7 +129,7 @@ taudem_sitrep <- function() {
   # https://github.com/r-lib/testthat/blob/a8b6b16c82bcce6d960add9a3df9b17ef3ccd570/R/skip.R#L120
   cli::cli_alert_info("Testing TauDEM on an example file...")
   test_dir <- withr::local_tempdir()
-  fs::file_copy(
+  file.copy(
     system.file("test-data", "MED_01_01.tif", package = "traudem"),
     file.path(test_dir, "MED_01_01.tif")
   )
@@ -143,7 +143,7 @@ taudem_sitrep <- function() {
     }
   )
   cli::cli_rule(left = "End of TauDEM output")
-  if (!inherits(taudem_try, "try-error") && fs::file_exists(file.path(test_dir, "MED_01_01fel.tif"))) {
+  if (!inherits(taudem_try, "try-error") && file.exists(file.path(test_dir, "MED_01_01fel.tif"))) {
     cli::cli_alert_success("Was able to launch a TauDEM example!")
     cli::cli_alert_warning("Make sure you see no serious error message above.")
   } else {

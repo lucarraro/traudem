@@ -1,6 +1,5 @@
 taudem_algorithms <- function() {
-  algos <- fs::dir_ls(taudem_path())
-  fs::path_file(algos)
+  dir(taudem_path())
 }
 
 # all "*mn.cpp" in https://github.com/dtarb/TauDEM/blob/Develop/src/CMakeLists.txt

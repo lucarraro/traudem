@@ -29,11 +29,12 @@ Title
 \examples{
 \dontrun{
 test_dir <- withr::local_tempdir()
- fs::file_copy(
+ file.copy(
    system.file("test-data", "MED_01_01.tif", package = "traudem"),
    file.path(test_dir, "MED_01_01.tif")
  )
 filled_pit <- taudem_pitremove(file.path(test_dir, "MED_01_01.tif"))
 outputs <- taudem_d8flowdir(filled_pit)
+outputs
 }
 }

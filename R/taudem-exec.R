@@ -53,8 +53,8 @@ taudem_path <- function() {
   if (is.na(.taudem_path())) {
     return(NA)
   }
-  if (!fs::dir_exists(.taudem_path())) {
-    return(fs::path_home(.taudem_path()))
+  if (!dir.exists(.taudem_path())) {
+    return(path.expand(file.path("~", .taudem_path())))
   }
   .taudem_path()
 }

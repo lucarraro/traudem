@@ -14,7 +14,7 @@
 #' @examples
 #' \dontrun{
 #' test_dir <- withr::local_tempdir()
-#'  fs::file_copy(
+#'  file.copy(
 #'    system.file("test-data", "MED_01_01.tif", package = "traudem"),
 #'    file.path(test_dir, "MED_01_01.tif")
 #'  )
@@ -26,19 +26,19 @@ taudem_pitremove <- function(input_elevation_grid,
                              only_4way_neighbors = FALSE,
                              n_processes = getOption("traudem.n_processes", 1),
                              depmask = NULL) {
-  if (!fs::file_exists(input_elevation_grid)) {
+  if (!file.exists(input_elevation_grid)) {
     rlang::abort(sprintf("Can't find file %s (input_elevation_grid)", input_elevation_grid))
   }
 
   if (is.null(output_elevation_grid)) {
     output_elevation_grid_file <- sprintf(
       "%sfel",
-      fs::path_ext_remove(input_elevation_grid)
+      tools::file_path_sans_ext(input_elevation_grid)
     )
-    output_elevation_grid <- fs::path_ext_set(output_elevation_grid_file, "tif")
+    output_elevation_grid <- sprintf("%s.tif", output_elevation_grid_file)
   }
 
-  if (!is.null(depmask) && !fs::file_exists(depmask)) {
+  if (!is.null(depmask) && !file.exists(depmask)) {
     rlang::abort(sprintf("Can't find file %s (depmask)", depmask))
   }
 
