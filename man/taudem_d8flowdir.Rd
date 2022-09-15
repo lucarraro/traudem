@@ -27,7 +27,7 @@ List with the two output filenames
 D8 Flow Directions
 }
 \details{
-See https://hydrology.usu.edu/taudem/taudem5/help53/D8FlowDirections.html
+See \url{https://hydrology.usu.edu/taudem/taudem5/help53/D8FlowDirections.html}
 }
 \examples{
 \dontrun{

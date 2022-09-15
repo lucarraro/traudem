@@ -30,7 +30,7 @@ Path to output file (invisibly)
 Pit Remove
 }
 \details{
-See https://hydrology.usu.edu/taudem/taudem5/help53/PitRemove.html
+See \url{https://hydrology.usu.edu/taudem/taudem5/help53/PitRemove.html}
 }
 \examples{
 \dontrun{

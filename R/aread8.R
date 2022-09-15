@@ -1,6 +1,6 @@
 #' D8 Contributing Area
 #'
-#' @details See https://hydrology.usu.edu/taudem/taudem5/help53/D8ContributingArea.html
+#' @details See <https://hydrology.usu.edu/taudem/taudem5/help53/D8ContributingArea.html>
 #'
 #' @param input_d8flowdir_grid Input flow directions grid
 #' @param output_contributing_area_grid Output contributing area grid

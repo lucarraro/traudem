@@ -41,7 +41,7 @@ Path to output file (invisibly)
 D8 Contributing Area
 }
 \details{
-See https://hydrology.usu.edu/taudem/taudem5/help53/D8ContributingArea.html
+See \url{https://hydrology.usu.edu/taudem/taudem5/help53/D8ContributingArea.html}
 }
 \examples{
 \dontrun{

@@ -1,6 +1,6 @@
 #' Pit Remove
 #'
-#' @details See https://hydrology.usu.edu/taudem/taudem5/help53/PitRemove.html
+#' @details See <https://hydrology.usu.edu/taudem/taudem5/help53/PitRemove.html>
 #'
 #' @param input_elevation_grid Input elevation grid file
 #' @param output_elevation_grid Output elevation grid file
