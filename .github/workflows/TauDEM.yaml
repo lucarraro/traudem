@@ -59,7 +59,8 @@ jobs:
           $procMain.WaitForExit(-1)
           curl -sLO https://github.com/dtarb/TauDEM/releases/download/v5.3.7/TauDEM537exeWin64.zip
           unzip TauDEM537exeWin64.zip
-          "C:\Program Files\Microsoft MPI\Bin\mpiexec" pitremove inst\test-data\MED_01_01.tif
+          $procMain = Start-Process "C:\Program Files\Microsoft MPI\Bin\mpiexec" "pitremove inst\test-data\MED_01_01.tif" -NoNewWindow -PassThru
+          $procMain.WaitForExit(-1)
 
       # - uses: mxschmitt/action-tmate@v3
 
