@@ -59,10 +59,8 @@ jobs:
           # conda install -c conda-forge gdal
           curl -sLO https://download.microsoft.com/download/a/5/2/a5207ca5-1203-491a-8fb8-906fd68ae623/msmpisetup.exe
           $procMain = Start-Process -Wait ".\msmpisetup.exe" "-unattend" -NoNewWindow -PassThru
-          curl -sLO https://download.gisinternals.com/sdk/downloads/release-1930-x64-gdal-3-5-1-mapserver-7-6-4/gdal-305-1930-x64-core.msi
-          $procMain = Start-Process msiexec.exe -Wait -ArgumentList "/I gdal-305-1930-x64-core.msi /quiet"
-          curl -sLO https://download.gisinternals.com/sdk/downloads/release-1930-x64-gdal-3-5-1-mapserver-7-6-4/GDAL-3.5.1.win-amd64-py3.9.msi
-          $procMain = Start-Process msiexec.exe -Wait -ArgumentList "/I GDAL-3.5.1.win-amd64-py3.9.msi /quiet" 
+          curl -sLO https://download.gisinternals.com/sdk/downloads/release-1800-x64-gdal-2-1-3-mapserver-7-0-4/gdal-201-1800-x64-core.msi
+          $procMain = Start-Process msiexec.exe -Wait -ArgumentList "/I gdal-201-1800-x64-core.msi /quiet"
           curl -sLO https://github.com/dtarb/TauDEM/releases/download/v5.3.7/TauDEM537exeWin64.zip
           unzip TauDEM537exeWin64.zip
           python --version
