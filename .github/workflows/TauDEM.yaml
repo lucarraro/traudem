@@ -60,7 +60,10 @@ jobs:
           $procMain.WaitForExit(-1)
           curl -sLO https://github.com/dtarb/TauDEM/releases/download/v5.3.7/TauDEM537exeWin64.zip
           unzip TauDEM537exeWin64.zip
-          $env:Path += ';C:\Program Files\Microsoft MPI\Bin;C:\GDAL;C:\Program Files\GDAL'
+          $env:Path += ";C:\Program Files\Microsoft MPI\Bin;C:\GDAL;C:\Program Files\GDAL"
+          ls "C:\GDAL"
+          ls "C:\Program Files\GDAL"
+          ls
           mpiexec pitremove inst\test-data\MED_01_01.tif
 
       # - uses: mxschmitt/action-tmate@v3
