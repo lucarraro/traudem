@@ -47,22 +47,21 @@ jobs:
         if: runner.os != 'Windows'
         run: sh ./TauDEM.sh
 
-      # - uses: conda-incubator/setup-miniconda@v2
-      #   with:
-      #     miniconda-version: "latest"
+      - uses: conda-incubator/setup-miniconda@v2
+        with:
+          miniconda-version: "latest"
 
       - name: Install TauDEM on Windows
         if: runner.os == 'Windows'
         run: |
+          conda install gdal
           curl -sLO https://download.microsoft.com/download/a/5/2/a5207ca5-1203-491a-8fb8-906fd68ae623/msmpisetup.exe
           $procMain = Start-Process ".\msmpisetup.exe" "-unattend" -NoNewWindow -PassThru
           $procMain.WaitForExit(-1)
-          cd inst\test-data\
-          pwd
           curl -sLO https://github.com/dtarb/TauDEM/releases/download/v5.3.7/TauDEM537exeWin64.zip
           unzip TauDEM537exeWin64.zip
-          $env:Path += ';C:\Program Files\Microsoft MPI\Bin\;.'
-          mpiexec pitremove
+          $env:Path += ';C:\Program Files\Microsoft MPI\Bin;C:\GDAL;C:\Program Files\GDAL'
+          mpiexec pitremove inst\test-data\MED_01_01.tif
 
       # - uses: mxschmitt/action-tmate@v3
 
