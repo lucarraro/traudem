@@ -61,7 +61,8 @@ jobs:
           unzip TauDEM537exeWin64.zip
           $env:Path += ';C:\Program Files\Microsoft MPI\Bin\;.'
           mpiexec /help
-          mpiexec PitRemove.exe inst\test-data\MED_01_01.tif 
+          ls inst\test-data\MED_01_01.tif 
+          mpiexec pitremove inst\test-data\MED_01_01.tif 
 
       # - uses: mxschmitt/action-tmate@v3
 
