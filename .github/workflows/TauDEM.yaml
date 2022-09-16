@@ -62,8 +62,7 @@ jobs:
           curl -sLO https://github.com/dtarb/TauDEM/releases/download/v5.3.7/TauDEM537exeWin64.zip
           unzip TauDEM537exeWin64.zip
           $env:Path += ';C:\Program Files\Microsoft MPI\Bin\;.'
-          mpiexec /help
-          mpiexec pitremove MED_01_01.tif 
+          mpiexec pitremove
 
       # - uses: mxschmitt/action-tmate@v3
 
