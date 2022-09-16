@@ -56,7 +56,7 @@ jobs:
         run: |
           conda create --name gdal
           conda activate gdal
-          conda install gdal
+          conda install -c conda-forge gdal
           curl -sLO https://download.microsoft.com/download/a/5/2/a5207ca5-1203-491a-8fb8-906fd68ae623/msmpisetup.exe
           $procMain = Start-Process ".\msmpisetup.exe" "-unattend" -NoNewWindow -PassThru
           $procMain.WaitForExit(-1)
