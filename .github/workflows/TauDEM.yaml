@@ -59,10 +59,9 @@ jobs:
           $procMain.WaitForExit(-1)
           curl -sLO https://github.com/dtarb/TauDEM/releases/download/v5.3.7/TauDEM537exeWin64.zip
           unzip TauDEM537exeWin64.zip
-          $env:PATH
           $env:Path += ';C:\Program Files\Microsoft MPI\Bin\;.'
-          $env:PATH
-          mpiexec pitremove inst\test-data\MED_01_01.tif 
+          mpiexec /help
+          mpiexec PitRemove.exe inst\test-data\MED_01_01.tif 
 
       # - uses: mxschmitt/action-tmate@v3
 
