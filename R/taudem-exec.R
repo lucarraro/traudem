@@ -85,7 +85,13 @@ can_register_taudem <- function() {
 }
 
 is_taudem_registered <- function() {
-  is_taudem_on_path() || grepl(taudem_path(), Sys.getenv("PATH"))
+  if (is_taudem_on_path()) {
+    return(TRUE)
+  }
+  if (!is.na(taudem_path())) {
+    return(grepl(taudem_path(), Sys.getenv("PATH")))
+  }
+  return(FALSE)
 }
 
 .taudem_path <- function() {
@@ -95,7 +101,7 @@ is_taudem_registered <- function() {
   if (is_taudem_on_path()) {
     return(Sys.which("taudem"))
   }
-  return(NA)
+  return("")
 }
 
 taudem_path <- function() {
