@@ -63,7 +63,8 @@
 <span>  <span class="va">outlet_file</span>,</span>
 <span>  outlet_layer_name <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  outlet_layer_number <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  n_processes <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"traudem.n_processes"</span>, <span class="fl">1</span><span class="op">)</span></span>
+<span>  n_processes <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"traudem.n_processes"</span>, <span class="fl">1</span><span class="op">)</span>,</span>
+<span>  quiet <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"traudem.quiet"</span>, <span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -105,6 +106,10 @@ Layer name and layer number should not both be specified.</p></dd>
 
 <dt>n_processes</dt>
 <dd><p>Number of processes for <code>mpiexec</code>. If <code>NULL</code> TauDEM is called without mpiexec.</p></dd>
+
+
+<dt>quiet</dt>
+<dd><p>If <code>FALSE</code> output from TauDEM CLI is suppressed.</p></dd>
 
 </dl></div>
     <div class="section level2">
