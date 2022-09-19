@@ -68,7 +68,7 @@ register_taudem <- function() {
     } else {
       ":"
     }
-    Sys.setenv(PATH = paste0(sprintf("%s%s", taudem_path()), Sys.getenv("PATH")))
+    Sys.setenv(PATH = paste0(sprintf("%s%s", taudem_path(), sep), Sys.getenv("PATH")))
   }
 }
 
