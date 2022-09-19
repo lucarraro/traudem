@@ -14,6 +14,7 @@
 #' @examples
 #' \dontrun{
 #' test_dir <- withr::local_tempdir()
+#' dir.create(test_dir)
 #'  file.copy(
 #'    system.file("test-data", "MED_01_01.tif", package = "traudem"),
 #'    file.path(test_dir, "MED_01_01.tif")
