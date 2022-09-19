@@ -1,10 +1,5 @@
 # taudem_sitrep() works - problems
 
-    x Can't find executables for `aread8`, `areadinf`, `CatchHydroGeo`, `CatchOutlets`, `ConnectDown`, `D8FlowDir`, `D8FlowPathExtremeUp`, `D8HDistToStrm`, `DinfAvalanche`, `DinfConcLimAccum`, `DinfDecayAccum`, `DinfDistDown`, `DinfDistUp`, `DinfFlowDir`, `DinfRevAccum`, `DinfTransLimAccum`, `DinfUpDependence`, `DropAnalysis`, `EditRaster`, `FlowdirCond`, `gagewatershed`, `gridnet`, `LengthArea`, `MoveOutletsToStrm`, `PeukerDouglas`, `PitRemove`, `RetLimFlow`, `SetRegion`, `SinmapSI`, `SlopeArea`, `SlopeAreaRatio`, `SlopeAveDown`, `streamnet`, `Threshold`, `TWI`
-    i Try re-installing TauDEM and write down any problem.
-
----
-
     x Can't find directory `blop` (TauDEM executables)
     i Register your TauDEM installation. See vignette('taudem-installation').
 

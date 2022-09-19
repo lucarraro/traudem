@@ -2,6 +2,7 @@ taudem_algorithms <- function() {
   dir(taudem_path())
 }
 
+
 # all "*mn.cpp" in https://github.com/dtarb/TauDEM/blob/Develop/src/CMakeLists.txt
 # see inst/taudem-algo-list.R
 taudem_official_list <- function() {
@@ -14,4 +15,8 @@ taudem_official_list <- function() {
     "PitRemove", "RetLimFlow", "SetRegion", "SinmapSI", "SlopeArea",
     "SlopeAreaRatio", "SlopeAveDown", "streamnet", "Threshold", "TWI"
   )
+}
+
+find_algo <- function(algo) {
+  nzchar(Sys.which(tolower(algo)))
 }

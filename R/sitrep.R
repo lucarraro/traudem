@@ -119,7 +119,13 @@ taudem_sitrep <- function() {
   }
 
   # Algorithms in executables folder -----
-  missing_algos <- taudem_official_list()[!(tolower(taudem_official_list()) %in% taudem_algorithms())]
+  if (is_taudem_envvar()) {
+    missing_algos <- taudem_official_list()[!(tolower(taudem_official_list()) %in% taudem_algorithms())]
+  } else {
+    register_taudem()
+    missing_algos <- taudem_official_list()[!purrr::map_lgl(taudem_official_list(), find_algo)]
+  }
+
   if (length(missing_algos) > 0) {
     rlang::abort(
       message = c(
