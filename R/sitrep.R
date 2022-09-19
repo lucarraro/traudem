@@ -66,13 +66,22 @@ taudem_sitrep <- function() {
 
   # MPI -----
   mpi_version_res <- withr::local_tempfile()
-  mpi_version_ok <- try(sys::exec_wait(
-    "mpiexec",
-    "--version",
-    std_out = mpi_version_res
-  ),
-    silent = TRUE
-  )
+    mpi_version_ok <- if (tolower(Sys.info()[["sysname"]]) == "windows") {
+    try(sys::exec_wait(
+      "mpiexec",
+      std_out = mpi_version_res
+    ),
+      silent = TRUE
+    )
+  } else {
+    try(sys::exec_wait(
+      "mpiexec",
+      "--version",
+      std_out = mpi_version_res
+    ),
+      silent = TRUE
+    )
+  }
   if ((!inherits(mpi_version_ok, "try-error")) && mpi_version_ok == 0) {
     mpi_version <- readLines(mpi_version_res)[1]
     cli_success(sprintf("Found %s (MPI).", mpi_version))
@@ -110,7 +119,13 @@ taudem_sitrep <- function() {
   }
 
   # Algorithms in executables folder -----
-  missing_algos <- taudem_official_list()[!(tolower(taudem_official_list()) %in% taudem_algorithms())]
+  if (is_taudem_envvar()) {
+    missing_algos <- taudem_official_list()[!(tolower(taudem_official_list()) %in% taudem_algorithms())]
+  } else {
+    register_taudem()
+    missing_algos <- taudem_official_list()[!purrr::map_lgl(taudem_official_list(), find_algo)]
+  }
+
   if (length(missing_algos) > 0) {
     rlang::abort(
       message = c(

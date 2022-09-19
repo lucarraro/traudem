@@ -10,14 +10,6 @@ test_that("taudem_aread8() works", {
     contributing_area_grid <- taudem_aread8(outputs$output_d8flowdir_grid)
     thresholded <- taudem_threshold(contributing_area_grid)
   },
-    transform = function(x) {
-      x <- gsub("[0-9]", "", x)
-      x <- gsub(
-        "Input file .* has projected coordinate system.",
-        "Input file blop.tif has projected coordinate system.",
-        x
-      )
-      x
-    })
+    transform = taudem_transform)
   expect_true(file.exists(thresholded))
 })

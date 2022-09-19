@@ -63,12 +63,17 @@ taudem_exec <- function(n_processes, args, quiet = getOption("traudem.quiet", FA
 
 register_taudem <- function() {
   if (!is_taudem_registered()) {
-    Sys.setenv(PATH = paste0(sprintf("%s:", taudem_path()), Sys.getenv("PATH")))
+    sep <- if (tolower(Sys.info()[["sysname"]]) == "windows") {
+      ";"
+    } else {
+      ":"
+    }
+    Sys.setenv(PATH = paste0(sprintf("%s%s", taudem_path(), sep), Sys.getenv("PATH")))
   }
 }
 
 is_taudem_on_path <- function() {
-  nzchar(Sys.which("taudem"))
+  nzchar(Sys.which("pitremove"))
 }
 
 is_taudem_envvar <- function() {
@@ -80,7 +85,13 @@ can_register_taudem <- function() {
 }
 
 is_taudem_registered <- function() {
-  is_taudem_on_path() || grepl(taudem_path(), Sys.getenv("PATH"))
+  if (is_taudem_on_path()) {
+    return(TRUE)
+  }
+  if (!is.na(taudem_path())) {
+    return(grepl(taudem_path(), Sys.getenv("PATH")))
+  }
+  return(FALSE)
 }
 
 .taudem_path <- function() {
@@ -88,7 +99,7 @@ is_taudem_registered <- function() {
     return(Sys.getenv("TAUDEM_PATH"))
   }
   if (is_taudem_on_path()) {
-    return(Sys.which("taudem"))
+    return(dirname(Sys.which("pitremove")))
   }
   return(NA)
 }

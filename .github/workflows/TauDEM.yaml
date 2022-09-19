@@ -27,7 +27,6 @@ jobs:
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
       R_KEEP_PKG_SOURCE: yes
-      TAUDEM_PATH: TauDEM/bin
 
     steps:
       - uses: actions/checkout@v3
@@ -50,9 +49,22 @@ jobs:
       - name: Install TauDEM on Windows
         if: runner.os == 'Windows'
         run: |
-          cd $HOME
-          curl -sLO https://github.com/dtarb/TauDEM/releases/download/v5.3.7/TauDEM537_setup.exe
-          .\TauDEM537_setup.exe /SILENT
+          cd ~
+          curl -sLO https://download.microsoft.com/download/a/5/2/a5207ca5-1203-491a-8fb8-906fd68ae623/msmpisetup.exe
+          Start-Process -Wait ".\msmpisetup.exe" -ArgumentList "-unattend"
+          curl -sLO https://download.gisinternals.com/sdk/downloads/release-1800-x64-gdal-2-1-3-mapserver-7-0-4/gdal-201-1800-x64-core.msi
+          Start-Process -Wait msiexec.exe -ArgumentList "/I gdal-201-1800-x64-core.msi /quiet"
+          mkdir "C:\taudem"
+          cd "C:\taudem"
+          curl -sLO https://github.com/dtarb/TauDEM/releases/download/v5.3.7/TauDEM537exeWin64.zip
+          unzip TauDEM537exeWin64.zip
+
+      # - name: Test Taudem
+      #   if: runner.os == 'Windows'
+      #   run: |
+      #     $env:Path += ";C:\Program Files\Microsoft MPI\Bin;C:\Program Files\GDAL;C:\taudem"
+      #     gdalinfo --version
+      #     mpiexec pitremove inst\test-data\MED_01_01.tif
 
       - uses: r-lib/actions/setup-pandoc@v2
 
