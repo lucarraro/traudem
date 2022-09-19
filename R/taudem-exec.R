@@ -63,7 +63,12 @@ taudem_exec <- function(n_processes, args, quiet = getOption("traudem.quiet", FA
 
 register_taudem <- function() {
   if (!is_taudem_registered()) {
-    Sys.setenv(PATH = paste0(sprintf("%s:", taudem_path()), Sys.getenv("PATH")))
+    sep <- if (tolower(Sys.info()[["sysname"]]) == "windows") {
+      ";"
+    } else {
+      ":"
+    }
+    Sys.setenv(PATH = paste0(sprintf("%s%s", taudem_path()), Sys.getenv("PATH")))
   }
 }
 
