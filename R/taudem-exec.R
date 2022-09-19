@@ -101,7 +101,7 @@ is_taudem_registered <- function() {
   if (is_taudem_on_path()) {
     return(Sys.which("taudem"))
   }
-  return("")
+  return(NA)
 }
 
 taudem_path <- function() {
