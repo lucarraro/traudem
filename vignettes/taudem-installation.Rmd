@@ -29,7 +29,7 @@ You're in luck!
 The TauDEM Windows installer will install all three tools at once! 
 Refer to <https://hydrology.usu.edu/taudem/taudem5/downloads.html>.
 
-```{r, child="_sitrep.Rmd"}
+```{r, child="../man/fragments/_sitrep.Rmd"}
 ```
 
 ## Linux and macOS
@@ -66,5 +66,5 @@ Therefore,
 
 > If the installation shows errors, try using <https://github.com/maelle/TauDEM/tree/more-mpi-deprecations> instead.
 
-```{r, child="_sitrep.Rmd"}
+```{r, child="../man/fragments/_sitrep.Rmd"}
 ```
