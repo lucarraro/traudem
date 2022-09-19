@@ -99,7 +99,7 @@ is_taudem_registered <- function() {
     return(Sys.getenv("TAUDEM_PATH"))
   }
   if (is_taudem_on_path()) {
-    return(Sys.which("taudem"))
+    return(dirname(Sys.which("pitremove")))
   }
   return(NA)
 }
