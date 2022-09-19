@@ -12,7 +12,7 @@ CLI](https://hydrology.usu.edu/taudem/taudem5/index.html) from R.
 ## Installation
 
 Refer to
-[`vignette("traudem-installation", package = "traudem")`](https://cynkra.github.io/traudem/articles/taudem-installation.html).
+[`vignette("taudem-installation", package = "traudem")`](https://cynkra.github.io/traudem/articles/taudem-installation.html).
 In particular after installing the TauDEM CLI and dependencies as well
 as the R package, please run `traudem::taudem_sitrep()`.
 
@@ -29,12 +29,12 @@ traudem::taudem_sitrep()
 #> Input file MED_01_01.tif has projected coordinate system.
 #> Nodata value input to create partition from file: -340282299999999994960115009090224128000.000000
 #> Nodata value recast to float used in partition raster: -340282306073709652508363335590014353408.000000
-#> Processes: 4
-#> Header read time: 0.004806
-#> Data read time: 0.002835
-#> Compute time: 0.077973
-#> Write time: 0.008801
-#> Total time: 0.094415
+#> Processes: 1
+#> Header read time: 0.010703
+#> Data read time: 0.006677
+#> Compute time: 0.131451
+#> Write time: 0.011281
+#> Total time: 0.160112
 #> This run may take on the order of 1 minutes to complete.
 #> This estimate is very approximate. 
 #> Run time is highly uncertain as it depends on the complexity of the input data 
@@ -79,22 +79,22 @@ fs::file_copy(
 )
 output <- taudem_pitremove(file.path(test_dir, "MED_01_01.tif"))
 #> PitRemove version 5.3.9
-#> Input file /tmp/RtmpXrD0Qu/file88ea2944f219/MED_01_01.tif has projected coordinate system.
+#> Input file /tmp/RtmpQ7EZKw/file9c3c6bccd6f/MED_01_01.tif has projected coordinate system.
 #> Nodata value input to create partition from file: -340282299999999994960115009090224128000.000000
 #> Nodata value recast to float used in partition raster: -340282306073709652508363335590014353408.000000
 #> Processes: 1
-#> Header read time: 0.003854
-#> Data read time: 0.003730
-#> Compute time: 0.124748
-#> Write time: 0.012180
-#> Total time: 0.144512
+#> Header read time: 0.003077
+#> Data read time: 0.002963
+#> Compute time: 0.132491
+#> Write time: 0.011405
+#> Total time: 0.149937
 #> This run may take on the order of 1 minutes to complete.
 #> This estimate is very approximate. 
 #> Run time is highly uncertain as it depends on the complexity of the input data 
 #> and speed and memory of the computer. This estimate is based on our testing on 
 #> a dual quad core Dell Xeon E5405 2.0GHz PC with 16GB RAM.
 output
-#> [1] "/tmp/RtmpXrD0Qu/file88ea2944f219/MED_01_01fel.tif"
+#> [1] "/tmp/RtmpQ7EZKw/file9c3c6bccd6f/MED_01_01fel.tif"
 ```
 
 ## Can traudem run all TauDEM methods?

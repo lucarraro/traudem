@@ -22,7 +22,7 @@ The goal of traudem is to wrap the [TauDEM CLI](https://hydrology.usu.edu/taudem
 
 ## Installation
 
-Refer to [`vignette("traudem-installation", package = "traudem")`](https://cynkra.github.io/traudem/articles/taudem-installation.html).
+Refer to [`vignette("taudem-installation", package = "traudem")`](https://cynkra.github.io/traudem/articles/taudem-installation.html).
 In particular after installing the TauDEM CLI and dependencies as well as the R package, please run `traudem::taudem_sitrep()`.
 
 ```{r, echo=FALSE}
