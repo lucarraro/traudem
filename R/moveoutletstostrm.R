@@ -12,7 +12,7 @@
 #' Layer name and layer number should not both be specified.
 #' @param outlet_layer_number OGR layer number if outlets are not the first layer in `outlet_file` (optional).
 #' Layer name and layer number should not both be specified.
-#' @inheritParams taudem_aread8
+#' @inheritParams taudem_exec
 #'
 #' @return Path to output file (invisibly)
 #' @export
@@ -25,7 +25,8 @@ taudem_moveoutletstostream <- function(input_d8flowdir_grid,
                             outlet_file,
                             outlet_layer_name = NULL,
                             outlet_layer_number = NULL,
-                            n_processes = getOption("traudem.n_processes", 1)) {
+                            n_processes = getOption("traudem.n_processes", 1),
+                            quiet = getOption("traudem.quiet", FALSE)) {
 
   if (!file.exists(input_d8flowdir_grid)) {
     rlang::abort(sprintf("Can't find file %s (input_d8flowdir_grid)", input_d8flowdir_grid))
@@ -74,6 +75,6 @@ taudem_moveoutletstostream <- function(input_d8flowdir_grid,
   if (!is.null(outlet_layer_number)) {
     args <- c(args, "-lyrno", outlet_layer_number)
   }
-  taudem_exec(n_processes = n_processes, args)
+  taudem_exec(n_processes = n_processes, args = args, quiet = quiet)
   return(invisible(output_moved_outlets_file))
 }

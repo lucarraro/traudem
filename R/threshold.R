@@ -6,7 +6,7 @@
 #' @param output_stream_raster_grid File name for stream raster grid.
 #' @param mask_file File name for grid used to mask the output stream raster, or general thresholded grid.
 #' @param threshold_parameter Threshold parameter.
-#' @inheritParams taudem_aread8
+#' @inheritParams taudem_exec
 #'
 #' @return Path to output file (invisibly)
 #' @export
@@ -30,7 +30,8 @@ taudem_threshold <- function(input_area_grid,
                             output_stream_raster_grid = NULL,
                             mask_file = NULL,
                             threshold_parameter = 100.0,
-                            n_processes = getOption("traudem.n_processes", 1)) {
+                            n_processes = getOption("traudem.n_processes", 1),
+                            quiet = getOption("traudem.quiet", FALSE)) {
 
   if (!file.exists(input_area_grid)) {
     rlang::abort(sprintf("Can't find file %s (input_area_grid)", input_area_grid))
@@ -59,6 +60,6 @@ taudem_threshold <- function(input_area_grid,
     args <- c(args, "-mask", mask_file)
   }
 
-  taudem_exec(n_processes = n_processes, args)
+  taudem_exec(n_processes = n_processes, args = args, quiet = quiet)
   return(invisible(output_stream_raster_grid))
 }

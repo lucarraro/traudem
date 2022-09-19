@@ -40,3 +40,8 @@
       and speed and memory of the computer. This estimate is based on our testing on 
       a dual quad core Dell Xeon E .GHz PC with GB RAM.
 
+# taudem_pitremove() works quietly
+
+    Code
+      output <- taudem_pitremove(file.path(test_dir, "MED_01_01.tif"))
+

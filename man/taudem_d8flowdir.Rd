@@ -8,7 +8,8 @@ taudem_d8flowdir(
   input_elevation_grid,
   output_d8flowdir_grid = NULL,
   output_d8slopes_grid = NULL,
-  n_processes = getOption("traudem.n_processes", 1)
+  n_processes = getOption("traudem.n_processes", 1),
+  quiet = getOption("traudem.quiet", FALSE)
 )
 }
 \arguments{
@@ -19,6 +20,8 @@ taudem_d8flowdir(
 \item{output_d8slopes_grid}{D8 slopes output}
 
 \item{n_processes}{Number of processes for \code{mpiexec}. If \code{NULL} TauDEM is called without mpiexec.}
+
+\item{quiet}{If \code{FALSE} output from TauDEM CLI is suppressed.}
 }
 \value{
 List with the two output filenames

@@ -9,7 +9,8 @@ taudem_threshold(
   output_stream_raster_grid = NULL,
   mask_file = NULL,
   threshold_parameter = 100,
-  n_processes = getOption("traudem.n_processes", 1)
+  n_processes = getOption("traudem.n_processes", 1),
+  quiet = getOption("traudem.quiet", FALSE)
 )
 }
 \arguments{
@@ -22,6 +23,8 @@ taudem_threshold(
 \item{threshold_parameter}{Threshold parameter.}
 
 \item{n_processes}{Number of processes for \code{mpiexec}. If \code{NULL} TauDEM is called without mpiexec.}
+
+\item{quiet}{If \code{FALSE} output from TauDEM CLI is suppressed.}
 }
 \value{
 Path to output file (invisibly)

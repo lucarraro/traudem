@@ -127,7 +127,7 @@ taudem_sitrep <- function() {
   # TODO: actually distribute test data with package
   # https://github.com/dtarb/TauDEM-Test-Data has no licence!
   # https://github.com/r-lib/testthat/blob/a8b6b16c82bcce6d960add9a3df9b17ef3ccd570/R/skip.R#L120
-  cli::cli_alert_info("Testing TauDEM on an example file...")
+  cli::cli_alert_info("Testing TauDEM on an example file (please wait a bit)...")
   test_dir <- withr::local_tempdir()
   file.copy(
     system.file("test-data", "MED_01_01.tif", package = "traudem"),
@@ -138,7 +138,8 @@ taudem_sitrep <- function() {
     test_dir, {
       taudem_exec(
           n_processes = NULL,
-          c("pitremove", "MED_01_01.tif")
+          c("pitremove", "MED_01_01.tif"),
+          quiet = FALSE
      )
     }
   )

@@ -4,15 +4,17 @@
 \alias{taudem_exec}
 \title{Call TauDEM}
 \usage{
-taudem_exec(n_processes, args)
+taudem_exec(n_processes, args, quiet = getOption("traudem.quiet", FALSE))
 }
 \arguments{
 \item{n_processes}{Number of processes for \code{mpiexec}. If \code{NULL} TauDEM is called without mpiexec.}
 
 \item{args}{Character vector of argument, starting with the TauDEM command. See examples.}
+
+\item{quiet}{If \code{FALSE} output from TauDEM CLI is suppressed.}
 }
 \value{
-None
+\code{TRUE} if the call was successful, \code{FALSE} otherwise.
 }
 \description{
 Call TauDEM

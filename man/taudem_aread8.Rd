@@ -12,7 +12,8 @@ taudem_aread8(
   wg_file = NULL,
   outlet_file = NULL,
   outlet_layer_name = NULL,
-  outlet_layer_number = NULL
+  outlet_layer_number = NULL,
+  quiet = getOption("traudem.quiet", FALSE)
 )
 }
 \arguments{
@@ -33,6 +34,8 @@ Layer name and layer number should not both be specified.}
 
 \item{outlet_layer_number}{OGR layer number if outlets are not the first layer in \code{outlet_file} (optional).
 Layer name and layer number should not both be specified.}
+
+\item{quiet}{If \code{FALSE} output from TauDEM CLI is suppressed.}
 }
 \value{
 Path to output file (invisibly)

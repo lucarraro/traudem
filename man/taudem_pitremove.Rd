@@ -9,7 +9,8 @@ taudem_pitremove(
   output_elevation_grid = NULL,
   only_4way_neighbors = FALSE,
   n_processes = getOption("traudem.n_processes", 1),
-  depmask = NULL
+  depmask = NULL,
+  quiet = getOption("traudem.quiet", FALSE)
 )
 }
 \arguments{
@@ -22,6 +23,8 @@ taudem_pitremove(
 \item{n_processes}{Number of processes for \code{mpiexec}. If \code{NULL} TauDEM is called without mpiexec.}
 
 \item{depmask}{Depression mask file (optional)}
+
+\item{quiet}{If \code{FALSE} output from TauDEM CLI is suppressed.}
 }
 \value{
 Path to output file (invisibly)
