@@ -66,13 +66,22 @@ taudem_sitrep <- function() {
 
   # MPI -----
   mpi_version_res <- withr::local_tempfile()
-  mpi_version_ok <- try(sys::exec_wait(
-    "mpiexec",
-    "--version",
-    std_out = mpi_version_res
-  ),
-    silent = TRUE
-  )
+  if (tolower(Sys.info()[["sysname"]]) == "windows") {
+    mpi_version_ok <- try(sys::exec_wait(
+      "mpiexec",
+      std_out = mpi_version_res
+    ),
+      silent = TRUE
+    )
+  } else {
+    mpi_version_ok <- try(sys::exec_wait(
+      "mpiexec",
+      "--version",
+      std_out = mpi_version_res
+    ),
+      silent = TRUE
+    )
+  }
   if ((!inherits(mpi_version_ok, "try-error")) && mpi_version_ok == 0) {
     mpi_version <- readLines(mpi_version_res)[1]
     cli_success(sprintf("Found %s (MPI).", mpi_version))
