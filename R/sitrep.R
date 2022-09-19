@@ -94,19 +94,19 @@ taudem_sitrep <- function() {
       )
     )
   } else {
-    cli_success(sprintf("Found TauDEM path (%s).", taudem_path()))
+    cli_success(sprintf("Found TauDEM path (%s).", cli::col_blue(taudem_path())))
   }
 
   # Folder with executables ------------
   if (!dir.exists(taudem_path())) {
     rlang::abort(
       message = c(
-        x = sprintf("Can't find directory `%s` (TauDEM executables)", .taudem_path()),
+        x = sprintf("Can't find directory `%s` (TauDEM executables)", cli::col_blue(.taudem_path())),
         i = "Register your TauDEM installation. See vignette('taudem-installation')."
       )
     )
   } else {
-    cli_success(sprintf("Found TauDEM executables directory (%s).", taudem_path()))
+    cli_success(sprintf("Found TauDEM executables directory (%s).", cli::col_blue(taudem_path())))
   }
 
   # Algorithms in executables folder -----
