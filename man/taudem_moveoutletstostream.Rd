@@ -35,7 +35,7 @@ Layer name and layer number should not both be specified.}
 \item{outlet_layer_number}{OGR layer number if outlets are not the first layer in \code{outlet_file} (optional).
 Layer name and layer number should not both be specified.}
 
-\item{n_processes}{Number of processes}
+\item{n_processes}{Number of processes. If \code{NULL} TauDEM is called without mpiexec.}
 }
 \value{
 Path to output file (invisibly)

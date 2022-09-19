@@ -12,7 +12,7 @@
 #' Layer name and layer number should not both be specified.
 #' @param outlet_layer_number OGR layer number if outlets are not the first layer in `outlet_file` (optional).
 #' Layer name and layer number should not both be specified.
-#' @param n_processes Number of processes
+#' @inheritParams taudem_aread8
 #'
 #' @return Path to output file (invisibly)
 #' @export
@@ -52,8 +52,6 @@ taudem_moveoutletstostream <- function(input_d8flowdir_grid,
   }
 
   args <- c(
-    "mpiexec",
-    "-n", n_processes,
     "moveoutletstostrm",
     "-p", input_d8flowdir_grid,
     "-src", input_stream_raster_grid,
@@ -76,6 +74,6 @@ taudem_moveoutletstostream <- function(input_d8flowdir_grid,
   if (!is.null(outlet_layer_number)) {
     args <- c(args, "-lyrno", outlet_layer_number)
   }
-  exec_taudem(args)
+  exec_taudem(n_processes = n_processes, args)
   return(invisible(output_moved_outlets_file))
 }

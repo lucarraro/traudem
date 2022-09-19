@@ -2,6 +2,7 @@ test_that("info", {
   register_taudem()
   expect_true(nzchar(Sys.which("pitremove")))
 })
+
 test_that("taudem_sitrem() works - problems", {
   withr::local_envvar(TAUDEM_QUIET = "quiet")
 

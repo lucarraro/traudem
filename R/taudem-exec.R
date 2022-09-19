@@ -1,4 +1,4 @@
-exec_taudem <- function(...) {
+exec_taudem <- function(n_processes, args) {
   if (!can_register_taudem()) {
     rlang::abort(
       message = c(
@@ -8,11 +8,21 @@ exec_taudem <- function(...) {
     )
   }
   register_taudem()
+
+  if (!is.null(n_processes)) {
+    cmd <- "mpiexec"
+    args <- c("-n", n_processes, args)
+  } else {
+    cmd <- args[1]
+    args <- args[-1]
+  }
+
   std_out <- withr::local_tempfile()
   std_err <- withr::local_tempfile()
   res <- try(
     sys::exec_wait(
-      ...,
+      cmd = cmd,
+      args = args,
       std_out = std_out,
       std_err = std_err
     )
