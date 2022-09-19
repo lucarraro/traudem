@@ -1,6 +1,6 @@
 # Windows CI
 setup_windows <- function() {
-  is_ci <- nzchar(Sys.setenv("CI"))
+  is_ci <- nzchar(Sys.getenv("CI"))
   is_windows <- (tolower(Sys.info()[["sysname"]]) == "windows")
   if (is_ci && is_windows) {
     Sys.setenv(
