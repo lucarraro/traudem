@@ -4,8 +4,8 @@ template:
 
 reference:
 - title: Setup
-  - '`taudem_sitrep`'
   contents:
+  - '`taudem_sitrep`'
 - title: TauDEM wrappers
   contents:
   - '`taudem_aread8`'
