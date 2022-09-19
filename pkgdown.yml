@@ -3,5 +3,8 @@ pkgdown: 2.0.6
 pkgdown_sha: ~
 articles:
   taudem-installation: taudem-installation.html
-last_built: 2022-09-19T09:27Z
+last_built: 2022-09-19T09:36Z
+urls:
+  reference: https://cynkra.github.io/traudem/reference
+  article: https://cynkra.github.io/traudem/articles
 
