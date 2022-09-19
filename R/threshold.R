@@ -6,7 +6,7 @@
 #' @param output_stream_raster_grid File name for stream raster grid.
 #' @param mask_file File name for grid used to mask the output stream raster, or general thresholded grid.
 #' @param threshold_parameter Threshold parameter.
-#' @param n_processes Number of processes
+#' @inheritParams taudem_aread8
 #'
 #' @return Path to output file (invisibly)
 #' @export
@@ -49,8 +49,6 @@ taudem_threshold <- function(input_area_grid,
   }
 
   args <- c(
-    "mpiexec",
-    "-n", n_processes,
     "threshold",
     "-ssa", input_area_grid,
     "-src", output_stream_raster_grid,
@@ -61,6 +59,6 @@ taudem_threshold <- function(input_area_grid,
     args <- c(args, "-mask", mask_file)
   }
 
-  exec_taudem(args)
+  exec_taudem(n_processes = n_processes, args)
   return(invisible(output_stream_raster_grid))
 }

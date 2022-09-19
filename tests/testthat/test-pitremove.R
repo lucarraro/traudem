@@ -18,3 +18,25 @@ test_that("taudem_pitremove() works", {
   expect_true(file.exists(output))
 
 })
+
+test_that("taudem_pitremove() works without mpiexec", {
+  test_dir <- withr::local_tempdir()
+  withr::local_options("traudem.n_processes" = NULL)
+  file.copy(
+    system.file("test-data", "MED_01_01.tif", package = "traudem"),
+    file.path(test_dir, "MED_01_01.tif")
+  )
+  expect_snapshot(
+    output <- taudem_pitremove(file.path(test_dir, "MED_01_01.tif")),
+    transform = function(x) {
+      x <- gsub("[0-9]", "", x)
+      x <- gsub(
+        "Input file .* has projected coordinate system.",
+        "Input file blop.tif has projected coordinate system.",
+        x
+      )
+      x
+    })
+  expect_true(file.exists(output))
+
+})

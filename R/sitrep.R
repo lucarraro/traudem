@@ -137,8 +137,8 @@ taudem_sitrep <- function() {
   taudem_try <- withr::with_dir(
     test_dir, {
       exec_taudem(
-          "mpiexec",
-          c("-n", "1", "pitremove", "MED_01_01.tif")
+          n_processes = NULL,
+          c("pitremove", "MED_01_01.tif")
      )
     }
   )

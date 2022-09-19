@@ -5,7 +5,7 @@
 #' @param input_elevation_grid Pit filled elevation input data
 #' @param output_d8flowdir_grid D8 flow directions output
 #' @param output_d8slopes_grid D8 slopes output
-#' @param n_processes Number of processes
+#' @inheritParams taudem_aread8
 #'
 #' @return List with the two output filenames
 #' @export
@@ -46,14 +46,12 @@ taudem_d8flowdir <- function(input_elevation_grid,
   }
 
   args <- c(
-    "mpiexec",
-    "-n", n_processes,
     "d8flowdir",
     "-fel", input_elevation_grid,
     "-p", output_d8flowdir_grid,
     "-sd8", output_d8slopes_grid
   )
-  exec_taudem(args)
+  exec_taudem(n_processes = n_processes, args)
   return(invisible(list(
     output_d8flowdir_grid = output_d8flowdir_grid,
     output_d8slopes_grid = output_d8slopes_grid

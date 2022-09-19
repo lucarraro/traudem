@@ -5,7 +5,7 @@
 #' @param input_elevation_grid Input elevation grid file
 #' @param output_elevation_grid Output elevation grid file
 #' @param only_4way_neighbors Whether to consider only 4 way neighbors
-#' @param n_processes Number of processes
+#' @inheritParams taudem_aread8
 #' @param depmask Depression mask file (optional)
 #'
 #' @return Path to output file (invisibly)
@@ -43,8 +43,6 @@ taudem_pitremove <- function(input_elevation_grid,
   }
 
   args <- c(
-    "mpiexec",
-    "-n", n_processes,
     "pitremove",
     "-z", input_elevation_grid,
     "-fel", output_elevation_grid
@@ -56,6 +54,6 @@ taudem_pitremove <- function(input_elevation_grid,
     args <- c(args, "-depmask", depmask)
   }
 
-  exec_taudem(args)
+  exec_taudem(n_processes = n_processes, args)
   return(invisible(output_elevation_grid))
 }
