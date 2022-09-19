@@ -51,7 +51,7 @@ taudem_d8flowdir <- function(input_elevation_grid,
     "-p", output_d8flowdir_grid,
     "-sd8", output_d8slopes_grid
   )
-  exec_taudem(n_processes = n_processes, args)
+  taudem_exec(n_processes = n_processes, args)
   return(invisible(list(
     output_d8flowdir_grid = output_d8flowdir_grid,
     output_d8slopes_grid = output_d8slopes_grid

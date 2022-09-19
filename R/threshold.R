@@ -59,6 +59,6 @@ taudem_threshold <- function(input_area_grid,
     args <- c(args, "-mask", mask_file)
   }
 
-  exec_taudem(n_processes = n_processes, args)
+  taudem_exec(n_processes = n_processes, args)
   return(invisible(output_stream_raster_grid))
 }

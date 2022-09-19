@@ -18,7 +18,7 @@ taudem_d8flowdir(
 
 \item{output_d8slopes_grid}{D8 slopes output}
 
-\item{n_processes}{Number of processes. If \code{NULL} TauDEM is called without mpiexec.}
+\item{n_processes}{Number of processes for \code{mpiexec}. If \code{NULL} TauDEM is called without mpiexec.}
 }
 \value{
 List with the two output filenames

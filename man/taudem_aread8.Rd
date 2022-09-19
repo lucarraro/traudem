@@ -22,7 +22,7 @@ taudem_aread8(
 
 \item{check_edge_contamination}{Whether to check for edge contamination}
 
-\item{n_processes}{Number of processes. If \code{NULL} TauDEM is called without mpiexec.}
+\item{n_processes}{Number of processes for \code{mpiexec}. If \code{NULL} TauDEM is called without mpiexec.}
 
 \item{wg_file}{Input weight grid (optional)}
 

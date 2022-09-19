@@ -19,7 +19,7 @@ taudem_pitremove(
 
 \item{only_4way_neighbors}{Whether to consider only 4 way neighbors}
 
-\item{n_processes}{Number of processes. If \code{NULL} TauDEM is called without mpiexec.}
+\item{n_processes}{Number of processes for \code{mpiexec}. If \code{NULL} TauDEM is called without mpiexec.}
 
 \item{depmask}{Depression mask file (optional)}
 }

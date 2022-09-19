@@ -74,6 +74,6 @@ taudem_moveoutletstostream <- function(input_d8flowdir_grid,
   if (!is.null(outlet_layer_number)) {
     args <- c(args, "-lyrno", outlet_layer_number)
   }
-  exec_taudem(n_processes = n_processes, args)
+  taudem_exec(n_processes = n_processes, args)
   return(invisible(output_moved_outlets_file))
 }

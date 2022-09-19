@@ -6,7 +6,7 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of traudem is to wrap the CLI TauDEM from R.
+The goal of traudem is to wrap the TauDEM CLI from R.
 
 ## Installation
 
@@ -28,11 +28,11 @@ traudem::taudem_sitrep()
 #> Nodata value input to create partition from file: -340282299999999994960115009090224128000.000000
 #> Nodata value recast to float used in partition raster: -340282306073709652508363335590014353408.000000
 #> Processes: 4
-#> Header read time: 0.005135
-#> Data read time: 0.002699
-#> Compute time: 0.063982
-#> Write time: 0.007840
-#> Total time: 0.079656
+#> Header read time: 0.002966
+#> Data read time: 0.001673
+#> Compute time: 0.072740
+#> Write time: 0.009411
+#> Total time: 0.086791
 #> This run may take on the order of 1 minutes to complete.
 #> This estimate is very approximate. 
 #> Run time is highly uncertain as it depends on the complexity of the input data 
@@ -64,20 +64,28 @@ fs::file_copy(
 )
 output <- taudem_pitremove(file.path(test_dir, "MED_01_01.tif"))
 #> PitRemove version 5.3.9
-#> Input file /tmp/Rtmp32923X/file4bed4c0c5e73/MED_01_01.tif has projected coordinate system.
+#> Input file /tmp/RtmpJb7l3d/file714a7e3ebe72/MED_01_01.tif has projected coordinate system.
 #> Nodata value input to create partition from file: -340282299999999994960115009090224128000.000000
 #> Nodata value recast to float used in partition raster: -340282306073709652508363335590014353408.000000
 #> Processes: 1
-#> Header read time: 0.008560
-#> Data read time: 0.005683
-#> Compute time: 0.129115
-#> Write time: 0.010529
-#> Total time: 0.153886
+#> Header read time: 0.011648
+#> Data read time: 0.006615
+#> Compute time: 0.134820
+#> Write time: 0.012143
+#> Total time: 0.165226
 #> This run may take on the order of 1 minutes to complete.
 #> This estimate is very approximate. 
 #> Run time is highly uncertain as it depends on the complexity of the input data 
 #> and speed and memory of the computer. This estimate is based on our testing on 
 #> a dual quad core Dell Xeon E5405 2.0GHz PC with 16GB RAM.
 output
-#> /tmp/Rtmp32923X/file4bed4c0c5e73/MED_01_01fel.tif
+#> [1] "/tmp/RtmpJb7l3d/file714a7e3ebe72/MED_01_01fel.tif"
 ```
+
+## Can traudem run all TauDEM methods?
+
+Yes! Some TauDEM methods have dedicated wrappers like
+`taudem_pitremove()`, with argument names that we strived to make
+informative. For other methods, you can use `taudem_exec()` and provide
+the arguments as TauDEM CLI would expect them. You could make a PR to
+this repository to add more dedicated wrappers.

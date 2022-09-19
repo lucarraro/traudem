@@ -1,4 +1,24 @@
-exec_taudem <- function(n_processes, args) {
+#' Call TauDEM
+#'
+#' @details You can use this function to call more TauDEM methods
+#' than the ones with dedicated wrappers in this package.
+#'
+#' @inheritParams taudem_aread8
+#' @param args Character vector of argument, starting with the TauDEM command. See examples.
+#'
+#' @return None
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' test_dir <- withr::local_tempdir()
+#'  file.copy(
+#'    system.file("test-data", "MED_01_01.tif", package = "traudem"),
+#'    file.path(test_dir, "MED_01_01.tif")
+#'  )
+#' taudem_exec(n_processes = NULL, args = c("pitremove", file.path(test_dir, "MED_01_01.tif")))
+#' }
+taudem_exec <- function(n_processes, args) {
   if (!can_register_taudem()) {
     rlang::abort(
       message = c(

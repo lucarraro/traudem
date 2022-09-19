@@ -21,7 +21,7 @@ taudem_threshold(
 
 \item{threshold_parameter}{Threshold parameter.}
 
-\item{n_processes}{Number of processes. If \code{NULL} TauDEM is called without mpiexec.}
+\item{n_processes}{Number of processes for \code{mpiexec}. If \code{NULL} TauDEM is called without mpiexec.}
 }
 \value{
 Path to output file (invisibly)

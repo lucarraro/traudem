@@ -136,7 +136,7 @@ taudem_sitrep <- function() {
   cli::cli_rule(left = "TauDEM output")
   taudem_try <- withr::with_dir(
     test_dir, {
-      exec_taudem(
+      taudem_exec(
           n_processes = NULL,
           c("pitremove", "MED_01_01.tif")
      )

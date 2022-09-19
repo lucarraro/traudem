@@ -5,7 +5,7 @@
 #' @param input_d8flowdir_grid Input flow directions grid
 #' @param output_contributing_area_grid Output contributing area grid
 #' @param check_edge_contamination Whether to check for edge contamination
-#' @param n_processes Number of processes. If `NULL` TauDEM is called without mpiexec.
+#' @param n_processes Number of processes for `mpiexec`. If `NULL` TauDEM is called without mpiexec.
 #' @param wg_file Input weight grid (optional)
 #' @param outlet_file input outlets file (OGR readable dataset, optional)
 #' @param outlet_layer_name OGR layer name if outlets are not the first layer in `outlet_file` (optional).
@@ -87,6 +87,6 @@ taudem_aread8 <- function(input_d8flowdir_grid,
     args <- c(args, "-lyrno", outlet_layer_number)
   }
 
-  exec_taudem(n_processes = n_processes, args)
+  taudem_exec(n_processes = n_processes, args)
   return(invisible(output_contributing_area_grid))
 }

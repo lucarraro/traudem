@@ -54,6 +54,6 @@ taudem_pitremove <- function(input_elevation_grid,
     args <- c(args, "-depmask", depmask)
   }
 
-  exec_taudem(n_processes = n_processes, args)
+  taudem_exec(n_processes = n_processes, args)
   return(invisible(output_elevation_grid))
 }
