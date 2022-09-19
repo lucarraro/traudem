@@ -5,7 +5,7 @@ setup_windows <- function() {
   if (is_ci && is_windows) {
     Sys.setenv(
       PATH = paste0(
-        "C:\\Program Files\\Microsoft MPI\\Bin;",
+        "C:\\Program Files\\Microsoft MPI;",
         "C:\\Program Files\\GDAL;",
         "C:\\taudem;",
         Sys.getenv("PATH")
