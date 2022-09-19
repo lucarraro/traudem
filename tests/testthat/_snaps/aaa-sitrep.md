@@ -27,9 +27,7 @@
       -- TauDEM output ---------------------------------------------------------------
     Output
       PitRemove version ..
-      Input file MED__.tif has projected coordinate system.
-      Nodata value input to create partition from file: -.
-      Nodata value recast to float used in partition raster: -.
+      Input file blop.tif has projected coordinate system.
       Processes: 
       Header read time: .
       Data read time: .

@@ -5,8 +5,6 @@
     Output
       PitRemove version ..
       Input file blop.tif has projected coordinate system.
-      Nodata value input to create partition from file: -.
-      Nodata value recast to float used in partition raster: -.
       Processes: 
       Header read time: .
       Data read time: .
@@ -26,8 +24,6 @@
     Output
       PitRemove version ..
       Input file blop.tif has projected coordinate system.
-      Nodata value input to create partition from file: -.
-      Nodata value recast to float used in partition raster: -.
       Processes: 
       Header read time: .
       Data read time: .
