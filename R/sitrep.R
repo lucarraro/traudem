@@ -138,7 +138,7 @@ taudem_sitrep <- function() {
     test_dir, {
       exec_taudem(
           "mpiexec",
-          c("pitremove", "MED_01_01.tif")
+          c("-n", "1", "pitremove", "MED_01_01.tif")
      )
     }
   )
