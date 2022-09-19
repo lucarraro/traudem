@@ -68,11 +68,11 @@
   <main id="main" class="col-md-9"><div class="section level1">
 <div class="page-header"><h1 id="traudem">traudem<a class="anchor" aria-label="anchor" href="#traudem"></a>
 </h1></div>
-<!-- badges: start --><!-- badges: end --><p>The goal of traudem is to wrap the TauDEM CLI from R.</p>
+<!-- badges: start --><!-- badges: end --><p>The goal of traudem is to wrap the <a href="https://hydrology.usu.edu/taudem/taudem5/index.html" class="external-link">TauDEM CLI</a> from R.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>Refer to <code>vignette("traudem-installation", package = "traudem")</code>. In particular after installing the TauDEM CLI and dependencies as well as the R package, please run <code><a href="reference/taudem_sitrep.html">traudem::taudem_sitrep()</a></code>.</p>
+<p>Refer to <a href="https://cynkra.github.io/traudem/articles/taudem-installation.html"><code>vignette("traudem-installation", package = "traudem")</code></a>. In particular after installing the TauDEM CLI and dependencies as well as the R package, please run <code><a href="reference/taudem_sitrep.html">traudem::taudem_sitrep()</a></code>.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">traudem</span><span class="fu">::</span><span class="fu"><a href="reference/taudem_sitrep.html">taudem_sitrep</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; ✔ Found GDAL version 3.0.4.</span></span>
@@ -87,11 +87,11 @@
 <span><span class="co">#&gt; Nodata value input to create partition from file: -340282299999999994960115009090224128000.000000</span></span>
 <span><span class="co">#&gt; Nodata value recast to float used in partition raster: -340282306073709652508363335590014353408.000000</span></span>
 <span><span class="co">#&gt; Processes: 4</span></span>
-<span><span class="co">#&gt; Header read time: 0.002652</span></span>
-<span><span class="co">#&gt; Data read time: 0.001631</span></span>
-<span><span class="co">#&gt; Compute time: 0.057725</span></span>
-<span><span class="co">#&gt; Write time: 0.007459</span></span>
-<span><span class="co">#&gt; Total time: 0.069466</span></span>
+<span><span class="co">#&gt; Header read time: 0.004806</span></span>
+<span><span class="co">#&gt; Data read time: 0.002835</span></span>
+<span><span class="co">#&gt; Compute time: 0.077973</span></span>
+<span><span class="co">#&gt; Write time: 0.008801</span></span>
+<span><span class="co">#&gt; Total time: 0.094415</span></span>
 <span><span class="co">#&gt; This run may take on the order of 1 minutes to complete.</span></span>
 <span><span class="co">#&gt; This estimate is very approximate. </span></span>
 <span><span class="co">#&gt; Run time is highly uncertain as it depends on the complexity of the input data </span></span>
@@ -129,22 +129,22 @@
 <span><span class="op">)</span></span>
 <span><span class="va">output</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/taudem_pitremove.html">taudem_pitremove</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">test_dir</span>, <span class="st">"MED_01_01.tif"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; PitRemove version 5.3.9</span></span>
-<span><span class="co">#&gt; Input file /tmp/RtmpKKtegQ/file862442d704cb/MED_01_01.tif has projected coordinate system.</span></span>
+<span><span class="co">#&gt; Input file /tmp/RtmpXrD0Qu/file88ea2944f219/MED_01_01.tif has projected coordinate system.</span></span>
 <span><span class="co">#&gt; Nodata value input to create partition from file: -340282299999999994960115009090224128000.000000</span></span>
 <span><span class="co">#&gt; Nodata value recast to float used in partition raster: -340282306073709652508363335590014353408.000000</span></span>
 <span><span class="co">#&gt; Processes: 1</span></span>
-<span><span class="co">#&gt; Header read time: 0.010189</span></span>
-<span><span class="co">#&gt; Data read time: 0.006378</span></span>
-<span><span class="co">#&gt; Compute time: 0.127642</span></span>
-<span><span class="co">#&gt; Write time: 0.010508</span></span>
-<span><span class="co">#&gt; Total time: 0.154717</span></span>
+<span><span class="co">#&gt; Header read time: 0.003854</span></span>
+<span><span class="co">#&gt; Data read time: 0.003730</span></span>
+<span><span class="co">#&gt; Compute time: 0.124748</span></span>
+<span><span class="co">#&gt; Write time: 0.012180</span></span>
+<span><span class="co">#&gt; Total time: 0.144512</span></span>
 <span><span class="co">#&gt; This run may take on the order of 1 minutes to complete.</span></span>
 <span><span class="co">#&gt; This estimate is very approximate. </span></span>
 <span><span class="co">#&gt; Run time is highly uncertain as it depends on the complexity of the input data </span></span>
 <span><span class="co">#&gt; and speed and memory of the computer. This estimate is based on our testing on </span></span>
 <span><span class="co">#&gt; a dual quad core Dell Xeon E5405 2.0GHz PC with 16GB RAM.</span></span>
 <span><span class="va">output</span></span>
-<span><span class="co">#&gt; [1] "/tmp/RtmpKKtegQ/file862442d704cb/MED_01_01fel.tif"</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] "/tmp/RtmpXrD0Qu/file88ea2944f219/MED_01_01fel.tif"</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="can-traudem-run-all-taudem-methods">Can traudem run all TauDEM methods?<a class="anchor" aria-label="anchor" href="#can-traudem-run-all-taudem-methods"></a>
