@@ -1,3 +1,10 @@
+# info
+
+    Code
+      Sys.getenv("PATH")
+    Output
+      [1] "/usr/local/taudem:/home/maelle/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/local/go/bin:/usr/lib/rstudio/bin/rpostback:/usr/lib/rstudio/bin/postback:/home/maelle/Documents/quarto-cli/package/dist/bin:/usr/lib/rstudio/bin/postback"
+
 # taudem_sitrep() works - problems
 
     x Can't find TauDEM on PATH nor `TAUDEM_PATH` environment variable
