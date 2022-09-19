@@ -66,5 +66,7 @@ Therefore,
 
 > If the installation shows errors, try using <https://github.com/maelle/TauDEM/tree/more-mpi-deprecations> instead.
 
+> Even for a successful installation you might see many warnings.
+
 ```{r, child="../man/fragments/_sitrep.Rmd"}
 ```
