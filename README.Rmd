@@ -33,7 +33,22 @@ Sys.setenv(TAUDEM_PATH="/usr/local/taudem")
 traudem::taudem_sitrep()
 ```
 
-You can install the development version of traudem from [GitHub](https://github.com/) with:
+You can install the development version of traudem from R-universe:
+
+```r
+# Enable repository from cynkra
+options(
+  repos = c(
+    cynkra = 'https://cynkra.r-universe.dev',
+    CRAN = 'https://cloud.r-project.org'
+  )
+)
+# Download and install traudem in R
+install.packages('traudem')
+```
+
+
+Or from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
