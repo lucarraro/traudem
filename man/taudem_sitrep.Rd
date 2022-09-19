@@ -32,6 +32,6 @@ or, for just the session, running this line of R code:
 
 \examples{
 \dontrun{
-taudem_sitrep()
+try(taudem_sitrep(), silent = TRUE)
 }
 }

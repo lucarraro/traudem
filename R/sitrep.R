@@ -25,7 +25,7 @@
 #'
 #' @examples
 #' \dontrun{
-#' taudem_sitrep()
+#' try(taudem_sitrep(), silent = TRUE)
 #' }
 taudem_sitrep <- function() {
 
