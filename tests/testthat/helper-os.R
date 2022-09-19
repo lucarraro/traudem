@@ -1,5 +1,5 @@
 # Windows CI
-setup_windows <- function() {
+setup_os <- function() {
   is_ci <- nzchar(Sys.getenv("CI"))
   is_windows <- (tolower(Sys.info()[["sysname"]]) == "windows")
   if (is_ci && is_windows) {
@@ -12,5 +12,8 @@ setup_windows <- function() {
       )
     )
   }
+  if (is_ci && !is_windows) {
+    Sys.setenv(TAUDEM_PATH="TauDEM/bin")
+  }
 }
-setup_windows()
+setup_os()
