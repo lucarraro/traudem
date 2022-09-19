@@ -23,18 +23,18 @@ traudem::taudem_sitrep()
 #> ✔ Found TauDEM path (/usr/local/taudem).
 #> ✔ Found TauDEM executables directory (/usr/local/taudem).
 #> ✔ Found all TauDEM executables.
-#> ℹ Testing TauDEM on an example file...
+#> ℹ Testing TauDEM on an example file (please wait a bit)...
 #> ── TauDEM output ───────────────────────────────────────────────────────────────
 #> PitRemove version 5.3.9
 #> Input file MED_01_01.tif has projected coordinate system.
 #> Nodata value input to create partition from file: -340282299999999994960115009090224128000.000000
 #> Nodata value recast to float used in partition raster: -340282306073709652508363335590014353408.000000
 #> Processes: 1
-#> Header read time: 0.010703
-#> Data read time: 0.006677
-#> Compute time: 0.131451
-#> Write time: 0.011281
-#> Total time: 0.160112
+#> Header read time: 0.005306
+#> Data read time: 0.004124
+#> Compute time: 0.132040
+#> Write time: 0.010612
+#> Total time: 0.152082
 #> This run may take on the order of 1 minutes to complete.
 #> This estimate is very approximate. 
 #> Run time is highly uncertain as it depends on the complexity of the input data 
@@ -68,7 +68,8 @@ devtools::install_github("cynkra/traudem")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+This is how you would use traudem to launch [TauDEM’s
+PitRemove](https://hydrology.usu.edu/taudem/taudem5/help53/PitRemove.html):
 
 ``` r
 library(traudem)
@@ -79,22 +80,56 @@ fs::file_copy(
 )
 output <- taudem_pitremove(file.path(test_dir, "MED_01_01.tif"))
 #> PitRemove version 5.3.9
-#> Input file /tmp/RtmpQ7EZKw/file9c3c6bccd6f/MED_01_01.tif has projected coordinate system.
+#> Input file /tmp/Rtmpfm5SUE/filec6ea575df4ab/MED_01_01.tif has projected coordinate system.
 #> Nodata value input to create partition from file: -340282299999999994960115009090224128000.000000
 #> Nodata value recast to float used in partition raster: -340282306073709652508363335590014353408.000000
 #> Processes: 1
-#> Header read time: 0.003077
-#> Data read time: 0.002963
-#> Compute time: 0.132491
-#> Write time: 0.011405
-#> Total time: 0.149937
+#> Header read time: 0.002646
+#> Data read time: 0.003028
+#> Compute time: 0.134566
+#> Write time: 0.012982
+#> Total time: 0.153223
 #> This run may take on the order of 1 minutes to complete.
 #> This estimate is very approximate. 
 #> Run time is highly uncertain as it depends on the complexity of the input data 
 #> and speed and memory of the computer. This estimate is based on our testing on 
 #> a dual quad core Dell Xeon E5405 2.0GHz PC with 16GB RAM.
 output
-#> [1] "/tmp/RtmpQ7EZKw/file9c3c6bccd6f/MED_01_01fel.tif"
+#> [1] "/tmp/Rtmpfm5SUE/filec6ea575df4ab/MED_01_01fel.tif"
+```
+
+We ran the example above in a temporary directory that `withr`
+automatically deletes. If you want to automatically get rid of some of
+the intermediary files created by TauDEM in one of your pipelines, you
+might be interested in `withr::local_tempfile()`.
+
+If you wanted to run this same code without seeing the messages from
+TauDEM you can either use the `quiet` argument:
+
+``` r
+test_dir <- withr::local_tempdir()
+fs::file_copy(
+  system.file("test-data", "MED_01_01.tif", package = "traudem"),
+  file.path(test_dir, "MED_01_01.tif")
+)
+output <- taudem_pitremove(file.path(test_dir, "MED_01_01.tif"), quiet = TRUE)
+output
+#> [1] "/tmp/Rtmpfm5SUE/filec6ea6da9edef/MED_01_01fel.tif"
+```
+
+Or set the `traudem.quiet` option (`options(traudem.quiet = TRUE)` or
+for just the session, `withr::local_options(traudem.quiet = TRUE)`):
+
+``` r
+withr::local_options(traudem.quiet = TRUE)
+test_dir <- withr::local_tempdir()
+fs::file_copy(
+  system.file("test-data", "MED_01_01.tif", package = "traudem"),
+  file.path(test_dir, "MED_01_01.tif")
+)
+output <- taudem_pitremove(file.path(test_dir, "MED_01_01.tif"))
+output
+#> [1] "/tmp/Rtmpfm5SUE/filec6ea398d0a10/MED_01_01fel.tif"
 ```
 
 ## Can traudem run all TauDEM methods?
