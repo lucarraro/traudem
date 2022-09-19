@@ -7,7 +7,7 @@ setup_os <- function() {
       PATH = paste0(
         "C:\\Program Files\\Microsoft MPI\\bin;",
         "C:\\Program Files\\GDAL;",
-        "C:\\taudem;",
+        "C:\\taudem\\TauDEM537exe;",
         Sys.getenv("PATH")
       )
     )
