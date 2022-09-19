@@ -1,14 +1,7 @@
-# info
-
-    Code
-      Sys.getenv("PATH")
-    Output
-      [1] "/usr/local/taudem:/home/maelle/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/local/go/bin:/usr/lib/rstudio/bin/rpostback:/usr/lib/rstudio/bin/postback:/home/maelle/Documents/quarto-cli/package/dist/bin:/usr/lib/rstudio/bin/postback"
-
 # taudem_sitrep() works - problems
 
-    x Can't find TauDEM on PATH nor `TAUDEM_PATH` environment variable
-    i Register your TauDEM installation. See vignette('taudem-installation').
+    x Can't find executables for `aread8`, `areadinf`, `CatchHydroGeo`, `CatchOutlets`, `ConnectDown`, `D8FlowDir`, `D8FlowPathExtremeUp`, `D8HDistToStrm`, `DinfAvalanche`, `DinfConcLimAccum`, `DinfDecayAccum`, `DinfDistDown`, `DinfDistUp`, `DinfFlowDir`, `DinfRevAccum`, `DinfTransLimAccum`, `DinfUpDependence`, `DropAnalysis`, `EditRaster`, `FlowdirCond`, `gagewatershed`, `gridnet`, `LengthArea`, `MoveOutletsToStrm`, `PeukerDouglas`, `PitRemove`, `RetLimFlow`, `SetRegion`, `SinmapSI`, `SlopeArea`, `SlopeAreaRatio`, `SlopeAveDown`, `streamnet`, `Threshold`, `TWI`
+    i Try re-installing TauDEM and write down any problem.
 
 ---
 

@@ -1,8 +1,10 @@
 test_that("info", {
-  register_taudem()
+  if (tolower(Sys.info()[["sysname"]]) != "windows") {
+    register_taudem()
+  }
   expect_true(nzchar(Sys.which("pitremove")))
-  expect_snapshot(Sys.getenv("PATH"))
 })
+
 test_that("taudem_sitrep() works - problems", {
   withr::local_envvar(TAUDEM_QUIET = "quiet")
 
