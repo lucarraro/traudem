@@ -81,7 +81,7 @@ and then re-starting R:</p>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \dontrun{</span></span></span>
-<span class="r-in"><span><span class="fu">taudem_sitrep</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">taudem_sitrep</span><span class="op">(</span><span class="op">)</span>, silent <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Found GDAL version 3.0.4.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Found HYDRA build details: (MPI).</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Found TauDEM path (/home/runner/TauDEM/bin).</span>
@@ -94,11 +94,11 @@ and then re-starting R:</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Nodata value input to create partition from file: -340282299999999994960115009090224128000.000000</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Nodata value recast to float used in partition raster: -340282306073709652508363335590014353408.000000</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Processes: 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Header read time: 0.003396</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Data read time: 0.003740</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Compute time: 0.051032</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Write time: 0.015261</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Total time: 0.073428</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Header read time: 0.003502</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Data read time: 0.003684</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Compute time: 0.054993</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Write time: 0.014117</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Total time: 0.076296</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">This run may take on the order of 1 minutes to complete.</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">This estimate is very approximate. </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">Run time is highly uncertain as it depends on the complexity of the input data </span></span>
