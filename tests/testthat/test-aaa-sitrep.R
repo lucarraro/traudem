@@ -17,6 +17,7 @@ test_that("taudem_sitrep() works - problems", {
 
 test_that("taudem_sitrep() works - all well", {
   skip_on_cran()
+  skip_on_os("windows") # https://github.com/cynkra/traudem/issues/32
   expect_snapshot(
     taudem_sitrep(),
     transform = taudem_transform
