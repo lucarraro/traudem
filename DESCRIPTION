@@ -4,12 +4,13 @@ Version: 0.0.0.9000
 Authors@R: c(
     person("Maëlle", "Salmon", , "maelle@cynkra.com", role = "aut",
            comment = c(ORCID = "0000-0002-2815-0399")),
-    person("Luca", "Carraro", , "Luca.Carraro@eawag.ch", role = c("cre", "aut"))
+    person("Luca", "Carraro", , "Luca.Carraro@eawag.ch", role = c("cre", "aut")),
+    person("Wael", "Sadek", role = "aut")
   )
 Description: Simple trustworthy utility functions to use 'TauDEM'
     command-line interface.
 License: MIT + file LICENSE
-URL: https://github.com/cynkra/traudem
+URL: https://cynkra.github.io/traudem/, https://github.com/cynkra/traudem
 BugReports: https://github.com/cynkra/traudem/issues
 Imports: 
     cli,

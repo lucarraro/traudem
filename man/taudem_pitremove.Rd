@@ -9,7 +9,8 @@ taudem_pitremove(
   output_elevation_grid = NULL,
   only_4way_neighbors = FALSE,
   n_processes = getOption("traudem.n_processes", 1),
-  depmask = NULL
+  depmask = NULL,
+  quiet = getOption("traudem.quiet", FALSE)
 )
 }
 \arguments{
@@ -19,9 +20,11 @@ taudem_pitremove(
 
 \item{only_4way_neighbors}{Whether to consider only 4 way neighbors}
 
-\item{n_processes}{Number of processes}
+\item{n_processes}{Number of processes for \code{mpiexec}. If \code{NULL} TauDEM is called without mpiexec.}
 
 \item{depmask}{Depression mask file (optional)}
+
+\item{quiet}{If \code{FALSE} output from TauDEM CLI is suppressed.}
 }
 \value{
 Path to output file (invisibly)
@@ -35,6 +38,7 @@ See \url{https://hydrology.usu.edu/taudem/taudem5/help53/PitRemove.html}
 \examples{
 \dontrun{
 test_dir <- withr::local_tempdir()
+dir.create(test_dir)
  file.copy(
    system.file("test-data", "MED_01_01.tif", package = "traudem"),
    file.path(test_dir, "MED_01_01.tif")

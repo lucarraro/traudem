@@ -5,7 +5,7 @@
 #' @param input_elevation_grid Pit filled elevation input data
 #' @param output_d8flowdir_grid D8 flow directions output
 #' @param output_d8slopes_grid D8 slopes output
-#' @param n_processes Number of processes
+#' @inheritParams taudem_exec
 #'
 #' @return List with the two output filenames
 #' @export
@@ -13,6 +13,7 @@
 #' @examples
 #' \dontrun{
 #' test_dir <- withr::local_tempdir()
+#' dir.create(test_dir)
 #'  file.copy(
 #'    system.file("test-data", "MED_01_01.tif", package = "traudem"),
 #'    file.path(test_dir, "MED_01_01.tif")
@@ -24,7 +25,8 @@
 taudem_d8flowdir <- function(input_elevation_grid,
                               output_d8flowdir_grid = NULL,
                               output_d8slopes_grid = NULL,
-                              n_processes = getOption("traudem.n_processes", 1)) {
+                              n_processes = getOption("traudem.n_processes", 1),
+                              quiet = getOption("traudem.quiet", FALSE)) {
   if (!file.exists(input_elevation_grid)) {
     rlang::abort(sprintf("Can't find file %s (input_elevation_grid)", input_elevation_grid))
   }
@@ -46,14 +48,12 @@ taudem_d8flowdir <- function(input_elevation_grid,
   }
 
   args <- c(
-    "mpiexec",
-    "-n", n_processes,
     "d8flowdir",
     "-fel", input_elevation_grid,
     "-p", output_d8flowdir_grid,
     "-sd8", output_d8slopes_grid
   )
-  exec_taudem(args)
+  taudem_exec(n_processes = n_processes, args = args, quiet = quiet)
   return(invisible(list(
     output_d8flowdir_grid = output_d8flowdir_grid,
     output_d8slopes_grid = output_d8slopes_grid

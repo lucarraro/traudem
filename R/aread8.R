@@ -5,13 +5,13 @@
 #' @param input_d8flowdir_grid Input flow directions grid
 #' @param output_contributing_area_grid Output contributing area grid
 #' @param check_edge_contamination Whether to check for edge contamination
-#' @param n_processes Number of processes
 #' @param wg_file Input weight grid (optional)
 #' @param outlet_file input outlets file (OGR readable dataset, optional)
 #' @param outlet_layer_name OGR layer name if outlets are not the first layer in `outlet_file` (optional).
 #' Layer name and layer number should not both be specified.
 #' @param outlet_layer_number OGR layer number if outlets are not the first layer in `outlet_file` (optional).
 #' Layer name and layer number should not both be specified.
+#' @inheritParams taudem_exec
 #'
 #' @return Path to output file (invisibly)
 #' @export
@@ -19,6 +19,7 @@
 #' @examples
 #' \dontrun{
 #' test_dir <- withr::local_tempdir()
+#' dir.create(test_dir)
 #'  file.copy(
 #'    system.file("test-data", "MED_01_01.tif", package = "traudem"),
 #'    file.path(test_dir, "MED_01_01.tif")
@@ -36,7 +37,8 @@ taudem_aread8 <- function(input_d8flowdir_grid,
                          wg_file = NULL,
                          outlet_file = NULL,
                          outlet_layer_name = NULL,
-                         outlet_layer_number = NULL) {
+                         outlet_layer_number = NULL,
+                         quiet = getOption("traudem.quiet", FALSE)) {
   if (!file.exists(input_d8flowdir_grid)) {
     rlang::abort(sprintf("Can't find file %s (input_d8flowdir_grid)", input_d8flowdir_grid))
   }
@@ -62,8 +64,6 @@ taudem_aread8 <- function(input_d8flowdir_grid,
   }
 
   args <- c(
-    "mpiexec",
-    "-n", n_processes,
     "aread8",
     "-p", input_d8flowdir_grid,
     "-ad8", output_contributing_area_grid
@@ -89,6 +89,6 @@ taudem_aread8 <- function(input_d8flowdir_grid,
     args <- c(args, "-lyrno", outlet_layer_number)
   }
 
-  exec_taudem(args)
+  taudem_exec(n_processes = n_processes, args = args, quiet = quiet)
   return(invisible(output_contributing_area_grid))
 }

@@ -5,7 +5,7 @@
 #' @param input_elevation_grid Input elevation grid file
 #' @param output_elevation_grid Output elevation grid file
 #' @param only_4way_neighbors Whether to consider only 4 way neighbors
-#' @param n_processes Number of processes
+#' @inheritParams taudem_exec
 #' @param depmask Depression mask file (optional)
 #'
 #' @return Path to output file (invisibly)
@@ -14,6 +14,7 @@
 #' @examples
 #' \dontrun{
 #' test_dir <- withr::local_tempdir()
+#' dir.create(test_dir)
 #'  file.copy(
 #'    system.file("test-data", "MED_01_01.tif", package = "traudem"),
 #'    file.path(test_dir, "MED_01_01.tif")
@@ -25,7 +26,8 @@ taudem_pitremove <- function(input_elevation_grid,
                              output_elevation_grid = NULL,
                              only_4way_neighbors = FALSE,
                              n_processes = getOption("traudem.n_processes", 1),
-                             depmask = NULL) {
+                             depmask = NULL,
+                             quiet = getOption("traudem.quiet", FALSE)) {
   if (!file.exists(input_elevation_grid)) {
     rlang::abort(sprintf("Can't find file %s (input_elevation_grid)", input_elevation_grid))
   }
@@ -43,8 +45,6 @@ taudem_pitremove <- function(input_elevation_grid,
   }
 
   args <- c(
-    "mpiexec",
-    "-n", n_processes,
     "pitremove",
     "-z", input_elevation_grid,
     "-fel", output_elevation_grid
@@ -56,6 +56,6 @@ taudem_pitremove <- function(input_elevation_grid,
     args <- c(args, "-depmask", depmask)
   }
 
-  exec_taudem(args)
+  taudem_exec(n_processes = n_processes, args = args, quiet = quiet)
   return(invisible(output_elevation_grid))
 }

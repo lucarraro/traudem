@@ -12,7 +12,8 @@ taudem_aread8(
   wg_file = NULL,
   outlet_file = NULL,
   outlet_layer_name = NULL,
-  outlet_layer_number = NULL
+  outlet_layer_number = NULL,
+  quiet = getOption("traudem.quiet", FALSE)
 )
 }
 \arguments{
@@ -22,7 +23,7 @@ taudem_aread8(
 
 \item{check_edge_contamination}{Whether to check for edge contamination}
 
-\item{n_processes}{Number of processes}
+\item{n_processes}{Number of processes for \code{mpiexec}. If \code{NULL} TauDEM is called without mpiexec.}
 
 \item{wg_file}{Input weight grid (optional)}
 
@@ -33,6 +34,8 @@ Layer name and layer number should not both be specified.}
 
 \item{outlet_layer_number}{OGR layer number if outlets are not the first layer in \code{outlet_file} (optional).
 Layer name and layer number should not both be specified.}
+
+\item{quiet}{If \code{FALSE} output from TauDEM CLI is suppressed.}
 }
 \value{
 Path to output file (invisibly)
@@ -46,6 +49,7 @@ See \url{https://hydrology.usu.edu/taudem/taudem5/help53/D8ContributingArea.html
 \examples{
 \dontrun{
 test_dir <- withr::local_tempdir()
+dir.create(test_dir)
  file.copy(
    system.file("test-data", "MED_01_01.tif", package = "traudem"),
    file.path(test_dir, "MED_01_01.tif")

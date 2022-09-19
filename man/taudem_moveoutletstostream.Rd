@@ -13,7 +13,8 @@ taudem_moveoutletstostream(
   outlet_file,
   outlet_layer_name = NULL,
   outlet_layer_number = NULL,
-  n_processes = getOption("traudem.n_processes", 1)
+  n_processes = getOption("traudem.n_processes", 1),
+  quiet = getOption("traudem.quiet", FALSE)
 )
 }
 \arguments{
@@ -35,7 +36,9 @@ Layer name and layer number should not both be specified.}
 \item{outlet_layer_number}{OGR layer number if outlets are not the first layer in \code{outlet_file} (optional).
 Layer name and layer number should not both be specified.}
 
-\item{n_processes}{Number of processes}
+\item{n_processes}{Number of processes for \code{mpiexec}. If \code{NULL} TauDEM is called without mpiexec.}
+
+\item{quiet}{If \code{FALSE} output from TauDEM CLI is suppressed.}
 }
 \value{
 Path to output file (invisibly)

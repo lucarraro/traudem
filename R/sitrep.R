@@ -25,7 +25,7 @@
 #'
 #' @examples
 #' \dontrun{
-#' taudem_sitrep()
+#' try(taudem_sitrep(), silent = TRUE)
 #' }
 taudem_sitrep <- function() {
 
@@ -103,19 +103,19 @@ taudem_sitrep <- function() {
       )
     )
   } else {
-    cli_success(sprintf("Found TauDEM path (%s).", taudem_path()))
+    cli_success(sprintf("Found TauDEM path (%s).", cli::col_blue(taudem_path())))
   }
 
   # Folder with executables ------------
   if (!dir.exists(taudem_path())) {
     rlang::abort(
       message = c(
-        x = sprintf("Can't find directory `%s` (TauDEM executables)", .taudem_path()),
+        x = sprintf("Can't find directory `%s` (TauDEM executables)", cli::col_blue(.taudem_path())),
         i = "Register your TauDEM installation. See vignette('taudem-installation')."
       )
     )
   } else {
-    cli_success(sprintf("Found TauDEM executables directory (%s).", taudem_path()))
+    cli_success(sprintf("Found TauDEM executables directory (%s).", cli::col_blue(taudem_path())))
   }
 
   # Algorithms in executables folder -----
@@ -136,7 +136,7 @@ taudem_sitrep <- function() {
   # TODO: actually distribute test data with package
   # https://github.com/dtarb/TauDEM-Test-Data has no licence!
   # https://github.com/r-lib/testthat/blob/a8b6b16c82bcce6d960add9a3df9b17ef3ccd570/R/skip.R#L120
-  cli::cli_alert_info("Testing TauDEM on an example file...")
+  cli::cli_alert_info("Testing TauDEM on an example file (please wait a bit)...")
   test_dir <- withr::local_tempdir()
   file.copy(
     system.file("test-data", "MED_01_01.tif", package = "traudem"),
@@ -145,9 +145,10 @@ taudem_sitrep <- function() {
   cli::cli_rule(left = "TauDEM output")
   taudem_try <- withr::with_dir(
     test_dir, {
-      exec_taudem(
-          "mpiexec",
-          c("pitremove", "MED_01_01.tif")
+      taudem_exec(
+          n_processes = NULL,
+          c("pitremove", "MED_01_01.tif"),
+          quiet = FALSE
      )
     }
   )

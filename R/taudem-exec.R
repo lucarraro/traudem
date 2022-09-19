@@ -1,4 +1,26 @@
-exec_taudem <- function(...) {
+#' Call TauDEM
+#'
+#' @details You can use this function to call more TauDEM methods
+#' than the ones with dedicated wrappers in this package.
+#'
+#' @param n_processes Number of processes for `mpiexec`. If `NULL` TauDEM is called without mpiexec.
+#' @param args Character vector of argument, starting with the TauDEM command. See examples.
+#' @param quiet If `FALSE` output from TauDEM CLI is suppressed.
+#'
+#' @return `TRUE` if the call was successful, `FALSE` otherwise.
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' test_dir <- withr::local_tempdir()
+#' dir.create(test_dir)
+#'  file.copy(
+#'    system.file("test-data", "MED_01_01.tif", package = "traudem"),
+#'    file.path(test_dir, "MED_01_01.tif")
+#'  )
+#' taudem_exec(n_processes = NULL, args = c("pitremove", file.path(test_dir, "MED_01_01.tif")))
+#' }
+taudem_exec <- function(n_processes, args, quiet = getOption("traudem.quiet", FALSE)) {
   if (!can_register_taudem()) {
     rlang::abort(
       message = c(
@@ -8,20 +30,34 @@ exec_taudem <- function(...) {
     )
   }
   register_taudem()
+
+  if (!is.null(n_processes)) {
+    cmd <- "mpiexec"
+    args <- c("-n", n_processes, args)
+  } else {
+    cmd <- args[1]
+    args <- args[-1]
+  }
+
   std_out <- withr::local_tempfile()
   std_err <- withr::local_tempfile()
   res <- try(
     sys::exec_wait(
-      ...,
+      cmd = cmd,
+      args = args,
       std_out = std_out,
       std_err = std_err
     )
   )
   if (inherits(res, "try-error")) {
     print(res)
+    return(FALSE)
   } else {
-    purrr::walk(readLines(std_out), cli::cat_line)
-    purrr::walk(readLines(std_err), cli::cat_line, col = "red")
+    if (!quiet) {
+      purrr::walk(readLines(std_out), cli::cat_line)
+      purrr::walk(readLines(std_err), cli::cat_line, col = "red")
+    }
+    return(TRUE)
   }
 }
 

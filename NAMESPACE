@@ -2,6 +2,7 @@
 
 export(taudem_aread8)
 export(taudem_d8flowdir)
+export(taudem_exec)
 export(taudem_moveoutletstostream)
 export(taudem_pitremove)
 export(taudem_sitrep)

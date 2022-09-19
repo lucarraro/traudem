@@ -6,7 +6,7 @@
 #' @param output_stream_raster_grid File name for stream raster grid.
 #' @param mask_file File name for grid used to mask the output stream raster, or general thresholded grid.
 #' @param threshold_parameter Threshold parameter.
-#' @param n_processes Number of processes
+#' @inheritParams taudem_exec
 #'
 #' @return Path to output file (invisibly)
 #' @export
@@ -14,7 +14,8 @@
 #' @examples
 #' \dontrun{
 #' test_dir <- withr::local_tempdir()
-#'  file.copy(
+#' dir.create(test_dir)
+#' file.copy(
 #'    system.file("test-data", "MED_01_01.tif", package = "traudem"),
 #'    file.path(test_dir, "MED_01_01.tif")
 #'  )
@@ -30,7 +31,8 @@ taudem_threshold <- function(input_area_grid,
                             output_stream_raster_grid = NULL,
                             mask_file = NULL,
                             threshold_parameter = 100.0,
-                            n_processes = getOption("traudem.n_processes", 1)) {
+                            n_processes = getOption("traudem.n_processes", 1),
+                            quiet = getOption("traudem.quiet", FALSE)) {
 
   if (!file.exists(input_area_grid)) {
     rlang::abort(sprintf("Can't find file %s (input_area_grid)", input_area_grid))
@@ -49,8 +51,6 @@ taudem_threshold <- function(input_area_grid,
   }
 
   args <- c(
-    "mpiexec",
-    "-n", n_processes,
     "threshold",
     "-ssa", input_area_grid,
     "-src", output_stream_raster_grid,
@@ -61,6 +61,6 @@ taudem_threshold <- function(input_area_grid,
     args <- c(args, "-mask", mask_file)
   }
 
-  exec_taudem(args)
+  taudem_exec(n_processes = n_processes, args = args, quiet = quiet)
   return(invisible(output_stream_raster_grid))
 }

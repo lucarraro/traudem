@@ -23,7 +23,7 @@
       v Found TauDEM path
       v Found TauDEM executables directory.
       v Found all TauDEM executables.
-      i Testing TauDEM on an example file...
+      i Testing TauDEM on an example file (please wait a bit)...
       -- TauDEM output ---------------------------------------------------------------
     Output
       PitRemove version ..
