@@ -4,7 +4,8 @@ Version: 0.0.0.9000
 Authors@R: c(
     person("Maëlle", "Salmon", , "maelle@cynkra.com", role = "aut",
            comment = c(ORCID = "0000-0002-2815-0399")),
-    person("Luca", "Carraro", , "Luca.Carraro@eawag.ch", role = c("cre", "aut"))
+    person("Luca", "Carraro", , "Luca.Carraro@eawag.ch", role = c("cre", "aut")),
+    person("Wael", "Sadek", role = "aut")
   )
 Description: Simple trustworthy utility functions to use 'TauDEM'
     command-line interface.
