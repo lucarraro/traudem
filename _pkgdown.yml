@@ -2,3 +2,15 @@ url: ~
 template:
   bootstrap: 5
 
+reference:
+- title: Setup
+  - '`taudem_sitrep`'
+  contents:
+- title: TauDEM wrappers
+  contents:
+  - '`taudem_aread8`'
+  - '`taudem_d8flowdir`'
+  - '`taudem_moveoutletstostream`'
+  - '`taudem_pitremove`'
+  - '`taudem_threshold`'
+  - '`taudem_exec`'
