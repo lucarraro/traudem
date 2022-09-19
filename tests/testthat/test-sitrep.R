@@ -2,7 +2,7 @@ test_that("info", {
   register_taudem()
   expect_true(nzchar(Sys.which("pitremove")))
 })
-test_that("taudem_sitrem() works - problems", {
+test_that("taudem_sitrep() works - problems", {
   withr::local_envvar(TAUDEM_QUIET = "quiet")
 
   withr::local_envvar(TAUDEM_PATH = "")
@@ -15,7 +15,7 @@ test_that("taudem_sitrem() works - problems", {
   expect_snapshot_error(taudem_sitrep())
 })
 
-test_that("taudem_sitrem() works - all well", {
+test_that("taudem_sitrep() works - all well", {
   skip_on_cran()
   expect_snapshot(
     taudem_sitrep(),
