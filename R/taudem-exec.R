@@ -73,7 +73,7 @@ register_taudem <- function() {
 }
 
 is_taudem_on_path <- function() {
-  nzchar(Sys.which("taudem"))
+  nzchar(Sys.which("pitremove"))
 }
 
 is_taudem_envvar <- function() {
