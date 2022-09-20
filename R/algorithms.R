@@ -18,6 +18,7 @@ taudem_official_list <- function() {
   if (on_windows()) {
     algos[algos == "MoveOutletsToStrm"] <- "MoveOutletsToStreams"
   }
+  algos
 }
 
 find_algo <- function(algo) {
