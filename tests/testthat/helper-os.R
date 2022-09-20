@@ -1,8 +1,6 @@
 # Windows CI
 setup_os <- function() {
-  is_ci <- nzchar(Sys.getenv("CI"))
-  is_windows <- (tolower(Sys.info()[["sysname"]]) == "windows")
-  if (is_ci && is_windows) {
+  if (is_ci() && on_windows()) {
     Sys.setenv(
       PATH = paste0(
         "C:\\Program Files\\Microsoft MPI\\bin;",
@@ -12,7 +10,7 @@ setup_os <- function() {
       )
     )
   }
-  if (is_ci && !is_windows) {
+  if (is_ci() && !on_windows()) {
     Sys.setenv(TAUDEM_PATH="TauDEM/bin")
   }
 }

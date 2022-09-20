@@ -66,7 +66,7 @@ taudem_sitrep <- function() {
 
   # MPI -----
   mpi_version_res <- withr::local_tempfile()
-    mpi_version_ok <- if (tolower(Sys.info()[["sysname"]]) == "windows") {
+    mpi_version_ok <- if (on_windows()) {
     try(sys::exec_wait(
       "mpiexec",
       std_out = mpi_version_res

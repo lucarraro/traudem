@@ -52,8 +52,14 @@ taudem_moveoutletstostream <- function(input_d8flowdir_grid,
     output_moved_outlets_file <- sprintf("%movedoutlet.shp", output_moved_outlets_file_file)
   }
 
+  cmd <- if (on_windows()) {
+    "moveoutletstostreams"
+  } else {
+    "moveoutletstostrm"
+  }
+
   args <- c(
-    "moveoutletstostrm",
+    cmd,
     "-p", input_d8flowdir_grid,
     "-src", input_stream_raster_grid,
     "-o", outlet_file,
