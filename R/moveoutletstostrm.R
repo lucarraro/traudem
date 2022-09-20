@@ -53,7 +53,7 @@ taudem_moveoutletstostream <- function(input_d8flowdir_grid,
   }
 
   cmd <- if (on_windows()) {
-    "moveoutletstostreams´"
+    "moveoutletstostreams"
   } else {
     "moveoutletstostrm"
   }
