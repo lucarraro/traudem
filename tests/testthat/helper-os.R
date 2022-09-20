@@ -10,7 +10,7 @@ setup_os <- function() {
       )
     )
   }
-  if (is_ci && !is_windows) {
+  if (is_ci() && !on_windows()) {
     Sys.setenv(TAUDEM_PATH="TauDEM/bin")
   }
 }
