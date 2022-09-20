@@ -3,3 +3,11 @@ cli_success <- function(...) {
     cli::cli_alert_success(...)
   }
 }
+
+is_ci <- function() {
+  nzchar(Sys.getenv("CI"))
+}
+
+on_windows <- function() {
+  (tolower(Sys.info()[["sysname"]]) == "windows")
+}

@@ -63,7 +63,7 @@ taudem_exec <- function(n_processes, args, quiet = getOption("traudem.quiet", FA
 
 register_taudem <- function() {
   if (!is_taudem_registered()) {
-    sep <- if (tolower(Sys.info()[["sysname"]]) == "windows") {
+    sep <- if (on_windows()) {
       ";"
     } else {
       ":"

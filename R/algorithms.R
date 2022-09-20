@@ -6,7 +6,7 @@ taudem_algorithms <- function() {
 # all "*mn.cpp" in https://github.com/dtarb/TauDEM/blob/Develop/src/CMakeLists.txt
 # see inst/taudem-algo-list.R
 taudem_official_list <- function() {
-  c("aread8", "areadinf", "CatchHydroGeo", "CatchOutlets", "ConnectDown",
+  algos <- c("aread8", "areadinf", "CatchHydroGeo", "CatchOutlets", "ConnectDown",
     "D8FlowDir", "D8FlowPathExtremeUp", "D8HDistToStrm", "DinfAvalanche",
     "DinfConcLimAccum", "DinfDecayAccum", "DinfDistDown", "DinfDistUp",
     "DinfFlowDir", "DinfRevAccum", "DinfTransLimAccum", "DinfUpDependence",
@@ -15,6 +15,9 @@ taudem_official_list <- function() {
     "PitRemove", "RetLimFlow", "SetRegion", "SinmapSI", "SlopeArea",
     "SlopeAreaRatio", "SlopeAveDown", "streamnet", "Threshold", "TWI"
   )
+  if (on_windows()) {
+    algos[algos == "MoveOutletsToStrm"] <- "MoveOutletsToStreams"
+  }
 }
 
 find_algo <- function(algo) {
