@@ -3,7 +3,7 @@
     x Can't find directory `blop` (TauDEM executables)
     i Register your TauDEM installation. See vignette('taudem-installation').
 
----
+# taudem_sitrep() works - missing algos
 
     x Can't find executables for `aread8`, `areadinf`, `ConnectDown`, `D8FlowDir`, `D8FlowPathExtremeUp`, `D8HDistToStrm`, `DinfAvalanche`, `DinfConcLimAccum`, `DinfDecayAccum`, `DinfDistDown`, `DinfDistUp`, `DinfFlowDir`, `DinfRevAccum`, `DinfTransLimAccum`, `DinfUpDependence`, `DropAnalysis`, `FlowdirCond`, `gagewatershed`, `gridnet`, `LengthArea`, `MoveOutletsToStrm`, `PeukerDouglas`, `PitRemove`, `SinmapSI`, `SlopeArea`, `SlopeAreaRatio`, `SlopeAveDown`, `streamnet`, `Threshold`, `TWI`
     i Try re-installing TauDEM and write down any problem.
@@ -13,7 +13,7 @@
     Code
       taudem_sitrep()
     Message <cliMessage>
-      v Found GDAL version ...
+      v Found GDAL
       v Found MPI (MPI).
       v Found TauDEM path
       v Found TauDEM executables directory.

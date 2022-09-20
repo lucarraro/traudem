@@ -10,7 +10,10 @@ test_that("taudem_sitrep() works - problems", {
 
   withr::local_envvar(TAUDEM_PATH = "blop")
   expect_snapshot_error(taudem_sitrep())
+})
 
+test_that("taudem_sitrep() works - missing algos", {
+  skip_on_os("windows")
   withr::local_envvar(TAUDEM_PATH = "..")
   expect_snapshot_error(taudem_sitrep())
 })
