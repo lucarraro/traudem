@@ -22,7 +22,9 @@ Imports:
 Suggests: 
     knitr,
     rmarkdown,
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    terra,
+    shapefiles
 VignetteBuilder: 
     knitr
 Config/testthat/edition: 3
