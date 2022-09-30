@@ -37,10 +37,10 @@ See \url{https://hydrology.usu.edu/taudem/taudem5/help53/D8FlowDirections.html}
 test_dir <- withr::local_tempdir()
 dir.create(test_dir)
  file.copy(
-   system.file("test-data", "MED_01_01.tif", package = "traudem"),
-   file.path(test_dir, "MED_01_01.tif")
+   system.file("test-data", "DEM.tif", package = "traudem"),
+   file.path(test_dir, "DEM.tif")
  )
-filled_pit <- taudem_pitremove(file.path(test_dir, "MED_01_01.tif"))
+filled_pit <- taudem_pitremove(file.path(test_dir, "DEM.tif"))
 outputs <- taudem_d8flowdir(filled_pit)
 outputs
 }

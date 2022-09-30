@@ -63,10 +63,10 @@ This is how you would use traudem to launch [TauDEM's PitRemove](https://hydrolo
 library(traudem)
 test_dir <- withr::local_tempdir()
 fs::file_copy(
-  system.file("test-data", "MED_01_01.tif", package = "traudem"),
-  file.path(test_dir, "MED_01_01.tif")
+  system.file("test-data", "DEM.tif", package = "traudem"),
+  file.path(test_dir, "DEM.tif")
 )
-output <- taudem_pitremove(file.path(test_dir, "MED_01_01.tif"))
+output <- taudem_pitremove(file.path(test_dir, "DEM.tif"))
 output
 ```
 
@@ -78,10 +78,10 @@ If you wanted to run this same code without seeing the messages from TauDEM you 
 ```{r quiet}
 test_dir <- withr::local_tempdir()
 fs::file_copy(
-  system.file("test-data", "MED_01_01.tif", package = "traudem"),
-  file.path(test_dir, "MED_01_01.tif")
+  system.file("test-data", "DEM.tif", package = "traudem"),
+  file.path(test_dir, "DEM.tif")
 )
-output <- taudem_pitremove(file.path(test_dir, "MED_01_01.tif"), quiet = TRUE)
+output <- taudem_pitremove(file.path(test_dir, "DEM.tif"), quiet = TRUE)
 output
 ```
 
@@ -91,10 +91,10 @@ Or set the `traudem.quiet` option (`options(traudem.quiet = TRUE)` or for just t
 withr::local_options(traudem.quiet = TRUE)
 test_dir <- withr::local_tempdir()
 fs::file_copy(
-  system.file("test-data", "MED_01_01.tif", package = "traudem"),
-  file.path(test_dir, "MED_01_01.tif")
+  system.file("test-data", "DEM.tif", package = "traudem"),
+  file.path(test_dir, "DEM.tif")
 )
-output <- taudem_pitremove(file.path(test_dir, "MED_01_01.tif"))
+output <- taudem_pitremove(file.path(test_dir, "DEM.tif"))
 output
 ```
 

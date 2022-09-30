@@ -15,10 +15,10 @@
 #' test_dir <- withr::local_tempdir()
 #' dir.create(test_dir)
 #'  file.copy(
-#'    system.file("test-data", "MED_01_01.tif", package = "traudem"),
-#'    file.path(test_dir, "MED_01_01.tif")
+#'    system.file("test-data", "DEM.tif", package = "traudem"),
+#'    file.path(test_dir, "DEM.tif")
 #'  )
-#' taudem_exec(n_processes = NULL, args = c("pitremove", file.path(test_dir, "MED_01_01.tif")))
+#' taudem_exec(n_processes = NULL, args = c("pitremove", file.path(test_dir, "DEM.tif")))
 #' }
 taudem_exec <- function(n_processes, args, quiet = getOption("traudem.quiet", FALSE)) {
   if (!can_register_taudem()) {

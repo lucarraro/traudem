@@ -64,7 +64,7 @@ jobs:
       #   run: |
       #     $env:Path += ";C:\Program Files\Microsoft MPI\Bin;C:\Program Files\GDAL;C:\taudem"
       #     gdalinfo --version
-      #     mpiexec pitremove inst\test-data\MED_01_01.tif
+      #     mpiexec pitremove inst\test-data\DEM.tif
 
       - uses: r-lib/actions/setup-pandoc@v2
 

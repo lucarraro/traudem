@@ -26,15 +26,15 @@ traudem::taudem_sitrep()
 #> ℹ Testing TauDEM on an example file (please wait a bit)...
 #> ── TauDEM output ───────────────────────────────────────────────────────────────
 #> PitRemove version 5.3.9
-#> Input file MED_01_01.tif has projected coordinate system.
-#> Nodata value input to create partition from file: -340282299999999994960115009090224128000.000000
-#> Nodata value recast to float used in partition raster: -340282306073709652508363335590014353408.000000
+#> Input file DEM.tif has projected coordinate system.
+#> Nodata value input to create partition from file: nan
+#> Nodata value recast to float used in partition raster: nan
 #> Processes: 1
-#> Header read time: 0.005306
-#> Data read time: 0.004124
-#> Compute time: 0.132040
-#> Write time: 0.010612
-#> Total time: 0.152082
+#> Header read time: 0.002356
+#> Data read time: 0.000814
+#> Compute time: 0.013975
+#> Write time: 0.001653
+#> Total time: 0.018798
 #> This run may take on the order of 1 minutes to complete.
 #> This estimate is very approximate. 
 #> Run time is highly uncertain as it depends on the complexity of the input data 
@@ -75,27 +75,27 @@ PitRemove](https://hydrology.usu.edu/taudem/taudem5/help53/PitRemove.html):
 library(traudem)
 test_dir <- withr::local_tempdir()
 fs::file_copy(
-  system.file("test-data", "MED_01_01.tif", package = "traudem"),
-  file.path(test_dir, "MED_01_01.tif")
+  system.file("test-data", "DEM.tif", package = "traudem"),
+  file.path(test_dir, "DEM.tif")
 )
-output <- taudem_pitremove(file.path(test_dir, "MED_01_01.tif"))
+output <- taudem_pitremove(file.path(test_dir, "DEM.tif"))
 #> PitRemove version 5.3.9
-#> Input file /tmp/Rtmpfm5SUE/filec6ea575df4ab/MED_01_01.tif has projected coordinate system.
-#> Nodata value input to create partition from file: -340282299999999994960115009090224128000.000000
-#> Nodata value recast to float used in partition raster: -340282306073709652508363335590014353408.000000
+#> Input file /tmp/Rtmppwt2DK/file77ee58a019d4/DEM.tif has projected coordinate system.
+#> Nodata value input to create partition from file: nan
+#> Nodata value recast to float used in partition raster: nan
 #> Processes: 1
-#> Header read time: 0.002646
-#> Data read time: 0.003028
-#> Compute time: 0.134566
-#> Write time: 0.012982
-#> Total time: 0.153223
+#> Header read time: 0.003353
+#> Data read time: 0.001249
+#> Compute time: 0.021129
+#> Write time: 0.002726
+#> Total time: 0.028457
 #> This run may take on the order of 1 minutes to complete.
 #> This estimate is very approximate. 
 #> Run time is highly uncertain as it depends on the complexity of the input data 
 #> and speed and memory of the computer. This estimate is based on our testing on 
 #> a dual quad core Dell Xeon E5405 2.0GHz PC with 16GB RAM.
 output
-#> [1] "/tmp/Rtmpfm5SUE/filec6ea575df4ab/MED_01_01fel.tif"
+#> [1] "/tmp/Rtmppwt2DK/file77ee58a019d4/DEMfel.tif"
 ```
 
 We ran the example above in a temporary directory that `withr`
@@ -109,12 +109,12 @@ TauDEM you can either use the `quiet` argument:
 ``` r
 test_dir <- withr::local_tempdir()
 fs::file_copy(
-  system.file("test-data", "MED_01_01.tif", package = "traudem"),
-  file.path(test_dir, "MED_01_01.tif")
+  system.file("test-data", "DEM.tif", package = "traudem"),
+  file.path(test_dir, "DEM.tif")
 )
-output <- taudem_pitremove(file.path(test_dir, "MED_01_01.tif"), quiet = TRUE)
+output <- taudem_pitremove(file.path(test_dir, "DEM.tif"), quiet = TRUE)
 output
-#> [1] "/tmp/Rtmpfm5SUE/filec6ea6da9edef/MED_01_01fel.tif"
+#> [1] "/tmp/Rtmppwt2DK/file77ee4e055910/DEMfel.tif"
 ```
 
 Or set the `traudem.quiet` option (`options(traudem.quiet = TRUE)` or
@@ -124,12 +124,12 @@ for just the session, `withr::local_options(traudem.quiet = TRUE)`):
 withr::local_options(traudem.quiet = TRUE)
 test_dir <- withr::local_tempdir()
 fs::file_copy(
-  system.file("test-data", "MED_01_01.tif", package = "traudem"),
-  file.path(test_dir, "MED_01_01.tif")
+  system.file("test-data", "DEM.tif", package = "traudem"),
+  file.path(test_dir, "DEM.tif")
 )
-output <- taudem_pitremove(file.path(test_dir, "MED_01_01.tif"))
+output <- taudem_pitremove(file.path(test_dir, "DEM.tif"))
 output
-#> [1] "/tmp/Rtmpfm5SUE/filec6ea398d0a10/MED_01_01fel.tif"
+#> [1] "/tmp/Rtmppwt2DK/file77ee33f63d8f/DEMfel.tif"
 ```
 
 ## Can traudem run all TauDEM methods?

@@ -21,10 +21,10 @@
 #' test_dir <- withr::local_tempdir()
 #' dir.create(test_dir)
 #'  file.copy(
-#'    system.file("test-data", "MED_01_01.tif", package = "traudem"),
-#'    file.path(test_dir, "MED_01_01.tif")
+#'    system.file("test-data", "DEM.tif", package = "traudem"),
+#'    file.path(test_dir, "DEM.tif")
 #'  )
-#' filled_pit <- taudem_pitremove(file.path(test_dir, "MED_01_01.tif"))
+#' filled_pit <- taudem_pitremove(file.path(test_dir, "DEM.tif"))
 #' outputs <- taudem_d8flowdir(filled_pit)
 #' outputs
 #' contributing_area_grid <- taudem_aread8(outputs$output_d8flowdir_grid)

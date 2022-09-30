@@ -1,7 +1,7 @@
 # taudem_aread8() works
 
     Code
-      output <- taudem_pitremove(file.path(test_dir, "MED_01_01.tif"))
+      output <- taudem_pitremove(file.path(test_dir, "DEM.tif"))
     Output
       PitRemove version ..
       Input file blop.tif has projected coordinate system.
@@ -35,17 +35,6 @@
       and speed and memory of the computer. This estimate is based on our testing on 
       a dual quad core Dell Xeon E .GHz PC with GB RAM.
       All slopes evaluated.  flats to resolve.
-      Draining flats towards lower adjacent terrain
-      ......................................................................................................................................................................................................................
-      Draining flats away from higher adjacent terrain
-      ........................................
-      Setting directions
-      Iteration complete. Number of flats remaining: 
-      Draining flats towards lower adjacent terrain
-      .......
-      Draining flats away from higher adjacent terrain
-      .....
-      Setting directions
     Code
       contributing_area_grid <- taudem_aread8(outputs$output_d8flowdir_grid)
     Output

@@ -145,21 +145,21 @@ taudem_sitrep <- function() {
   cli::cli_alert_info("Testing TauDEM on an example file (please wait a bit)...")
   test_dir <- withr::local_tempdir()
   file.copy(
-    system.file("test-data", "MED_01_01.tif", package = "traudem"),
-    file.path(test_dir, "MED_01_01.tif")
+    system.file("test-data", "DEM.tif", package = "traudem"),
+    file.path(test_dir, "DEM.tif")
   )
   cli::cli_rule(left = "TauDEM output")
   taudem_try <- withr::with_dir(
     test_dir, {
       taudem_exec(
           n_processes = NULL,
-          c("pitremove", "MED_01_01.tif"),
+          c("pitremove", "DEM.tif"),
           quiet = FALSE
      )
     }
   )
   cli::cli_rule(left = "End of TauDEM output")
-  if (!inherits(taudem_try, "try-error") && file.exists(file.path(test_dir, "MED_01_01fel.tif"))) {
+  if (!inherits(taudem_try, "try-error") && file.exists(file.path(test_dir, "DEMfel.tif"))) {
     cli::cli_alert_success("Was able to launch a TauDEM example!")
     cli::cli_alert_warning("Make sure you see no serious error message above.")
   } else {
