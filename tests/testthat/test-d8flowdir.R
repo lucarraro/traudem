@@ -1,4 +1,5 @@
 test_that("taudem_d8flowdir() works", {
+  skip_on_cran()
   test_dir <- withr::local_tempdir()
   file.copy(
     system.file("test-data", "DEM.tif", package = "traudem"),

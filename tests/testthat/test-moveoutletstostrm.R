@@ -1,4 +1,5 @@
 test_that("multiplication works", {
+  skip_on_cran()
   library("shapefiles")
   withr::local_options(traudem.quiet = TRUE)
   test_dir <- withr::local_tempdir()

@@ -1,4 +1,5 @@
 test_that("taudem_aread8() works", {
+  skip_on_cran()
   withr::local_options(traudem.quiet = TRUE)
   test_dir <- withr::local_tempdir()
   file.copy(
