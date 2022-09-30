@@ -1,7 +1,7 @@
 # taudem_pitremove() works
 
     Code
-      output <- taudem_pitremove(file.path(test_dir, "MED_01_01.tif"))
+      output <- taudem_pitremove(file.path(test_dir, "DEM.tif"))
     Output
       PitRemove version ..
       Input file blop.tif has projected coordinate system.
@@ -20,7 +20,7 @@
 # taudem_pitremove() works without mpiexec
 
     Code
-      output <- taudem_pitremove(file.path(test_dir, "MED_01_01.tif"))
+      output <- taudem_pitremove(file.path(test_dir, "DEM.tif"))
     Output
       PitRemove version ..
       Input file blop.tif has projected coordinate system.
@@ -39,5 +39,5 @@
 # taudem_pitremove() works quietly
 
     Code
-      output <- taudem_pitremove(file.path(test_dir, "MED_01_01.tif"))
+      output <- taudem_pitremove(file.path(test_dir, "DEM.tif"))
 
