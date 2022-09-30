@@ -1,5 +1,5 @@
 test_that("taudem_aread8() works", {
-    withr::local_options(traudem.quiet = TRUE)
+  withr::local_options(traudem.quiet = TRUE)
   test_dir <- withr::local_tempdir()
   file.copy(
     system.file("test-data", "DEM.tif", package = "traudem"),
