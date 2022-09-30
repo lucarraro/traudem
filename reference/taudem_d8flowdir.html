@@ -102,21 +102,21 @@
 <span class="r-in"><span><span class="va">test_dir</span> <span class="op">&lt;-</span> <span class="fu">withr</span><span class="fu">::</span><span class="fu"><a href="https://withr.r-lib.org/reference/with_tempfile.html" class="external-link">local_tempdir</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/files2.html" class="external-link">dir.create</a></span><span class="op">(</span><span class="va">test_dir</span><span class="op">)</span></span></span>
 <span class="r-in"><span> <span class="fu"><a href="https://rdrr.io/r/base/files.html" class="external-link">file.copy</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>   <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"test-data"</span>, <span class="st">"MED_01_01.tif"</span>, package <span class="op">=</span> <span class="st">"traudem"</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>   <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">test_dir</span>, <span class="st">"MED_01_01.tif"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>   <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"test-data"</span>, <span class="st">"DEM.tif"</span>, package <span class="op">=</span> <span class="st">"traudem"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>   <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">test_dir</span>, <span class="st">"DEM.tif"</span><span class="op">)</span></span></span>
 <span class="r-in"><span> <span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
-<span class="r-in"><span><span class="va">filled_pit</span> <span class="op">&lt;-</span> <span class="fu"><a href="taudem_pitremove.html">taudem_pitremove</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">test_dir</span>, <span class="st">"MED_01_01.tif"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">filled_pit</span> <span class="op">&lt;-</span> <span class="fu"><a href="taudem_pitremove.html">taudem_pitremove</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">test_dir</span>, <span class="st">"DEM.tif"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> PitRemove version 5.3.9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Input file /tmp/Rtmp36FJ2w/file41a06338ee9b/MED_01_01.tif has projected coordinate system.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Nodata value input to create partition from file: -340282299999999994960115009090224128000.000000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Nodata value recast to float used in partition raster: -340282306073709652508363335590014353408.000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Input file /tmp/RtmpRgaITh/file416878c7eecf/DEM.tif has projected coordinate system.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Nodata value input to create partition from file: nan</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Nodata value recast to float used in partition raster: nan</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Processes: 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Header read time: 0.003339</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Data read time: 0.003783</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Compute time: 0.050627</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Write time: 0.014726</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Total time: 0.072475</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Header read time: 0.002669</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Data read time: 0.000923</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Compute time: 0.005939</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Write time: 0.002053</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Total time: 0.011584</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">This run may take on the order of 1 minutes to complete.</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">This estimate is very approximate. </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">Run time is highly uncertain as it depends on the complexity of the input data </span></span>
@@ -124,40 +124,29 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">a dual quad core Dell Xeon E5405 2.0GHz PC with 16GB RAM.</span></span>
 <span class="r-in"><span><span class="va">outputs</span> <span class="op">&lt;-</span> <span class="fu">taudem_d8flowdir</span><span class="op">(</span><span class="va">filled_pit</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> D8FlowDir version 5.3.9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Input file /tmp/Rtmp36FJ2w/file41a06338ee9b/MED_01_01fel.tif has projected coordinate system.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Input file /tmp/RtmpRgaITh/file416878c7eecf/DEMfel.tif has projected coordinate system.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Nodata value input to create partition from file: -300000000549775575777803994281145270272.000000</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Nodata value recast to float used in partition raster: -300000000549775575777803994281145270272.000000</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Processors: 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Header read time: 0.003252</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Data read time: 0.007270</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Compute Slope time: 0.050849</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Write Slope time: 0.009737</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Resolve Flat time: 5.688030</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Write Flat time: 0.007957</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Total time: 5.767095</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Header read time: 0.002576</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Data read time: 0.000931</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Compute Slope time: 0.004959</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Write Slope time: 0.002072</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Resolve Flat time: 0.000021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Write Flat time: 0.000979</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Total time: 0.011539</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">This run may take on the order of 1 minutes to complete.</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">This estimate is very approximate. </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">Run time is highly uncertain as it depends on the complexity of the input data </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">and speed and memory of the computer. This estimate is based on our testing on </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">a dual quad core Dell Xeon E5405 2.0GHz PC with 16GB RAM.</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">All slopes evaluated. 151718 flats to resolve.</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">Draining flats towards lower adjacent terrain</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">......................................................................................................................................................................................................................</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">Draining flats away from higher adjacent terrain</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">........................................</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">Setting directions</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">Iteration complete. Number of flats remaining: 283</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">Draining flats towards lower adjacent terrain</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">.......</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">Draining flats away from higher adjacent terrain</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">.....</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">Setting directions</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">All slopes evaluated. 0 flats to resolve.</span></span>
 <span class="r-in"><span><span class="va">outputs</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $output_d8flowdir_grid</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/tmp/Rtmp36FJ2w/file41a06338ee9b/MED_01_01feld8flowdir.tif"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/tmp/RtmpRgaITh/file416878c7eecf/DEMfeld8flowdir.tif"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $output_d8slopes_grid</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/tmp/Rtmp36FJ2w/file41a06338ee9b/MED_01_01feld8slopes.tif"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/tmp/RtmpRgaITh/file416878c7eecf/DEMfeld8slopes.tif"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
