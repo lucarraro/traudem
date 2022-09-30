@@ -17,6 +17,7 @@ test_that("taudem_pitremove() works", {
 })
 
 test_that("taudem_pitremove() works without mpiexec", {
+  skip_on_cran()
   test_dir <- withr::local_tempdir()
   withr::local_options("traudem.n_processes" = NULL)
   file.copy(
@@ -32,6 +33,7 @@ test_that("taudem_pitremove() works without mpiexec", {
 
 
 test_that("taudem_pitremove() works quietly", {
+  skip_on_cran()
   test_dir <- withr::local_tempdir()
   withr::local_options("traudem.quiet" = TRUE)
   file.copy(
