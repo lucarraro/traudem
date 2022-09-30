@@ -14,6 +14,6 @@ test_that("taudem_d8flowdir() works", {
   p <- terra::rast(outputs$output_d8flowdir_grid)
   sd8 <- terra::rast(outputs$output_d8slopes_grid)
 
-  expect_equal(sum(terra::values(sd8)>500, na.rm = T), 13)
+  expect_equal(sum(terra::values(sd8) > 500, na.rm = T), 13)
 
 })

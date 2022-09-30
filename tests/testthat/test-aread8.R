@@ -1,16 +1,30 @@
 test_that("taudem_aread8() works", {
+  withr::local_options(traudem.quiet = TRUE)
   test_dir <- withr::local_tempdir()
   file.copy(
-    system.file("test-data", "MED_01_01.tif", package = "traudem"),
-    file.path(test_dir, "MED_01_01.tif")
+    system.file("test-data", "DEM.tif", package = "traudem"),
+    file.path(test_dir, "DEM.tif")
   )
-  expect_snapshot({
-    output <- taudem_pitremove(file.path(test_dir, "MED_01_01.tif"))
-    outputs <- taudem_d8flowdir(output)
-    contributing_area_grid <- taudem_aread8(outputs$output_d8flowdir_grid)
-    contributing_area_grid2 <- taudem_aread8(outputs$output_d8flowdir_grid, check_edge_contamination = FALSE)
-  },
-    transform = taudem_transform)
-  expect_true(file.exists(contributing_area_grid))
-  expect_true(file.exists(contributing_area_grid2))
+  withr::local_dir(test_dir)
+  taudem_pitremove(
+    input_elevation_grid = "DEM.tif",
+    output_elevation_grid = "DEMfel.tif"
+  )
+
+  # D8 flow direction ####
+  taudem_d8flowdir(
+    input_elevation_grid = "DEMfel.tif",
+    output_d8flowdir_grid = "DEMp.tif",
+    output_d8slopes_grid = "DEMsd8.tif"
+  )
+
+  # D8 contributing area ####
+  taudem_aread8(
+    input_d8flowdir_grid = "DEMp.tif",
+    output_contributing_area_grid = "DEMad8.tif"
+  )
+  ad8 <- terra::rast("DEMad8.tif")
+
+  expect_equal(max(terra::values(ad8), na.rm = T), 7318)
+
 })
