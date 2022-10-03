@@ -46,7 +46,7 @@ If you need to, install GDAL using the official [GDAL docs](https://gdal.org/dow
 ### MPI
 
 First try running `mpiexec --version` in a terminal.
-If it works and return something you do not need to install MPI unless you want a newer version.
+If it works and returns something, you do not need to install MPI unless you want a newer version.
 
 If you need to, install MPI using the official [MPI docs](https://www.open-mpi.org/software/ompi/v4.1/) (or refer to [TauDEM README](https://github.com/dtarb/TauDEM/) for further suggestions). 
 
@@ -58,7 +58,7 @@ First you need to obtain TauDEM source for GitHub <https://github.com/dtarb/TauD
 If you are at ease with this, you can clone the repository.
 If not, find the green button that allows you to clone, open (with GitHub CLI) or download, and download the ZIP version.
 
-We recommend using CMake because that is what we did but [TauDEM README](https://github.com/dtarb/TauDEM/) for further suggestions) also has a method using Make.
+We recommend using CMake because that is what we did but [TauDEM README](https://github.com/dtarb/TauDEM/) also has a method using Make.
 Therefore,
 
 * install CMake or Make (check it's not already installed);
