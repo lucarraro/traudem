@@ -38,8 +38,7 @@ Layer name and layer number should not both be specified.}
 
 \item{n_processes}{Number of processes for \code{mpiexec}. If \code{NULL} TauDEM is called without mpiexec.}
 
-\item{quiet}{If \code{FALSE} output from TauDEM CLI is suppressed.
-´}
+\item{quiet}{If \code{FALSE} output from TauDEM CLI is suppressed.}
 }
 \value{
 Path to output file (invisibly)

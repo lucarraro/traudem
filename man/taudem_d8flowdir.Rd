@@ -21,8 +21,7 @@ taudem_d8flowdir(
 
 \item{n_processes}{Number of processes for \code{mpiexec}. If \code{NULL} TauDEM is called without mpiexec.}
 
-\item{quiet}{If \code{FALSE} output from TauDEM CLI is suppressed.
-´}
+\item{quiet}{If \code{FALSE} output from TauDEM CLI is suppressed.}
 }
 \value{
 List with the two output filenames

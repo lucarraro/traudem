@@ -8,7 +8,7 @@
 #' @param n_processes Number of processes for `mpiexec`. If `NULL` TauDEM is called without mpiexec.
 #' @param args Character vector of argument, starting with the TauDEM command. See examples.
 #' @param quiet If `FALSE` output from TauDEM CLI is suppressed.
-#'´
+#'
 #' @return `TRUE` if the call was successful, `FALSE` otherwise.
 #' @export
 #'
