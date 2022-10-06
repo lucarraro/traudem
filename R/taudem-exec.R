@@ -2,11 +2,13 @@
 #'
 #' @details You can use this function to call more TauDEM methods
 #' than the ones with dedicated wrappers in this package.
+#' Please refer to the relative TauDEM function documentation for the syntax used to specify optional arguments.
+#' See also examples.
 #'
 #' @param n_processes Number of processes for `mpiexec`. If `NULL` TauDEM is called without mpiexec.
 #' @param args Character vector of argument, starting with the TauDEM command. See examples.
 #' @param quiet If `FALSE` output from TauDEM CLI is suppressed.
-#'
+#'´
 #' @return `TRUE` if the call was successful, `FALSE` otherwise.
 #' @export
 #'
@@ -14,13 +16,22 @@
 #' \dontrun{
 #' test_dir <- withr::local_tempdir()
 #' dir.create(test_dir)
-#'  file.copy(
+#' file.copy(
 #'    system.file("test-data", "DEM.tif", package = "traudem"),
 #'    file.path(test_dir, "DEM.tif")
 #'  )
-#' taudem_exec(n_processes = NULL, args = c("pitremove", file.path(test_dir, "DEM.tif")))
+#'  # Default name for output file, only input command and input filename.
+#' taudem_exec(c("pitremove", file.path(test_dir, "DEM.tif")))
+#'
+#' # syntax for user-attributed output file name
+#' taudem_exec(
+#'   c(
+#'   "pitremove",
+#'   "-z", file.path(test_dir, "DEM.tif"),
+#'   "-fel", file.path(test_dir,"filled_pits.tif"))
+#'  )
 #' }
-taudem_exec <- function(n_processes, args, quiet = getOption("traudem.quiet", FALSE)) {
+taudem_exec <- function(args, n_processes = getOption("traudem.n_processes", 1), quiet = getOption("traudem.quiet", FALSE)) {
   if (!can_register_taudem()) {
     rlang::abort(
       message = c(

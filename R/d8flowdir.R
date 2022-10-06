@@ -54,6 +54,13 @@ taudem_d8flowdir <- function(input_elevation_grid,
     "-sd8", output_d8slopes_grid
   )
   taudem_exec(n_processes = n_processes, args = args, quiet = quiet)
+
+  output1_exists <- file.exists(output_d8flowdir_grid)
+  output2_exists <- file.exists(output_d8slopes_grid)
+  if (!all(c(output1_exists, output2_exists))) {
+    rlang::abort("TauDEM error, see messages above.")
+  }
+
   return(invisible(list(
     output_d8flowdir_grid = output_d8flowdir_grid,
     output_d8slopes_grid = output_d8slopes_grid

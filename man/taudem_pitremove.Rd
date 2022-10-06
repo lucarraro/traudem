@@ -24,7 +24,8 @@ taudem_pitremove(
 
 \item{depmask}{Depression mask file (optional)}
 
-\item{quiet}{If \code{FALSE} output from TauDEM CLI is suppressed.}
+\item{quiet}{If \code{FALSE} output from TauDEM CLI is suppressed.
+´}
 }
 \value{
 Path to output file (invisibly)

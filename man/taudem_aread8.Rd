@@ -35,7 +35,8 @@ Layer name and layer number should not both be specified.}
 \item{outlet_layer_number}{OGR layer number if outlets are not the first layer in \code{outlet_file} (optional).
 Layer name and layer number should not both be specified.}
 
-\item{quiet}{If \code{FALSE} output from TauDEM CLI is suppressed.}
+\item{quiet}{If \code{FALSE} output from TauDEM CLI is suppressed.
+´}
 }
 \value{
 Path to output file (invisibly)

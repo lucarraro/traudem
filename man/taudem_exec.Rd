@@ -4,14 +4,19 @@
 \alias{taudem_exec}
 \title{Call TauDEM}
 \usage{
-taudem_exec(n_processes, args, quiet = getOption("traudem.quiet", FALSE))
+taudem_exec(
+  args,
+  n_processes = getOption("traudem.n_processes", 1),
+  quiet = getOption("traudem.quiet", FALSE)
+)
 }
 \arguments{
-\item{n_processes}{Number of processes for \code{mpiexec}. If \code{NULL} TauDEM is called without mpiexec.}
-
 \item{args}{Character vector of argument, starting with the TauDEM command. See examples.}
 
-\item{quiet}{If \code{FALSE} output from TauDEM CLI is suppressed.}
+\item{n_processes}{Number of processes for \code{mpiexec}. If \code{NULL} TauDEM is called without mpiexec.}
+
+\item{quiet}{If \code{FALSE} output from TauDEM CLI is suppressed.
+´}
 }
 \value{
 \code{TRUE} if the call was successful, \code{FALSE} otherwise.
@@ -22,15 +27,26 @@ Call TauDEM
 \details{
 You can use this function to call more TauDEM methods
 than the ones with dedicated wrappers in this package.
+Please refer to the relative TauDEM function documentation for the syntax used to specify optional arguments.
+See also examples.
 }
 \examples{
 \dontrun{
 test_dir <- withr::local_tempdir()
 dir.create(test_dir)
- file.copy(
+file.copy(
    system.file("test-data", "DEM.tif", package = "traudem"),
    file.path(test_dir, "DEM.tif")
  )
-taudem_exec(n_processes = NULL, args = c("pitremove", file.path(test_dir, "DEM.tif")))
+ # Default name for output file, only input command and input filename.
+taudem_exec(c("pitremove", file.path(test_dir, "DEM.tif")))
+
+# syntax for user-attributed output file name
+taudem_exec(
+  c(
+  "pitremove",
+  "-z", file.path(test_dir, "DEM.tif"),
+  "-fel", file.path(test_dir,"filled_pits.tif"))
+ )
 }
 }

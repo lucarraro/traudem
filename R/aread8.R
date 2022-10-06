@@ -90,5 +90,8 @@ taudem_aread8 <- function(input_d8flowdir_grid,
   }
 
   taudem_exec(n_processes = n_processes, args = args, quiet = quiet)
+  if (!file.exists(output_contributing_area_grid)) {
+    rlang::abort("TauDEM error, see messages above.")
+  }
   return(invisible(output_contributing_area_grid))
 }

@@ -57,5 +57,10 @@ taudem_pitremove <- function(input_elevation_grid,
   }
 
   taudem_exec(n_processes = n_processes, args = args, quiet = quiet)
+
+  if (!file.exists(output_elevation_grid)) {
+    rlang::abort("TauDEM error, see messages above.")
+  }
+
   return(invisible(output_elevation_grid))
 }
