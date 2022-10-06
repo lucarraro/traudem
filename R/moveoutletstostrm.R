@@ -82,5 +82,10 @@ taudem_moveoutletstostream <- function(input_d8flowdir_grid,
     args <- c(args, "-lyrno", outlet_layer_number)
   }
   taudem_exec(n_processes = n_processes, args = args, quiet = quiet)
+
+  if (!file.exists(output_moved_outlets_file)) {
+    rlang::abort("TauDEM error, see messages above.")
+  }
+
   return(invisible(output_moved_outlets_file))
 }
