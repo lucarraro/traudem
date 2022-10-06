@@ -49,7 +49,7 @@ taudem_moveoutletstostream <- function(input_d8flowdir_grid,
       "%sthresholded",
       tools::file_path_sans_ext(input_d8flowdir_grid)
     )
-    output_moved_outlets_file <- sprintf("%movedoutlet.shp", output_moved_outlets_file_file)
+    output_moved_outlets_file <- sprintf("%smovedoutlet.shp", output_moved_outlets_file_file)
   }
 
   cmd <- if (on_windows()) {
