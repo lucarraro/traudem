@@ -11,3 +11,7 @@ is_ci <- function() {
 on_windows <- function() {
   (tolower(Sys.info()[["sysname"]]) == "windows")
 }
+
+release_bullets <- function() {
+  c("Update vignette cf https://ropensci.org/blog/2019/12/08/precompute-vignettes/")
+}
