@@ -22,7 +22,7 @@ The goal of traudem is to wrap the [TauDEM CLI](https://hydrology.usu.edu/taudem
 
 ## Installation
 
-Refer to [`vignette("taudem-installation", package = "traudem")`](https://cynkra.github.io/traudem/articles/taudem-installation.html).
+Refer to [`vignette("taudem-installation", package = "traudem")`](https://lucarraro.github.io/traudem/articles/taudem-installation.html).
 In particular after installing the TauDEM CLI and dependencies as well as the R package, please run `traudem::taudem_sitrep()`.
 
 ```{r, echo=FALSE}
@@ -36,10 +36,10 @@ traudem::taudem_sitrep()
 You can install the development version of traudem from R-universe:
 
 ```r
-# Enable repository from cynkra
+# Enable repository from lucarraro
 options(
   repos = c(
-    cynkra = 'https://cynkra.r-universe.dev',
+    lucarraro = 'https://lucarraro.r-universe.dev',
     CRAN = 'https://cloud.r-project.org'
   )
 )
@@ -52,7 +52,7 @@ Or from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("cynkra/traudem")
+devtools::install_github("lucarraro/traudem")
 ```
 
 ## Example

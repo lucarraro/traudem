@@ -12,7 +12,7 @@ CLI](https://hydrology.usu.edu/taudem/taudem5/index.html) from R.
 ## Installation
 
 Refer to
-[`vignette("taudem-installation", package = "traudem")`](https://cynkra.github.io/traudem/articles/taudem-installation.html).
+[`vignette("taudem-installation", package = "traudem")`](https://lucarraro.github.io/traudem/articles/taudem-installation.html).
 In particular after installing the TauDEM CLI and dependencies as well
 as the R package, please run `traudem::taudem_sitrep()`.
 
@@ -30,11 +30,11 @@ traudem::taudem_sitrep()
 #> Nodata value input to create partition from file: nan
 #> Nodata value recast to float used in partition raster: nan
 #> Processes: 1
-#> Header read time: 0.002356
-#> Data read time: 0.000814
-#> Compute time: 0.013975
-#> Write time: 0.001653
-#> Total time: 0.018798
+#> Header read time: 0.006746
+#> Data read time: 0.001771
+#> Compute time: 0.019569
+#> Write time: 0.002272
+#> Total time: 0.030358
 #> This run may take on the order of 1 minutes to complete.
 #> This estimate is very approximate. 
 #> Run time is highly uncertain as it depends on the complexity of the input data 
@@ -48,10 +48,10 @@ traudem::taudem_sitrep()
 You can install the development version of traudem from R-universe:
 
 ``` r
-# Enable repository from cynkra
+# Enable repository from lucarraro
 options(
   repos = c(
-    cynkra = 'https://cynkra.r-universe.dev',
+    lucarraro = 'https://lucarraro.r-universe.dev',
     CRAN = 'https://cloud.r-project.org'
   )
 )
@@ -63,7 +63,7 @@ Or from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("cynkra/traudem")
+devtools::install_github("lucarraro/traudem")
 ```
 
 ## Example
@@ -80,22 +80,22 @@ fs::file_copy(
 )
 output <- taudem_pitremove(file.path(test_dir, "DEM.tif"))
 #> PitRemove version 5.3.9
-#> Input file /tmp/Rtmppwt2DK/file77ee58a019d4/DEM.tif has projected coordinate system.
+#> Input file /tmp/RtmpE4euyO/file30dadaad4b1/DEM.tif has projected coordinate system.
 #> Nodata value input to create partition from file: nan
 #> Nodata value recast to float used in partition raster: nan
 #> Processes: 1
-#> Header read time: 0.003353
-#> Data read time: 0.001249
-#> Compute time: 0.021129
-#> Write time: 0.002726
-#> Total time: 0.028457
+#> Header read time: 0.007956
+#> Data read time: 0.002180
+#> Compute time: 0.021669
+#> Write time: 0.001902
+#> Total time: 0.033708
 #> This run may take on the order of 1 minutes to complete.
 #> This estimate is very approximate. 
 #> Run time is highly uncertain as it depends on the complexity of the input data 
 #> and speed and memory of the computer. This estimate is based on our testing on 
 #> a dual quad core Dell Xeon E5405 2.0GHz PC with 16GB RAM.
 output
-#> [1] "/tmp/Rtmppwt2DK/file77ee58a019d4/DEMfel.tif"
+#> [1] "/tmp/RtmpE4euyO/file30dadaad4b1/DEMfel.tif"
 ```
 
 We ran the example above in a temporary directory that `withr`
@@ -114,7 +114,7 @@ fs::file_copy(
 )
 output <- taudem_pitremove(file.path(test_dir, "DEM.tif"), quiet = TRUE)
 output
-#> [1] "/tmp/Rtmppwt2DK/file77ee4e055910/DEMfel.tif"
+#> [1] "/tmp/RtmpE4euyO/file30da6c305b40/DEMfel.tif"
 ```
 
 Or set the `traudem.quiet` option (`options(traudem.quiet = TRUE)` or
@@ -129,7 +129,7 @@ fs::file_copy(
 )
 output <- taudem_pitremove(file.path(test_dir, "DEM.tif"))
 output
-#> [1] "/tmp/Rtmppwt2DK/file77ee33f63d8f/DEMfel.tif"
+#> [1] "/tmp/RtmpE4euyO/file30da4666aed3/DEMfel.tif"
 ```
 
 ## Can traudem run all TauDEM methods?
