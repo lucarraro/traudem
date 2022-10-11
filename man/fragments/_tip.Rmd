@@ -1,0 +1,8 @@
+## What should I do if I do not retrieve the desired catchment?
+
+It might happen that, even when the coordinates of the catchment outlet are precisely attributed, the obtained catchment shape is not the desired one (in particular, much smaller than the sought one). This might be due to issues in determining the correct outlet position in the extracted river network. In fact, the outlet position is moved downslope from the initial, user-specified location `(x_outlet, y_outlet)` to the closest stream cell via function `taudem_moveoutletstostream`. Depending on the terrain topography and the DEM resolution, the extracted river network might not overlap exactly with real river networks, hence the possible errors.
+
+To solve this issue, it is suggested to:
+
+- Slightly change the coordinates `x_outlet`, `y_outlet`, to better align the input outlet location with the extracted stream cells.
+- Change argument `threshold_parameter` in `taudem_threshold`. Stream cells are defined as cells with drainage area not smaller than `threshold_parameter` (expressed in number of cells). If `threshold_parameter` is too large, the actual outlet location will be moved too far away in the downstream direction; if too small, the actual outlet location will not be moved enough in the downstream direction.

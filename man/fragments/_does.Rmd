@@ -1,0 +1,19 @@
+## Scope of traudem
+
+### What this package does
+
+- It provides a guide to installation of TauDEM and its dependencies GDAL and MPI depending on your operating system.
+- It checks that TauDEM and its dependencies are correctly installed and included to the PATH. 
+- It provides wrapper commands that allow calling TauDEM methods from R.
+
+### What this package does not
+
+- It does not provide an automatic installation of TauDEM and its dependencies. Please refer to the `vignette("taudem-installation")` for instructions on this.
+- It does not provide extensive documentation on the functioning of TauDEM commands. Please refer to the [original TauDEM documentation](https://hydrology.usu.edu/taudem/taudem5/index.html) for that.
+
+### Can traudem run all TauDEM methods?
+
+Yes!
+Some TauDEM methods have dedicated wrappers like `taudem_pitremove()`, with argument names that we strived to make informative.
+For other methods, you can use `taudem_exec()` and provide the arguments as TauDEM CLI would expect them.
+You could make a PR to this repository to add more dedicated wrappers.

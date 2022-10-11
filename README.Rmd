@@ -20,87 +20,22 @@ knitr::opts_chunk$set(
 
 The goal of traudem is to wrap the [TauDEM CLI](https://hydrology.usu.edu/taudem/taudem5/index.html) from R.
 
-## Installation
 
-Refer to [`vignette("taudem-installation", package = "traudem")`](https://lucarraro.github.io/traudem/articles/taudem-installation.html).
-In particular after installing the TauDEM CLI and dependencies as well as the R package, please run `traudem::taudem_sitrep()`.
-
-```{r, echo=FALSE}
-Sys.setenv(TAUDEM_PATH="/usr/local/taudem")
+```{r, child="man/fragments/_does.Rmd"}
 ```
 
-```{r}
-traudem::taudem_sitrep()
+```{r, child="man/fragments/_installation.Rmd"}
 ```
 
-You can install the development version of traudem from R-universe:
+```{r, child="man/fragments/_example-simple.Rmd"}
+```
 
-```r
-# Enable repository from lucarraro
-options(
-  repos = c(
-    lucarraro = 'https://lucarraro.r-universe.dev',
-    CRAN = 'https://cloud.r-project.org'
-  )
-)
-# Download and install traudem in R
-install.packages('traudem')
+```{r, child="man/fragments/_example.Rmd"}
+```
+
+```{r, child="man/fragments/_tip.Rmd"}
 ```
 
 
-Or from [GitHub](https://github.com/) with:
 
-``` r
-# install.packages("devtools")
-devtools::install_github("lucarraro/traudem")
-```
 
-## Example
-
-This is how you would use traudem to launch [TauDEM's PitRemove](https://hydrology.usu.edu/taudem/taudem5/help53/PitRemove.html):
-
-```{r example}
-library(traudem)
-test_dir <- withr::local_tempdir()
-fs::file_copy(
-  system.file("test-data", "DEM.tif", package = "traudem"),
-  file.path(test_dir, "DEM.tif")
-)
-output <- taudem_pitremove(file.path(test_dir, "DEM.tif"))
-output
-```
-
-We ran the example above in a temporary directory that `withr` automatically deletes.
-If you want to automatically get rid of some of the intermediary files created by TauDEM in one of your pipelines, you might be interested in `withr::local_tempfile()`.
-
-If you wanted to run this same code without seeing the messages from TauDEM you can either use the `quiet` argument:
-
-```{r quiet}
-test_dir <- withr::local_tempdir()
-fs::file_copy(
-  system.file("test-data", "DEM.tif", package = "traudem"),
-  file.path(test_dir, "DEM.tif")
-)
-output <- taudem_pitremove(file.path(test_dir, "DEM.tif"), quiet = TRUE)
-output
-```
-
-Or set the `traudem.quiet` option (`options(traudem.quiet = TRUE)` or for just the session, `withr::local_options(traudem.quiet = TRUE)`):
-
-```{r quietoption}
-withr::local_options(traudem.quiet = TRUE)
-test_dir <- withr::local_tempdir()
-fs::file_copy(
-  system.file("test-data", "DEM.tif", package = "traudem"),
-  file.path(test_dir, "DEM.tif")
-)
-output <- taudem_pitremove(file.path(test_dir, "DEM.tif"))
-output
-```
-
-## Can traudem run all TauDEM methods?
-
-Yes!
-Some TauDEM methods have dedicated wrappers like `taudem_pitremove()`, with argument names that we strived to make informative.
-For other methods, you can use `taudem_exec()` and provide the arguments as TauDEM CLI would expect them.
-You could make a PR to this repository to add more dedicated wrappers.

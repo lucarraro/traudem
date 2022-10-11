@@ -1,0 +1,34 @@
+---
+title: "traudem"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{traudem}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(traudem)
+```
+
+```{r, child="../man/fragments/_does.Rmd"}
+```
+
+```{r, child="../man/fragments/_installation.Rmd"}
+```
+
+```{r, child="../man/fragments/_example-simple.Rmd"}
+```
+
+```{r, child="../man/fragments/_example.Rmd"}
+```
+
+```{r, child="../man/fragments/_tip.Rmd"}
+```
