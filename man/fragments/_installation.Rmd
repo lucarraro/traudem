@@ -3,10 +3,6 @@
 Refer to [`vignette("taudem-installation", package = "traudem")`](https://lucarraro.github.io/traudem/articles/taudem-installation.html).
 In particular after installing the TauDEM CLI and dependencies as well as the R package, please run `traudem::taudem_sitrep()`.
 
-```{r, echo=FALSE}
-Sys.setenv(TAUDEM_PATH="/usr/local/taudem")
-```
-
 ```{r}
 traudem::taudem_sitrep()
 ```
