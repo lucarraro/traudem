@@ -14,9 +14,9 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup, echo=FALSE}
+```{r setup2, echo=FALSE}
 setup_os <- function() {
-  if (traudem:::is_ci() && (traudem:::on_windows()) {
+  if (traudem:::is_ci() && traudem:::on_windows()) {
     Sys.setenv(
       PATH = paste0(
         "C:\\Program Files\\Microsoft MPI\\bin;",
