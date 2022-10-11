@@ -14,13 +14,13 @@ knitr::opts_chunk$set(
 )
 ```
 
-Installing TauDEM actually means installing 3 tools
+Installing TauDEM actually means installing 3 tools:
 
 * GDAL that TauDEM uses under the hood;
 * MPI that R will call to launch TauDEM;
 * TauDEM itself.
 
-No matter your operating system, take notes of the steps you follow.
+No matter your operating system, **take notes of the steps you follow**.
 This way, if anything goes wrong, you will be able to open an informative bug report and get help more easily.
 
 ## Windows
@@ -32,7 +32,32 @@ Refer to <https://hydrology.usu.edu/taudem/taudem5/downloads.html>.
 ```{r, child="../man/fragments/_sitrep.Rmd"}
 ```
 
-## Linux and macOS
+
+## macOS
+
+To install the dependencies, [Homebrew][1] is recommended. It is a
+package manager, similar to APT on Linux systems.
+
+1. Open a terminal.
+2. Download and install GDAL and MPICH: `brew install gdal mpich`
+3. Go to the [Github page of TauDEM][2] and download the code as ZIP
+4. Extract it and move the folder `TauDEM-Develop` to a convenient place, e.g. `/Users/$USER/Documents/TauDEM`
+5. Go back to the terminal and go into the directory with `cd /Users/$USER/Documents/TauDEM/TauDEM-Develop`
+6. Create a folder where the executables will be installed in: `mkdir bin`
+7. Go into source folder, create a build folder and go into with `cd src && mkdir build && cd build`
+8. Build with `cmake ..`. If not installed yet, use again homebrew `brew install cmake` and retry.
+9. Finalize with `make && sudo make install` and the executable files will end up in `/usr/local/taudem/`.
+10. Add the location of the executable files to your path environment variable. This is a bit tricky
+    on macOS, since RStudio and the package only see the path added to `/etc/paths.d/`. So add it  
+    with the following two commands: `echo "/usr/local/taudem/" > taudem` and `sudo mv taudem /etc/paths.d/`.
+
+```{r, child="../man/fragments/_sitrep.Rmd"}
+```
+
+[1]: https://brew.sh
+[2]: https://github.com/dtarb/TauDEM
+
+## Linux
 
 ### GDAL
 
