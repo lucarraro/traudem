@@ -77,13 +77,13 @@
 
     
     
-<p>Installing TauDEM actually means installing 3 tools</p>
+<p>Installing TauDEM actually means installing 3 tools:</p>
 <ul>
 <li>GDAL that TauDEM uses under the hood;</li>
 <li>MPI that R will call to launch TauDEM;</li>
 <li>TauDEM itself.</li>
 </ul>
-<p>No matter your operating system, take notes of the steps you follow. This way, if anything goes wrong, you will be able to open an informative bug report and get help more easily.</p>
+<p>No matter your operating system, <strong>take notes of the steps you follow</strong>. This way, if anything goes wrong, you will be able to open an informative bug report and get help more easily.</p>
 <div class="section level2">
 <h2 id="windows">Windows<a class="anchor" aria-label="anchor" href="#windows"></a>
 </h2>
@@ -108,7 +108,7 @@
 <h4 id="or-add-an-environmental-variable">OR add an environmental variable<a class="anchor" aria-label="anchor" href="#or-add-an-environmental-variable"></a>
 </h4>
 <p>Add an R environmental variable called <code>TAUDEM_PATH</code> that points to the location where the TauDEM executables can be found (on Windows it might be <code>C:\Program Files\TauDEM</code>, on Ubuntu <code>/usr/local/taudem</code>).</p>
-<p>For instance on Ubuntu it could be adding this line in <code>.Renviron</code> (see <code>usethis::edit_r_environ()</code>) and then re-starting R:</p>
+<p>For instance on Ubuntu it could be adding this line in <code>.Renviron</code> (see <code><a href="https://usethis.r-lib.org/reference/edit.html" class="external-link">usethis::edit_r_environ()</a></code>) and then re-starting R:</p>
 <pre><code><span><span class="va">TAUDEM_PATH</span><span class="op">=</span><span class="st">'/usr/local/taudem'</span></span></code></pre>
 <p>or, for just the session, running this line of R code:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
@@ -123,7 +123,63 @@
 </div>
 </div>
 <div class="section level2">
-<h2 id="linux-and-macos">Linux and macOS<a class="anchor" aria-label="anchor" href="#linux-and-macos"></a>
+<h2 id="macos">macOS<a class="anchor" aria-label="anchor" href="#macos"></a>
+</h2>
+<p>To install the dependencies, <a href="https://brew.sh" class="external-link">Homebrew</a> is recommended. It is a package manager, similar to APT on Linux systems.</p>
+<ol style="list-style-type: decimal">
+<li>Open a terminal.</li>
+<li>Download and install GDAL and MPICH: <code>brew install gdal mpich</code>
+</li>
+<li>Go to the <a href="https://github.com/dtarb/TauDEM" class="external-link">Github page of TauDEM</a> and download the code as ZIP</li>
+<li>Extract it and move the folder <code>TauDEM-Develop</code> to a convenient place, e.g. <code>/Users/$USER/Documents/TauDEM</code>
+</li>
+<li>Go back to the terminal and go into the directory with <code>cd /Users/$USER/Documents/TauDEM/TauDEM-Develop</code>
+</li>
+<li>Create a folder where the executables will be installed in: <code>mkdir bin</code>
+</li>
+<li>Go into source folder, create a build folder and go into with <code>cd src &amp;&amp; mkdir build &amp;&amp; cd build</code>
+</li>
+<li>Build with <code>cmake ..</code>. If not installed yet, use again homebrew <code>brew install cmake</code> and retry.</li>
+<li>Finalize with <code>make &amp;&amp; sudo make install</code> and the executable files will end up in <code>/usr/local/taudem/</code>.</li>
+<li>Add the location of the executable files to your path environment variable. This is a bit tricky on macOS, since RStudio and the package only see the path added to <code>/etc/paths.d/</code>. So add it<br>
+with the following two commands: <code>echo "/usr/local/taudem/" &gt; taudem</code> and <code>sudo mv taudem /etc/paths.d/</code>.</li>
+</ol>
+</div>
+<div class="section level2">
+<h2 id="finalize-your-installation-1">Finalize your installation<a class="anchor" aria-label="anchor" href="#finalize-your-installation-1"></a>
+</h2>
+<p>Once you are done,</p>
+<div class="section level3">
+<h3 id="register-taudem-in-r-1">Register TauDEM in R<a class="anchor" aria-label="anchor" href="#register-taudem-in-r-1"></a>
+</h3>
+<div class="section level4">
+<h4 id="add-taudem-to-the-path-1">Add TauDEM to the PATH<a class="anchor" aria-label="anchor" href="#add-taudem-to-the-path-1"></a>
+</h4>
+<ul>
+<li>The Windows installer might have done this automatically.</li>
+<li>For other operating systems (macOS, Linux) use your usual method to add a directory to the PATH.</li>
+</ul>
+</div>
+<div class="section level4">
+<h4 id="or-add-an-environmental-variable-1">OR add an environmental variable<a class="anchor" aria-label="anchor" href="#or-add-an-environmental-variable-1"></a>
+</h4>
+<p>Add an R environmental variable called <code>TAUDEM_PATH</code> that points to the location where the TauDEM executables can be found (on Windows it might be <code>C:\Program Files\TauDEM</code>, on Ubuntu <code>/usr/local/taudem</code>).</p>
+<p>For instance on Ubuntu it could be adding this line in <code>.Renviron</code> (see <code><a href="https://usethis.r-lib.org/reference/edit.html" class="external-link">usethis::edit_r_environ()</a></code>) and then re-starting R:</p>
+<pre><code><span><span class="va">TAUDEM_PATH</span><span class="op">=</span><span class="st">'/usr/local/taudem'</span></span></code></pre>
+<p>or, for just the session, running this line of R code:</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Sys.setenv.html" class="external-link">Sys.setenv</a></span><span class="op">(</span>TAUDEM_PATH<span class="op">=</span><span class="st">'/usr/local/taudem'</span><span class="op">)</span></span></code></pre></div>
+</div>
+</div>
+<div class="section level3">
+<h3 id="check-your-installation-1">Check your installation<a class="anchor" aria-label="anchor" href="#check-your-installation-1"></a>
+</h3>
+<p>Run <code><a href="../reference/taudem_sitrep.html">traudem::taudem_sitrep()</a></code> and read its output carefully. Pay attention to any error that might indicate part of the installation was not successful.</p>
+<p>If all is well (no error, only normal output from TauDEM), congratulations! Your system is ready to apply TauDEM to your own data.</p>
+</div>
+</div>
+<div class="section level2">
+<h2 id="linux">Linux<a class="anchor" aria-label="anchor" href="#linux"></a>
 </h2>
 <div class="section level3">
 <h3 id="gdal">GDAL<a class="anchor" aria-label="anchor" href="#gdal"></a>
@@ -161,14 +217,14 @@
 </div>
 </div>
 <div class="section level2">
-<h2 id="finalize-your-installation-1">Finalize your installation<a class="anchor" aria-label="anchor" href="#finalize-your-installation-1"></a>
+<h2 id="finalize-your-installation-2">Finalize your installation<a class="anchor" aria-label="anchor" href="#finalize-your-installation-2"></a>
 </h2>
 <p>Once you are done,</p>
 <div class="section level3">
-<h3 id="register-taudem-in-r-1">Register TauDEM in R<a class="anchor" aria-label="anchor" href="#register-taudem-in-r-1"></a>
+<h3 id="register-taudem-in-r-2">Register TauDEM in R<a class="anchor" aria-label="anchor" href="#register-taudem-in-r-2"></a>
 </h3>
 <div class="section level4">
-<h4 id="add-taudem-to-the-path-1">Add TauDEM to the PATH<a class="anchor" aria-label="anchor" href="#add-taudem-to-the-path-1"></a>
+<h4 id="add-taudem-to-the-path-2">Add TauDEM to the PATH<a class="anchor" aria-label="anchor" href="#add-taudem-to-the-path-2"></a>
 </h4>
 <ul>
 <li>The Windows installer might have done this automatically.</li>
@@ -176,18 +232,18 @@
 </ul>
 </div>
 <div class="section level4">
-<h4 id="or-add-an-environmental-variable-1">OR add an environmental variable<a class="anchor" aria-label="anchor" href="#or-add-an-environmental-variable-1"></a>
+<h4 id="or-add-an-environmental-variable-2">OR add an environmental variable<a class="anchor" aria-label="anchor" href="#or-add-an-environmental-variable-2"></a>
 </h4>
 <p>Add an R environmental variable called <code>TAUDEM_PATH</code> that points to the location where the TauDEM executables can be found (on Windows it might be <code>C:\Program Files\TauDEM</code>, on Ubuntu <code>/usr/local/taudem</code>).</p>
-<p>For instance on Ubuntu it could be adding this line in <code>.Renviron</code> (see <code>usethis::edit_r_environ()</code>) and then re-starting R:</p>
+<p>For instance on Ubuntu it could be adding this line in <code>.Renviron</code> (see <code><a href="https://usethis.r-lib.org/reference/edit.html" class="external-link">usethis::edit_r_environ()</a></code>) and then re-starting R:</p>
 <pre><code><span><span class="va">TAUDEM_PATH</span><span class="op">=</span><span class="st">'/usr/local/taudem'</span></span></code></pre>
 <p>or, for just the session, running this line of R code:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Sys.setenv.html" class="external-link">Sys.setenv</a></span><span class="op">(</span>TAUDEM_PATH<span class="op">=</span><span class="st">'/usr/local/taudem'</span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level3">
-<h3 id="check-your-installation-1">Check your installation<a class="anchor" aria-label="anchor" href="#check-your-installation-1"></a>
+<h3 id="check-your-installation-2">Check your installation<a class="anchor" aria-label="anchor" href="#check-your-installation-2"></a>
 </h3>
 <p>Run <code><a href="../reference/taudem_sitrep.html">traudem::taudem_sitrep()</a></code> and read its output carefully. Pay attention to any error that might indicate part of the installation was not successful.</p>
 <p>If all is well (no error, only normal output from TauDEM), congratulations! Your system is ready to apply TauDEM to your own data.</p>
