@@ -11,9 +11,9 @@ Simple trustworthy utility functions to use 'TauDEM' command-line interface.
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://cynkra.github.io/traudem/}
-  \item \url{https://github.com/cynkra/traudem}
-  \item Report bugs at \url{https://github.com/cynkra/traudem/issues}
+  \item \url{https://lucarraro.github.io/traudem/}
+  \item \url{https://github.com/lucarraro/traudem}
+  \item Report bugs at \url{https://github.com/lucarraro/traudem/issues}
 }
 
 }

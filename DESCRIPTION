@@ -10,8 +10,8 @@ Authors@R: c(
 Description: Simple trustworthy utility functions to use 'TauDEM'
     command-line interface.
 License: MIT + file LICENSE
-URL: https://cynkra.github.io/traudem/, https://github.com/cynkra/traudem
-BugReports: https://github.com/cynkra/traudem/issues
+URL: https://lucarraro.github.io/traudem/, https://github.com/lucarraro/traudem
+BugReports: https://github.com/lucarraro/traudem/issues
 Imports: 
     cli,
     purrr,
@@ -24,7 +24,10 @@ Suggests:
     rmarkdown,
     testthat (>= 3.0.0),
     terra,
-    shapefiles
+    shapefiles,
+    sf,
+    elevatr,
+    fs
 VignetteBuilder: 
     knitr
 Config/testthat/edition: 3

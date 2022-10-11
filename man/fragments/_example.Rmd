@@ -1,0 +1,111 @@
+## Full example: download DEM data and extract a river network
+
+`traudem` can be used in combination with R-package [elevatr](https://cran.r-project.org/web/packages/elevatr/index.html) to extract a river network from elevation data retrieved from the web. 
+
+The following example shows how to derive the contour of a catchment and drainage area values for all cells within that contour by using the [D8 flow direction algorithm](https://hydrology.usu.edu/taudem/taudem5/help53/D8FlowDirections.html).
+
+The only required inputs are:
+
+- coordinates of the catchment outlet;
+- coordinates of the lower-left and top-right corners of a rectangular area containing the catchment of interest;
+- EPSG code corresponding to the projection used to express coordinate data (see also http://www.epsg-registry.org);
+- zoom level at which the DEM data are extracted (see `elevatr` [documentation](https://cran.r-project.org/web/packages/elevatr/vignettes/introduction_to_elevatr.html)).
+
+```{r}
+library(elevatr)
+library(sf)
+library(terra)
+library(traudem)
+library(shapefiles)
+library(withr)
+
+taudem_sitrep() # verify that TauDEM is correctly installed 
+
+test_dir <- local_tempdir() # temporary directory storing intermediary files created by TauDEM
+
+# Input data for the river Wigger (central Switzerland)
+EPSG <- 21781	# EPSG code corresponding to CH1903 (Swiss projected coordinate system) 
+x_outlet <- 637478 # outlet x coordinate in CH1903 coordinates
+y_outlet <- 237413 # outlet y coordinate in CH1903 coordinates
+x_ll <- 620000 # x coordinate of the lower-left (SW) limit of the region
+x_tr <- 660000 # x coordinate of the top-right (NE) limit of the region	
+y_ll <- 200000 # y coordinate of the lower-left (SW) limit of the region	
+y_tr <- 250000 # y coordinate of the top-right (NE) limit of the region
+zoom <- 9 # corresponds to cellsize ~= 100 m at the latitude of interest
+
+# use elevatr to download DEM 
+loc.df <- data.frame(x=c(x_ll, x_tr), y=c(y_ll,y_tr))
+r <- rast()
+crs(r) <- paste0("epsg:", EPSG)
+crs_str <- crs(r)
+
+z <- get_elev_raster(locations = loc.df, prj = crs_str, z = zoom, verbose = F) 
+z <- rast(z)
+z <- crop(z, ext(x_ll, x_tr, y_ll, y_tr))
+# reclassify: all pixels with elev=NA are set to 0. Then the pit remove algorithm will take care of them
+z <- classify(z, matrix(c(NA, NA, 0), 1, 3)) 
+
+writeRaster(z, filename = file.path(test_dir, "DEM.tif")) # write elevation raster to temporary directory
+
+# apply TauDEM functions
+# Remove pits
+out_fel <- taudem_pitremove(file.path(test_dir, "DEM.tif"), quiet = TRUE)
+
+# D8 flow directions
+out_p <- taudem_d8flowdir(out_fel, quiet = TRUE)
+out_p <- out_p$output_d8flowdir_grid # file path of flow direction file
+
+# Contributing area
+out_ad8 <- taudem_aread8(out_p, quiet = TRUE)
+
+# Threshold
+out_src <- taudem_threshold(out_ad8, quiet = TRUE)
+
+# create shapefile with approximate outlet location
+shp.point <- function(x, y, sname = "shape"){ # function to create point shapefile given coordinates 
+  n <- length(x)
+  dd <- data.frame(Id = 1:n, X = x, Y = y)
+  ddTable <- data.frame(Id = c(1), Name = paste("Outlet", 1:n, sep = ""))
+  ddShapefile <- convert.to.shapefile(dd, ddTable, "Id", 1)
+  write.shapefile(ddShapefile, sname, arcgis = T)
+  invisible(paste0(sname,".shp"))
+}
+
+out_shp <-  shp.point(x_outlet, y_outlet, file.path(test_dir, "ApproxOutlet"))
+
+# Move outlet to stream
+out_moved.shp <- taudem_moveoutletstostream(out_p, out_src, outlet_file = out_shp, 
+                                            output_moved_outlets_file = file.path(test_dir, "Outlet.shp"), 
+                                            quiet = TRUE)
+
+# Contributing area upstream of outlet
+out_ssa <- taudem_aread8(out_p, outlet_file = out_moved.shp, quiet = TRUE)
+
+# Derive catchment contour
+ssa <- rast(out_ssa)
+# reclassify: pixels within the catchment have value 1, others 0
+ssa_cont <- classify(ssa, matrix(c(NA, NA, 0, 1, Inf, 1), 2, 3, byrow = T)) 
+
+# plot DEM of the region and catchment contours
+plot(z, col = terrain.colors(1000), range = c(0,1200))
+contour(ssa_cont, add = T, labels = "") 
+title("DEM and catchment contour")
+```
+
+
+```
+# plot map of drainage area within the catchment
+plot(ssa, col = hcl.colors(1000, "viridis"))
+title("Drainage area [no. cells]")
+```
+
+
+```{r}
+# total catchment area 
+ssa_log <- ssa
+values(ssa_log) <- log10(values(ssa))
+plot(ssa_log, col = hcl.colors(1000, "viridis"))
+title("Drainage area [log10(no. cells)]")
+
+```
+The total area of the extracted catchment is 363.82 km^2^.

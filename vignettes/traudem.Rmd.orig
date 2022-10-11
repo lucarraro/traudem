@@ -1,0 +1,54 @@
+---
+title: "traudem"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{traudem}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "traudem-"
+)
+```
+
+```{r setup2, echo=FALSE}
+setup_os <- function() {
+  if (traudem:::is_ci() && traudem:::on_windows()) {
+    Sys.setenv(
+      PATH = paste0(
+        "C:\\Program Files\\Microsoft MPI\\bin;",
+        "C:\\Program Files\\GDAL;",
+        "C:\\taudem;",
+        Sys.getenv("PATH")
+      )
+    )
+  }
+  if (traudem:::is_ci() && !(traudem:::on_windows())) {
+    Sys.setenv(TAUDEM_PATH="TauDEM/bin")
+  }
+}
+setup_os()
+```
+
+```{r setup}
+library(traudem)
+```
+
+```{r, child="../man/fragments/_does.Rmd"}
+```
+
+```{r, child="../man/fragments/_installation.Rmd"}
+```
+
+```{r, child="../man/fragments/_example-simple.Rmd"}
+```
+
+```{r, child="../man/fragments/_example.Rmd"}
+```
+
+```{r, child="../man/fragments/_tip.Rmd"}
+```
