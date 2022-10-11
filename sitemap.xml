@@ -1,51 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://cynkra.github.io/traudem/404.html</loc>
+    <loc>https://lucarraro.github.io/traudem/404.html</loc>
   </url>
   <url>
-    <loc>https://cynkra.github.io/traudem/LICENSE-text.html</loc>
+    <loc>https://lucarraro.github.io/traudem/LICENSE-text.html</loc>
   </url>
   <url>
-    <loc>https://cynkra.github.io/traudem/LICENSE.html</loc>
+    <loc>https://lucarraro.github.io/traudem/LICENSE.html</loc>
   </url>
   <url>
-    <loc>https://cynkra.github.io/traudem/articles/index.html</loc>
+    <loc>https://lucarraro.github.io/traudem/articles/index.html</loc>
   </url>
   <url>
-    <loc>https://cynkra.github.io/traudem/articles/taudem-installation.html</loc>
+    <loc>https://lucarraro.github.io/traudem/articles/taudem-installation.html</loc>
   </url>
   <url>
-    <loc>https://cynkra.github.io/traudem/authors.html</loc>
+    <loc>https://lucarraro.github.io/traudem/articles/traudem.html</loc>
   </url>
   <url>
-    <loc>https://cynkra.github.io/traudem/index.html</loc>
+    <loc>https://lucarraro.github.io/traudem/authors.html</loc>
   </url>
   <url>
-    <loc>https://cynkra.github.io/traudem/reference/index.html</loc>
+    <loc>https://lucarraro.github.io/traudem/index.html</loc>
   </url>
   <url>
-    <loc>https://cynkra.github.io/traudem/reference/taudem_aread8.html</loc>
+    <loc>https://lucarraro.github.io/traudem/reference/index.html</loc>
   </url>
   <url>
-    <loc>https://cynkra.github.io/traudem/reference/taudem_d8flowdir.html</loc>
+    <loc>https://lucarraro.github.io/traudem/reference/taudem_aread8.html</loc>
   </url>
   <url>
-    <loc>https://cynkra.github.io/traudem/reference/taudem_exec.html</loc>
+    <loc>https://lucarraro.github.io/traudem/reference/taudem_d8flowdir.html</loc>
   </url>
   <url>
-    <loc>https://cynkra.github.io/traudem/reference/taudem_moveoutletstostream.html</loc>
+    <loc>https://lucarraro.github.io/traudem/reference/taudem_exec.html</loc>
   </url>
   <url>
-    <loc>https://cynkra.github.io/traudem/reference/taudem_pitremove.html</loc>
+    <loc>https://lucarraro.github.io/traudem/reference/taudem_moveoutletstostream.html</loc>
   </url>
   <url>
-    <loc>https://cynkra.github.io/traudem/reference/taudem_sitrep.html</loc>
+    <loc>https://lucarraro.github.io/traudem/reference/taudem_pitremove.html</loc>
   </url>
   <url>
-    <loc>https://cynkra.github.io/traudem/reference/taudem_threshold.html</loc>
+    <loc>https://lucarraro.github.io/traudem/reference/taudem_sitrep.html</loc>
   </url>
   <url>
-    <loc>https://cynkra.github.io/traudem/reference/traudem-package.html</loc>
+    <loc>https://lucarraro.github.io/traudem/reference/taudem_threshold.html</loc>
+  </url>
+  <url>
+    <loc>https://lucarraro.github.io/traudem/reference/traudem-package.html</loc>
   </url>
 </urlset>
