@@ -26,7 +26,8 @@ Suggests:
     terra,
     shapefiles,
     sf,
-    elevatr
+    elevatr,
+    fs
 VignetteBuilder: 
     knitr
 Config/testthat/edition: 3
