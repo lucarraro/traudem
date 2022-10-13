@@ -117,11 +117,11 @@
 <span><span class="co">#&gt; Nodata value input to create partition from file: nan</span></span>
 <span><span class="co">#&gt; Nodata value recast to float used in partition raster: nan</span></span>
 <span><span class="co">#&gt; Processes: 1</span></span>
-<span><span class="co">#&gt; Header read time: 0.006093</span></span>
-<span><span class="co">#&gt; Data read time: 0.002055</span></span>
-<span><span class="co">#&gt; Compute time: 0.021402</span></span>
-<span><span class="co">#&gt; Write time: 0.001977</span></span>
-<span><span class="co">#&gt; Total time: 0.031527</span></span>
+<span><span class="co">#&gt; Header read time: 0.004954</span></span>
+<span><span class="co">#&gt; Data read time: 0.001717</span></span>
+<span><span class="co">#&gt; Compute time: 0.021168</span></span>
+<span><span class="co">#&gt; Write time: 0.002009</span></span>
+<span><span class="co">#&gt; Total time: 0.029847</span></span>
 <span><span class="co">#&gt; This run may take on the order of 1 minutes to complete.</span></span>
 <span><span class="co">#&gt; This estimate is very approximate. </span></span>
 <span><span class="co">#&gt; Run time is highly uncertain as it depends on the complexity of the input data </span></span>
@@ -159,22 +159,22 @@
 <span><span class="op">)</span></span>
 <span><span class="va">output</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/taudem_pitremove.html">taudem_pitremove</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">test_dir</span>, <span class="st">"DEM.tif"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; PitRemove version 5.3.9</span></span>
-<span><span class="co">#&gt; Input file /tmp/RtmpNAReAM/file3a82160ba44d/DEM.tif has projected coordinate system.</span></span>
+<span><span class="co">#&gt; Input file /tmp/RtmpbCqswi/file76692b8de111/DEM.tif has projected coordinate system.</span></span>
 <span><span class="co">#&gt; Nodata value input to create partition from file: nan</span></span>
 <span><span class="co">#&gt; Nodata value recast to float used in partition raster: nan</span></span>
 <span><span class="co">#&gt; Processes: 1</span></span>
-<span><span class="co">#&gt; Header read time: 0.009133</span></span>
-<span><span class="co">#&gt; Data read time: 0.002737</span></span>
-<span><span class="co">#&gt; Compute time: 0.024473</span></span>
-<span><span class="co">#&gt; Write time: 0.001969</span></span>
-<span><span class="co">#&gt; Total time: 0.038313</span></span>
+<span><span class="co">#&gt; Header read time: 0.009736</span></span>
+<span><span class="co">#&gt; Data read time: 0.002343</span></span>
+<span><span class="co">#&gt; Compute time: 0.023287</span></span>
+<span><span class="co">#&gt; Write time: 0.001966</span></span>
+<span><span class="co">#&gt; Total time: 0.037332</span></span>
 <span><span class="co">#&gt; This run may take on the order of 1 minutes to complete.</span></span>
 <span><span class="co">#&gt; This estimate is very approximate. </span></span>
 <span><span class="co">#&gt; Run time is highly uncertain as it depends on the complexity of the input data </span></span>
 <span><span class="co">#&gt; and speed and memory of the computer. This estimate is based on our testing on </span></span>
 <span><span class="co">#&gt; a dual quad core Dell Xeon E5405 2.0GHz PC with 16GB RAM.</span></span>
 <span><span class="va">output</span></span>
-<span><span class="co">#&gt; [1] "/tmp/RtmpNAReAM/file3a82160ba44d/DEMfel.tif"</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] "/tmp/RtmpbCqswi/file76692b8de111/DEMfel.tif"</span></span></code></pre></div>
 <p>We ran the example above in a temporary directory that <code>withr</code> automatically deletes. If you want to automatically get rid of some of the intermediary files created by TauDEM in one of your pipelines, you might be interested in <code><a href="https://withr.r-lib.org/reference/with_tempfile.html" class="external-link">withr::local_tempfile()</a></code>.</p>
 <p>If you wanted to run this same code without seeing the messages from TauDEM you can either use the <code>quiet</code> argument:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
@@ -185,7 +185,7 @@
 <span><span class="op">)</span></span>
 <span><span class="va">output</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/taudem_pitremove.html">taudem_pitremove</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">test_dir</span>, <span class="st">"DEM.tif"</span><span class="op">)</span>, quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="va">output</span></span>
-<span><span class="co">#&gt; [1] "/tmp/RtmpNAReAM/file3a823cfec7cd/DEMfel.tif"</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] "/tmp/RtmpbCqswi/file7669638dda6c/DEMfel.tif"</span></span></code></pre></div>
 <p>Or set the <code>traudem.quiet</code> option (<code>options(traudem.quiet = TRUE)</code> or for just the session, <code>withr::local_options(traudem.quiet = TRUE)</code>):</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">withr</span><span class="fu">::</span><span class="fu"><a href="https://withr.r-lib.org/reference/with_options.html" class="external-link">local_options</a></span><span class="op">(</span>traudem.quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
@@ -196,160 +196,7 @@
 <span><span class="op">)</span></span>
 <span><span class="va">output</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/taudem_pitremove.html">taudem_pitremove</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">test_dir</span>, <span class="st">"DEM.tif"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">output</span></span>
-<span><span class="co">#&gt; [1] "/tmp/RtmpNAReAM/file3a824846dcdd/DEMfel.tif"</span></span></code></pre></div>
-</div>
-<div class="section level2">
-<h2 id="full-example-download-dem-data-and-extract-a-river-network">Full example: download DEM data and extract a river network<a class="anchor" aria-label="anchor" href="#full-example-download-dem-data-and-extract-a-river-network"></a>
-</h2>
-<p><code>traudem</code> can be used in combination with R-package <a href="https://cran.r-project.org/web/packages/elevatr/index.html" class="external-link">elevatr</a> to extract a river network from elevation data retrieved from the web.</p>
-<p>The following example shows how to derive the contour of a catchment and drainage area values for all cells within that contour by using the <a href="https://hydrology.usu.edu/taudem/taudem5/help53/D8FlowDirections.html" class="external-link">D8 flow direction algorithm</a>.</p>
-<p>The only required inputs are:</p>
-<ul>
-<li>coordinates of the catchment outlet;</li>
-<li>coordinates of the lower-left and top-right corners of a rectangular area containing the catchment of interest;</li>
-<li>EPSG code corresponding to the projection used to express coordinate data (see also <a href="http://www.epsg-registry.org" class="external-link uri">http://www.epsg-registry.org</a>);</li>
-<li>zoom level at which the DEM data are extracted (see <code>elevatr</code> <a href="https://cran.r-project.org/web/packages/elevatr/vignettes/introduction_to_elevatr.html" class="external-link">documentation</a>).</li>
-</ul>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/jhollist/elevatr/" class="external-link">elevatr</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://r-spatial.github.io/sf/" class="external-link">sf</a></span><span class="op">)</span></span>
-<span><span class="co">#&gt; Linking to GEOS 3.8.0, GDAL 3.0.4, PROJ 6.3.1; sf_use_s2() is TRUE</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/terra/" class="external-link">terra</a></span><span class="op">)</span></span>
-<span><span class="co">#&gt; terra 1.6.17</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://lucarraro.github.io/traudem/">traudem</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">shapefiles</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Loading required package: foreign</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Attaching package: 'shapefiles'</span></span>
-<span><span class="co">#&gt; The following objects are masked from 'package:foreign':</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;     read.dbf, write.dbf</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://withr.r-lib.org" class="external-link">withr</a></span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="reference/taudem_sitrep.html">taudem_sitrep</a></span><span class="op">(</span><span class="op">)</span> <span class="co"># verify that TauDEM is correctly installed </span></span>
-<span><span class="co">#&gt; ✔ Found GDAL version 3.0.4.</span></span>
-<span><span class="co">#&gt; ✔ Found mpiexec (OpenRTE) 4.0.3 (MPI).</span></span>
-<span><span class="co">#&gt; ✔ Found TauDEM path (/usr/local/taudem).</span></span>
-<span><span class="co">#&gt; ✔ Found TauDEM executables directory (/usr/local/taudem).</span></span>
-<span><span class="co">#&gt; ✔ Found all TauDEM executables.</span></span>
-<span><span class="co">#&gt; ℹ Testing TauDEM on an example file (please wait a bit)...</span></span>
-<span><span class="co">#&gt; ── TauDEM output ───────────────────────────────────────────────────────────────</span></span>
-<span><span class="co">#&gt; PitRemove version 5.3.9</span></span>
-<span><span class="co">#&gt; Input file DEM.tif has projected coordinate system.</span></span>
-<span><span class="co">#&gt; Nodata value input to create partition from file: nan</span></span>
-<span><span class="co">#&gt; Nodata value recast to float used in partition raster: nan</span></span>
-<span><span class="co">#&gt; Processes: 1</span></span>
-<span><span class="co">#&gt; Header read time: 0.005605</span></span>
-<span><span class="co">#&gt; Data read time: 0.001709</span></span>
-<span><span class="co">#&gt; Compute time: 0.022103</span></span>
-<span><span class="co">#&gt; Write time: 0.001790</span></span>
-<span><span class="co">#&gt; Total time: 0.031207</span></span>
-<span><span class="co">#&gt; This run may take on the order of 1 minutes to complete.</span></span>
-<span><span class="co">#&gt; This estimate is very approximate. </span></span>
-<span><span class="co">#&gt; Run time is highly uncertain as it depends on the complexity of the input data </span></span>
-<span><span class="co">#&gt; and speed and memory of the computer. This estimate is based on our testing on </span></span>
-<span><span class="co">#&gt; a dual quad core Dell Xeon E5405 2.0GHz PC with 16GB RAM.</span></span>
-<span><span class="co">#&gt; ── End of TauDEM output ────────────────────────────────────────────────────────</span></span>
-<span><span class="co">#&gt; ✔ Was able to launch a TauDEM example!</span></span>
-<span><span class="co">#&gt; ! Make sure you see no serious error message above.</span></span>
-<span></span>
-<span><span class="va">test_dir</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://withr.r-lib.org/reference/with_tempfile.html" class="external-link">local_tempdir</a></span><span class="op">(</span><span class="op">)</span> <span class="co"># temporary directory storing intermediary files created by TauDEM</span></span>
-<span></span>
-<span><span class="co"># Input data for the river Wigger (central Switzerland)</span></span>
-<span><span class="va">EPSG</span> <span class="op">&lt;-</span> <span class="fl">21781</span>   <span class="co"># EPSG code corresponding to CH1903 (Swiss projected coordinate system) </span></span>
-<span><span class="va">x_outlet</span> <span class="op">&lt;-</span> <span class="fl">637478</span> <span class="co"># outlet x coordinate in CH1903 coordinates</span></span>
-<span><span class="va">y_outlet</span> <span class="op">&lt;-</span> <span class="fl">237413</span> <span class="co"># outlet y coordinate in CH1903 coordinates</span></span>
-<span><span class="va">x_ll</span> <span class="op">&lt;-</span> <span class="fl">620000</span> <span class="co"># x coordinate of the lower-left (SW) limit of the region</span></span>
-<span><span class="va">x_tr</span> <span class="op">&lt;-</span> <span class="fl">660000</span> <span class="co"># x coordinate of the top-right (NE) limit of the region </span></span>
-<span><span class="va">y_ll</span> <span class="op">&lt;-</span> <span class="fl">200000</span> <span class="co"># y coordinate of the lower-left (SW) limit of the region    </span></span>
-<span><span class="va">y_tr</span> <span class="op">&lt;-</span> <span class="fl">250000</span> <span class="co"># y coordinate of the top-right (NE) limit of the region</span></span>
-<span><span class="va">zoom</span> <span class="op">&lt;-</span> <span class="fl">9</span> <span class="co"># corresponds to cellsize ~= 100 m at the latitude of interest</span></span>
-<span></span>
-<span><span class="co"># use elevatr to download DEM </span></span>
-<span><span class="va">loc.df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>x<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">x_ll</span>, <span class="va">x_tr</span><span class="op">)</span>, y<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">y_ll</span>,<span class="va">y_tr</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">r</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/crs.html" class="external-link">crs</a></span><span class="op">(</span><span class="va">r</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"epsg:"</span>, <span class="va">EPSG</span><span class="op">)</span></span>
-<span><span class="va">crs_str</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/crs.html" class="external-link">crs</a></span><span class="op">(</span><span class="va">r</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">z</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/elevatr/man/get_elev_raster.html" class="external-link">get_elev_raster</a></span><span class="op">(</span>locations <span class="op">=</span> <span class="va">loc.df</span>, prj <span class="op">=</span> <span class="va">crs_str</span>, z <span class="op">=</span> <span class="va">zoom</span>, verbose <span class="op">=</span> <span class="cn">F</span><span class="op">)</span> </span>
-<span><span class="co">#&gt; Warning in showSRID(SRS_string, format = "PROJ", multiline = "NO", prefer_proj = prefer_proj): PROJ/GDAL PROJ string degradation in workflow</span></span>
-<span><span class="co">#&gt;  repeated warnings suppressed</span></span>
-<span><span class="co">#&gt;  Discarded datum CH1903 in Proj4 definition</span></span>
-<span><span class="co">#&gt; Mosaicing &amp; Projecting</span></span>
-<span><span class="va">z</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="va">z</span><span class="op">)</span></span>
-<span><span class="va">z</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/crop.html" class="external-link">crop</a></span><span class="op">(</span><span class="va">z</span>, <span class="fu"><a href="https://rdrr.io/pkg/terra/man/ext.html" class="external-link">ext</a></span><span class="op">(</span><span class="va">x_ll</span>, <span class="va">x_tr</span>, <span class="va">y_ll</span>, <span class="va">y_tr</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co"># reclassify: all pixels with elev=NA are set to 0. Then the pit remove algorithm will take care of them</span></span>
-<span><span class="va">z</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/classify.html" class="external-link">classify</a></span><span class="op">(</span><span class="va">z</span>, <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">NA</span>, <span class="cn">NA</span>, <span class="fl">0</span><span class="op">)</span>, <span class="fl">1</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span> </span>
-<span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/writeRaster.html" class="external-link">writeRaster</a></span><span class="op">(</span><span class="va">z</span>, filename <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">test_dir</span>, <span class="st">"DEM.tif"</span><span class="op">)</span><span class="op">)</span> <span class="co"># write elevation raster to temporary directory</span></span>
-<span></span>
-<span><span class="co"># apply TauDEM functions</span></span>
-<span><span class="co"># Remove pits</span></span>
-<span><span class="va">out_fel</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/taudem_pitremove.html">taudem_pitremove</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">test_dir</span>, <span class="st">"DEM.tif"</span><span class="op">)</span>, quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># D8 flow directions</span></span>
-<span><span class="va">out_p</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/taudem_d8flowdir.html">taudem_d8flowdir</a></span><span class="op">(</span><span class="va">out_fel</span>, quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="va">out_p</span> <span class="op">&lt;-</span> <span class="va">out_p</span><span class="op">$</span><span class="va">output_d8flowdir_grid</span> <span class="co"># file path of flow direction file</span></span>
-<span></span>
-<span><span class="co"># Contributing area</span></span>
-<span><span class="va">out_ad8</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/taudem_aread8.html">taudem_aread8</a></span><span class="op">(</span><span class="va">out_p</span>, quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Threshold</span></span>
-<span><span class="va">out_src</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/taudem_threshold.html">taudem_threshold</a></span><span class="op">(</span><span class="va">out_ad8</span>, quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># create shapefile with approximate outlet location</span></span>
-<span><span class="va">shp.point</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, <span class="va">sname</span> <span class="op">=</span> <span class="st">"shape"</span><span class="op">)</span><span class="op">{</span> <span class="co"># function to create point shapefile given coordinates </span></span>
-<span>  <span class="va">n</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
-<span>  <span class="va">dd</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>Id <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="va">n</span>, X <span class="op">=</span> <span class="va">x</span>, Y <span class="op">=</span> <span class="va">y</span><span class="op">)</span></span>
-<span>  <span class="va">ddTable</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>Id <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span>, Name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="st">"Outlet"</span>, <span class="fl">1</span><span class="op">:</span><span class="va">n</span>, sep <span class="op">=</span> <span class="st">""</span><span class="op">)</span><span class="op">)</span></span>
-<span>  <span class="va">ddShapefile</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shapefiles/man/shapefiles.html" class="external-link">convert.to.shapefile</a></span><span class="op">(</span><span class="va">dd</span>, <span class="va">ddTable</span>, <span class="st">"Id"</span>, <span class="fl">1</span><span class="op">)</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/shapefiles/man/shapefiles.html" class="external-link">write.shapefile</a></span><span class="op">(</span><span class="va">ddShapefile</span>, <span class="va">sname</span>, arcgis <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/invisible.html" class="external-link">invisible</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="va">sname</span>,<span class="st">".shp"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="op">}</span></span>
-<span></span>
-<span><span class="va">out_shp</span> <span class="op">&lt;-</span>  <span class="fu">shp.point</span><span class="op">(</span><span class="va">x_outlet</span>, <span class="va">y_outlet</span>, <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">test_dir</span>, <span class="st">"ApproxOutlet"</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Move outlet to stream</span></span>
-<span><span class="va">out_moved.shp</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/taudem_moveoutletstostream.html">taudem_moveoutletstostream</a></span><span class="op">(</span><span class="va">out_p</span>, <span class="va">out_src</span>, outlet_file <span class="op">=</span> <span class="va">out_shp</span>, </span>
-<span>                                            output_moved_outlets_file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">test_dir</span>, <span class="st">"Outlet.shp"</span><span class="op">)</span>, </span>
-<span>                                            quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Contributing area upstream of outlet</span></span>
-<span><span class="va">out_ssa</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/taudem_aread8.html">taudem_aread8</a></span><span class="op">(</span><span class="va">out_p</span>, outlet_file <span class="op">=</span> <span class="va">out_moved.shp</span>, quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Derive catchment contour</span></span>
-<span><span class="va">ssa</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="va">out_ssa</span><span class="op">)</span></span>
-<span><span class="co"># reclassify: pixels within the catchment have value 1, others 0</span></span>
-<span><span class="va">ssa_cont</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/classify.html" class="external-link">classify</a></span><span class="op">(</span><span class="va">ssa</span>, <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">NA</span>, <span class="cn">NA</span>, <span class="fl">0</span>, <span class="fl">1</span>, <span class="cn">Inf</span>, <span class="fl">1</span><span class="op">)</span>, <span class="fl">2</span>, <span class="fl">3</span>, byrow <span class="op">=</span> <span class="cn">T</span><span class="op">)</span><span class="op">)</span> </span>
-<span></span>
-<span><span class="co"># plot DEM of the region and catchment contours</span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">z</span>, col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/palettes.html" class="external-link">terrain.colors</a></span><span class="op">(</span><span class="fl">1000</span><span class="op">)</span>, range <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">1200</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/contour.html" class="external-link">contour</a></span><span class="op">(</span><span class="va">ssa_cont</span>, add <span class="op">=</span> <span class="cn">T</span>, labels <span class="op">=</span> <span class="st">""</span><span class="op">)</span> </span>
-<span><span class="co">#&gt; Backtrace:</span></span>
-<span><span class="co">#&gt;   1. graphics::contour(ssa_cont, add = T, labels = "")</span></span>
-<span><span class="co">#&gt;  11. methods (local) `&lt;fn&gt;`(`&lt;env&gt;`)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/title.html" class="external-link">title</a></span><span class="op">(</span><span class="st">"DEM and catchment contour"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-9-1.png" width="100%"></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot map of drainage area within the catchment</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ssa, <span class="at">col =</span> <span class="fu">hcl.colors</span>(<span class="dv">1000</span>, <span class="st">"viridis"</span>))</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span>(<span class="st">"Drainage area [no. cells]"</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># total catchment area </span></span>
-<span><span class="va">ssa_log</span> <span class="op">&lt;-</span> <span class="va">ssa</span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/values.html" class="external-link">values</a></span><span class="op">(</span><span class="va">ssa_log</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log10</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/values.html" class="external-link">values</a></span><span class="op">(</span><span class="va">ssa</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">ssa_log</span>, col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/palettes.html" class="external-link">hcl.colors</a></span><span class="op">(</span><span class="fl">1000</span>, <span class="st">"viridis"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/title.html" class="external-link">title</a></span><span class="op">(</span><span class="st">"Drainage area [log10(no. cells)]"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-10-1.png" width="100%"> The total area of the extracted catchment is 363.82 km<sup>2</sup>.</p>
-</div>
-<div class="section level2">
-<h2 id="what-should-i-do-if-i-do-not-retrieve-the-desired-catchment">What should I do if I do not retrieve the desired catchment?<a class="anchor" aria-label="anchor" href="#what-should-i-do-if-i-do-not-retrieve-the-desired-catchment"></a>
-</h2>
-<p>It might happen that, even when the coordinates of the catchment outlet are precisely attributed, the obtained catchment shape is not the desired one (in particular, much smaller than the sought one). This might be due to issues in determining the correct outlet position in the extracted river network. In fact, the outlet position is moved downslope from the initial, user-specified location <code>(x_outlet, y_outlet)</code> to the closest stream cell via function <code>taudem_moveoutletstostream</code>. Depending on the terrain topography and the DEM resolution, the extracted river network might not overlap exactly with real river networks, hence the possible errors.</p>
-<p>To solve this issue, it is suggested to:</p>
-<ul>
-<li>Slightly change the coordinates <code>x_outlet</code>, <code>y_outlet</code>, to better align the input outlet location with the extracted stream cells.</li>
-<li>Change argument <code>threshold_parameter</code> in <code>taudem_threshold</code>. Stream cells are defined as cells with drainage area not smaller than <code>threshold_parameter</code> (expressed in number of cells). If <code>threshold_parameter</code> is too large, the actual outlet location will be moved too far away in the downstream direction; if too small, the actual outlet location will not be moved enough in the downstream direction.</li>
-</ul>
+<span><span class="co">#&gt; [1] "/tmp/RtmpbCqswi/file76695855c446/DEMfel.tif"</span></span></code></pre></div>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">

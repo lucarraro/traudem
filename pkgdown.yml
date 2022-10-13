@@ -4,7 +4,7 @@ pkgdown_sha: ~
 articles:
   taudem-installation: taudem-installation.html
   traudem: traudem.html
-last_built: 2022-10-13T08:13Z
+last_built: 2022-10-13T08:19Z
 urls:
   reference: https://lucarraro.github.io/traudem/reference
   article: https://lucarraro.github.io/traudem/articles
