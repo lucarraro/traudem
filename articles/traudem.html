@@ -126,11 +126,11 @@
 <span><span class="co">#&gt; Nodata value input to create partition from file: nan</span></span>
 <span><span class="co">#&gt; Nodata value recast to float used in partition raster: nan</span></span>
 <span><span class="co">#&gt; Processes: 1</span></span>
-<span><span class="co">#&gt; Header read time: 0.008867</span></span>
-<span><span class="co">#&gt; Data read time: 0.003704</span></span>
-<span><span class="co">#&gt; Compute time: 0.025616</span></span>
-<span><span class="co">#&gt; Write time: 0.001991</span></span>
-<span><span class="co">#&gt; Total time: 0.040178</span></span>
+<span><span class="co">#&gt; Header read time: 0.007304</span></span>
+<span><span class="co">#&gt; Data read time: 0.003052</span></span>
+<span><span class="co">#&gt; Compute time: 0.035886</span></span>
+<span><span class="co">#&gt; Write time: 0.002312</span></span>
+<span><span class="co">#&gt; Total time: 0.048554</span></span>
 <span><span class="co">#&gt; This run may take on the order of 1 minutes to complete.</span></span>
 <span><span class="co">#&gt; This estimate is very approximate. </span></span>
 <span><span class="co">#&gt; Run time is highly uncertain as it depends on the complexity of the input data </span></span>
@@ -168,22 +168,22 @@
 <span><span class="op">)</span></span>
 <span><span class="va">output</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/taudem_pitremove.html">taudem_pitremove</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">test_dir</span>, <span class="st">"DEM.tif"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; PitRemove version 5.3.9</span></span>
-<span><span class="co">#&gt; Input file /tmp/RtmpIwRapb/file1717580e355c/DEM.tif has projected coordinate system.</span></span>
+<span><span class="co">#&gt; Input file /tmp/RtmpdGKRyh/file69f579638367/DEM.tif has projected coordinate system.</span></span>
 <span><span class="co">#&gt; Nodata value input to create partition from file: nan</span></span>
 <span><span class="co">#&gt; Nodata value recast to float used in partition raster: nan</span></span>
 <span><span class="co">#&gt; Processes: 1</span></span>
-<span><span class="co">#&gt; Header read time: 0.006829</span></span>
-<span><span class="co">#&gt; Data read time: 0.002717</span></span>
-<span><span class="co">#&gt; Compute time: 0.023438</span></span>
-<span><span class="co">#&gt; Write time: 0.001950</span></span>
-<span><span class="co">#&gt; Total time: 0.034934</span></span>
+<span><span class="co">#&gt; Header read time: 0.008291</span></span>
+<span><span class="co">#&gt; Data read time: 0.003158</span></span>
+<span><span class="co">#&gt; Compute time: 0.024729</span></span>
+<span><span class="co">#&gt; Write time: 0.001945</span></span>
+<span><span class="co">#&gt; Total time: 0.038122</span></span>
 <span><span class="co">#&gt; This run may take on the order of 1 minutes to complete.</span></span>
 <span><span class="co">#&gt; This estimate is very approximate. </span></span>
 <span><span class="co">#&gt; Run time is highly uncertain as it depends on the complexity of the input data </span></span>
 <span><span class="co">#&gt; and speed and memory of the computer. This estimate is based on our testing on </span></span>
 <span><span class="co">#&gt; a dual quad core Dell Xeon E5405 2.0GHz PC with 16GB RAM.</span></span>
 <span><span class="va">output</span></span>
-<span><span class="co">#&gt; [1] "/tmp/RtmpIwRapb/file1717580e355c/DEMfel.tif"</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] "/tmp/RtmpdGKRyh/file69f579638367/DEMfel.tif"</span></span></code></pre></div>
 <p>We ran the example above in a temporary directory that <code>withr</code> automatically deletes. If you want to automatically get rid of some of the intermediary files created by TauDEM in one of your pipelines, you might be interested in <code><a href="https://withr.r-lib.org/reference/with_tempfile.html" class="external-link">withr::local_tempfile()</a></code>.</p>
 <p>If you wanted to run this same code without seeing the messages from TauDEM you can either use the <code>quiet</code> argument:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
@@ -194,7 +194,7 @@
 <span><span class="op">)</span></span>
 <span><span class="va">output</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/taudem_pitremove.html">taudem_pitremove</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">test_dir</span>, <span class="st">"DEM.tif"</span><span class="op">)</span>, quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="va">output</span></span>
-<span><span class="co">#&gt; [1] "/tmp/RtmpIwRapb/file17172ae95ec8/DEMfel.tif"</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] "/tmp/RtmpdGKRyh/file69f558d6d3aa/DEMfel.tif"</span></span></code></pre></div>
 <p>Or set the <code>traudem.quiet</code> option (<code>options(traudem.quiet = TRUE)</code> or for just the session, <code>withr::local_options(traudem.quiet = TRUE)</code>):</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">withr</span><span class="fu">::</span><span class="fu"><a href="https://withr.r-lib.org/reference/with_options.html" class="external-link">local_options</a></span><span class="op">(</span>traudem.quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
@@ -205,7 +205,7 @@
 <span><span class="op">)</span></span>
 <span><span class="va">output</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/taudem_pitremove.html">taudem_pitremove</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">test_dir</span>, <span class="st">"DEM.tif"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">output</span></span>
-<span><span class="co">#&gt; [1] "/tmp/RtmpIwRapb/file17174cc635cf/DEMfel.tif"</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] "/tmp/RtmpdGKRyh/file69f5f1debd0/DEMfel.tif"</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="full-example-download-dem-data-and-extract-a-river-network">Full example: download DEM data and extract a river network<a class="anchor" aria-label="anchor" href="#full-example-download-dem-data-and-extract-a-river-network"></a>
@@ -239,11 +239,11 @@
 <span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Nodata value input to create partition from file: nan</span></span>
 <span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Nodata value recast to float used in partition raster: nan</span></span>
 <span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Processes: 1</span></span>
-<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Header read time: 0.007426</span></span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Data read time: 0.003258</span></span>
-<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Compute time: 0.027154</span></span>
-<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Write time: 0.002076</span></span>
-<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Total time: 0.039913</span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Header read time: 0.008202</span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Data read time: 0.003557</span></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Compute time: 0.025951</span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Write time: 0.001925</span></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Total time: 0.039635</span></span>
 <span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; This run may take on the order of 1 minutes to complete.</span></span>
 <span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; This estimate is very approximate. </span></span>
 <span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Run time is highly uncertain as it depends on the complexity of the input data </span></span>
@@ -329,9 +329,7 @@
 <span id="cb8-108"><a href="#cb8-108" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(z, <span class="at">col =</span> <span class="fu">terrain.colors</span>(<span class="dv">1000</span>), <span class="at">range =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1200</span>))</span>
 <span id="cb8-109"><a href="#cb8-109" aria-hidden="true" tabindex="-1"></a><span class="fu">contour</span>(ssa_cont, <span class="at">add =</span> T, <span class="at">labels =</span> <span class="st">""</span>) </span>
 <span id="cb8-110"><a href="#cb8-110" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span>(<span class="st">"DEM and catchment contour"</span>)</span></code></pre></div>
-<div class="figure">
-<img src="traudem-unnamed-chunk-8-1.png" alt=""><p class="caption">plot of chunk unnamed-chunk-8</p>
-</div>
+<p><img src="traudem-unnamed-chunk-8-1.png" alt="Plot of the catchment contour."></p>
 <pre><code><span><span class="co"># plot map of drainage area within the catchment</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">ssa</span>, col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/palettes.html" class="external-link">hcl.colors</a></span><span class="op">(</span><span class="fl">1000</span>, <span class="st">"viridis"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/title.html" class="external-link">title</a></span><span class="op">(</span><span class="st">"Drainage area [no. cells]"</span><span class="op">)</span></span></code></pre>
@@ -341,7 +339,14 @@
 <span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/values.html" class="external-link">values</a></span><span class="op">(</span><span class="va">ssa_log</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log10</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/values.html" class="external-link">values</a></span><span class="op">(</span><span class="va">ssa</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">ssa_log</span>, col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/palettes.html" class="external-link">hcl.colors</a></span><span class="op">(</span><span class="fl">1000</span>, <span class="st">"viridis"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/title.html" class="external-link">title</a></span><span class="op">(</span><span class="st">"Drainage area [log10(no. cells)]"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="traudem-unnamed-chunk-9-1.png" alt="plot of chunk unnamed-chunk-9"> The total area of the extracted catchment is 363.82 km<sup>2</sup>.</p>
+<p><img src="traudem-unnamed-chunk-9-1.png" alt="Plot of the drainage area, where the number of cells is shown on a log scale with colors ranging from blue to yellow."></p>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="va">cellsize</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">sqrt</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/prod.html" class="external-link">prod</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/dimensions.html" class="external-link">res</a></span><span class="op">(</span><span class="va">z</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="co"># cellsize is geometric mean of downloaded raster resolution</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/values.html" class="external-link">values</a></span><span class="op">(</span><span class="va">ssa</span><span class="op">)</span>,na.rm<span class="op">=</span><span class="cn">T</span><span class="op">)</span><span class="op">*</span><span class="va">cellsize</span><span class="op">^</span><span class="fl">2</span> <span class="co"># total catchment area in m^2</span></span>
+<span><span class="co">#&gt; [1] 363822337</span></span></code></pre></div>
+<p>The total area of the extracted catchment is 363 km^2.</p>
 </div>
 <div class="section level2">
 <h2 id="what-should-i-do-if-i-do-not-retrieve-the-desired-catchment">What should I do if I do not retrieve the desired catchment?<a class="anchor" aria-label="anchor" href="#what-should-i-do-if-i-do-not-retrieve-the-desired-catchment"></a>
