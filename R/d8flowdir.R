@@ -10,8 +10,7 @@
 #' @return List with the two output filenames
 #' @export
 #'
-#' @examples
-#' \dontrun{
+#' @examplesIf interactive() && traudem::can_register_taudem()
 #' test_dir <- withr::local_tempdir()
 #' dir.create(test_dir)
 #'  file.copy(
@@ -21,7 +20,6 @@
 #' filled_pit <- taudem_pitremove(file.path(test_dir, "DEM.tif"))
 #' outputs <- taudem_d8flowdir(filled_pit)
 #' outputs
-#' }
 taudem_d8flowdir <- function(input_elevation_grid,
                               output_d8flowdir_grid = NULL,
                               output_d8slopes_grid = NULL,

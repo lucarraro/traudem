@@ -23,10 +23,8 @@
 #' Sys.setenv(TAUDEM_PATH='/usr/local/taudem')
 #' ```
 #'
-#' @examples
-#' \dontrun{
+#' @examplesIf interactive() && traudem::can_register_taudem()
 #' try(taudem_sitrep(), silent = TRUE)
-#' }
 taudem_sitrep <- function() {
 
   # gdal installed -----

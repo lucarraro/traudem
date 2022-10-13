@@ -16,20 +16,19 @@
 #' @return Path to output file (invisibly)
 #' @export
 #'
-#' @examples
-#' \dontrun{
+#' @examplesIf interactive() && traudem::can_register_taudem()
 #' test_dir <- withr::local_tempdir()
 #' dir.create(test_dir)
 #'  file.copy(
 #'    system.file("test-data", "DEM.tif", package = "traudem"),
 #'    file.path(test_dir, "DEM.tif")
 #'  )
+#'
 #' filled_pit <- taudem_pitremove(file.path(test_dir, "DEM.tif"))
 #' outputs <- taudem_d8flowdir(filled_pit)
 #' outputs
 #' contributing_area_grid <- taudem_aread8(outputs$output_d8flowdir_grid)
 #' contributing_area_grid
-#' }
 taudem_aread8 <- function(input_d8flowdir_grid,
                          output_contributing_area_grid = NULL,
                          check_edge_contamination = TRUE,

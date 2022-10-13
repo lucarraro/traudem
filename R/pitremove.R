@@ -11,8 +11,7 @@
 #' @return Path to output file (invisibly)
 #' @export
 #'
-#' @examples
-#' \dontrun{
+#' @examplesIf interactive() && traudem::can_register_taudem()
 #' test_dir <- withr::local_tempdir()
 #' dir.create(test_dir)
 #'  file.copy(
@@ -21,7 +20,6 @@
 #'  )
 #' output <- taudem_pitremove(file.path(test_dir, "DEM.tif"))
 #' output
-#' }
 taudem_pitremove <- function(input_elevation_grid,
                              output_elevation_grid = NULL,
                              only_4way_neighbors = FALSE,

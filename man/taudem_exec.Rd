@@ -30,7 +30,7 @@ Please refer to the relative TauDEM function documentation for the syntax used t
 See also examples.
 }
 \examples{
-\dontrun{
+\dontshow{if (interactive() && traudem::can_register_taudem()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 test_dir <- withr::local_tempdir()
 dir.create(test_dir)
 file.copy(
@@ -47,5 +47,5 @@ taudem_exec(
   "-z", file.path(test_dir, "DEM.tif"),
   "-fel", file.path(test_dir,"filled_pits.tif"))
  )
-}
+\dontshow{\}) # examplesIf}
 }

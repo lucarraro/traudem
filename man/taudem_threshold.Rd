@@ -36,7 +36,7 @@ Stream Definition By Threshold
 See \url{https://hydrology.usu.edu/taudem/taudem5/help53/StreamDefinitionByThreshold.html}
 }
 \examples{
-\dontrun{
+\dontshow{if (interactive() && traudem::can_register_taudem()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 test_dir <- withr::local_tempdir()
 dir.create(test_dir)
 file.copy(
@@ -50,5 +50,5 @@ contributing_area_grid <- taudem_aread8(outputs$output_d8flowdir_grid)
 contributing_area_grid
 thresholded <- taudem_threshold(contributing_area_grid)
 thresholded
-}
+\dontshow{\}) # examplesIf}
 }

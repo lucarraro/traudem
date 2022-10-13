@@ -11,8 +11,7 @@
 #' @return Path to output file (invisibly)
 #' @export
 #'
-#' @examples
-#' \dontrun{
+#' @examplesIf interactive() && traudem::can_register_taudem()
 #' test_dir <- withr::local_tempdir()
 #' dir.create(test_dir)
 #' file.copy(
@@ -26,7 +25,6 @@
 #' contributing_area_grid
 #' thresholded <- taudem_threshold(contributing_area_grid)
 #' thresholded
-#' }
 taudem_threshold <- function(input_area_grid,
                             output_stream_raster_grid = NULL,
                             mask_file = NULL,

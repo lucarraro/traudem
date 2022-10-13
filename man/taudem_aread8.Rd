@@ -47,17 +47,18 @@ D8 Contributing Area
 See \url{https://hydrology.usu.edu/taudem/taudem5/help53/D8ContributingArea.html}
 }
 \examples{
-\dontrun{
+\dontshow{if (interactive() && traudem::can_register_taudem()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 test_dir <- withr::local_tempdir()
 dir.create(test_dir)
  file.copy(
    system.file("test-data", "DEM.tif", package = "traudem"),
    file.path(test_dir, "DEM.tif")
  )
+
 filled_pit <- taudem_pitremove(file.path(test_dir, "DEM.tif"))
 outputs <- taudem_d8flowdir(filled_pit)
 outputs
 contributing_area_grid <- taudem_aread8(outputs$output_d8flowdir_grid)
 contributing_area_grid
-}
+\dontshow{\}) # examplesIf}
 }

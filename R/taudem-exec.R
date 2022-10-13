@@ -12,8 +12,7 @@
 #' @return `TRUE` if the call was successful, `FALSE` otherwise.
 #' @export
 #'
-#' @examples
-#' \dontrun{
+#' @examplesIf interactive() && traudem::can_register_taudem()
 #' test_dir <- withr::local_tempdir()
 #' dir.create(test_dir)
 #' file.copy(
@@ -30,7 +29,6 @@
 #'   "-z", file.path(test_dir, "DEM.tif"),
 #'   "-fel", file.path(test_dir,"filled_pits.tif"))
 #'  )
-#' }
 taudem_exec <- function(args, n_processes = getOption("traudem.n_processes", 1), quiet = getOption("traudem.quiet", FALSE)) {
   if (!can_register_taudem()) {
     rlang::abort(
@@ -91,6 +89,14 @@ is_taudem_envvar <- function() {
   nzchar(Sys.getenv("TAUDEM_PATH"))
 }
 
+
+#' @rdname taudem_sitrep
+#'
+#' @return Boolean
+#' @export
+#'
+#' @examples
+#' can_register_taudem()
 can_register_taudem <- function() {
   is_taudem_on_path() || is_taudem_envvar()
 }
