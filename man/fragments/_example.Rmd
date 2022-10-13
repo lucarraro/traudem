@@ -1,6 +1,6 @@
 ## Full example: download DEM data and extract a river network
 
-`traudem` can be used in combination with R-package [elevatr](https://cran.r-project.org/web/packages/elevatr/index.html) to extract a river network from elevation data retrieved from the web. 
+`traudem` can be used in combination with R-package [elevatr](https://cran.r-project.org/package=elevatr) to extract a river network from elevation data retrieved from the web. 
 
 The following example shows how to derive the contour of a catchment and drainage area values for all cells within that contour by using the [D8 flow direction algorithm](https://hydrology.usu.edu/taudem/taudem5/help53/D8FlowDirections.html).
 
@@ -8,8 +8,8 @@ The only required inputs are:
 
 - coordinates of the catchment outlet;
 - coordinates of the lower-left and top-right corners of a rectangular area containing the catchment of interest;
-- EPSG code corresponding to the projection used to express coordinate data (see also http://www.epsg-registry.org);
-- zoom level at which the DEM data are extracted (see `elevatr` [documentation](https://cran.r-project.org/web/packages/elevatr/vignettes/introduction_to_elevatr.html)).
+- EPSG code corresponding to the projection used to express coordinate data (see also https://epsg.org/home.html);
+- zoom level at which the DEM data are extracted (see `elevatr` [documentation](https://cran.r-project.org/package=elevatr)).
 
 ```{r, fig.alt = "Plot of the catchment contour."}
 library(elevatr)
