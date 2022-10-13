@@ -105,7 +105,7 @@
 <div class="section level3">
 <h3 id="can-traudem-run-all-taudem-methods">Can traudem run all TauDEM methods?<a class="anchor" aria-label="anchor" href="#can-traudem-run-all-taudem-methods"></a>
 </h3>
-<p>Yes! Some TauDEM methods have dedicated wrappers like <code><a href="../reference/taudem_pitremove.html">taudem_pitremove()</a></code>, with argument names that we strived to make informative. For other methods, you can use <code><a href="../reference/taudem_exec.html">taudem_exec()</a></code> and provide the arguments as TauDEM CLI would expect them. You could make a PR to this repository to add more dedicated wrappers.</p>
+<p>Yes! Some TauDEM methods have dedicated wrappers like <code><a href="../reference/taudem_pitremove.html">taudem_pitremove()</a></code>, with argument names that we strove to make informative. For other methods, you can use <code><a href="../reference/taudem_exec.html">taudem_exec()</a></code> and provide the arguments as TauDEM CLI would expect them. You could make a PR to this repository to add more dedicated wrappers.</p>
 </div>
 </div>
 <div class="section level2">
@@ -210,14 +210,14 @@
 <div class="section level2">
 <h2 id="full-example-download-dem-data-and-extract-a-river-network">Full example: download DEM data and extract a river network<a class="anchor" aria-label="anchor" href="#full-example-download-dem-data-and-extract-a-river-network"></a>
 </h2>
-<p><code>traudem</code> can be used in combination with R-package <a href="https://cran.r-project.org/web/packages/elevatr/index.html" class="external-link">elevatr</a> to extract a river network from elevation data retrieved from the web.</p>
+<p><code>traudem</code> can be used in combination with R-package <a href="https://cran.r-project.org/package=elevatr" class="external-link">elevatr</a> to extract a river network from elevation data retrieved from the web.</p>
 <p>The following example shows how to derive the contour of a catchment and drainage area values for all cells within that contour by using the <a href="https://hydrology.usu.edu/taudem/taudem5/help53/D8FlowDirections.html" class="external-link">D8 flow direction algorithm</a>.</p>
 <p>The only required inputs are:</p>
 <ul>
 <li>coordinates of the catchment outlet;</li>
 <li>coordinates of the lower-left and top-right corners of a rectangular area containing the catchment of interest;</li>
-<li>EPSG code corresponding to the projection used to express coordinate data (see also <a href="http://www.epsg-registry.org" class="external-link uri">http://www.epsg-registry.org</a>);</li>
-<li>zoom level at which the DEM data are extracted (see <code>elevatr</code> <a href="https://cran.r-project.org/web/packages/elevatr/vignettes/introduction_to_elevatr.html" class="external-link">documentation</a>).</li>
+<li>EPSG code corresponding to the projection used to express coordinate data (see also <a href="https://epsg.org/home.html" class="external-link uri">https://epsg.org/home.html</a>);</li>
+<li>zoom level at which the DEM data are extracted (see <code>elevatr</code> <a href="https://cran.r-project.org/package=elevatr" class="external-link">documentation</a>).</li>
 </ul>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(elevatr)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
