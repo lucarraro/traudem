@@ -33,7 +33,7 @@ CLI](https://hydrology.usu.edu/taudem/taudem5/index.html) from R.
 ### Can traudem run all TauDEM methods?
 
 Yes! Some TauDEM methods have dedicated wrappers like
-`taudem_pitremove()`, with argument names that we strived to make
+`taudem_pitremove()`, with argument names that we strove to make
 informative. For other methods, you can use `taudem_exec()` and provide
 the arguments as TauDEM CLI would expect them. You could make a PR to
 this repository to add more dedicated wrappers.

@@ -33,7 +33,7 @@ library(traudem)
 ### Can traudem run all TauDEM methods?
 
 Yes!
-Some TauDEM methods have dedicated wrappers like `taudem_pitremove()`, with argument names that we strived to make informative.
+Some TauDEM methods have dedicated wrappers like `taudem_pitremove()`, with argument names that we strove to make informative.
 For other methods, you can use `taudem_exec()` and provide the arguments as TauDEM CLI would expect them.
 You could make a PR to this repository to add more dedicated wrappers.
 
@@ -231,7 +231,11 @@ crs_str <- crs(r)
 
 z <- get_elev_raster(locations = loc.df, prj = crs_str, z = zoom, verbose = F) 
 #> 
-#>  Accessing raster elevation [-------------------------]   0% Accessing raster elevation [=====>-------------------]  25% Accessing raster elevation [===========>-------------]  50% Accessing raster elevation [==================>------]  75% Accessing raster elevation [=========================] 100%
+#>  Accessing raster elevation [-------------------------]   0%
+ Accessing raster elevation [=====>-------------------]  25%
+ Accessing raster elevation [===========>-------------]  50%
+ Accessing raster elevation [==================>------]  75%
+ Accessing raster elevation [=========================] 100%
 #> Mosaicing & Projecting
 z <- rast(z)
 z <- crop(z, ext(x_ll, x_tr, y_ll, y_tr))
