@@ -29,13 +29,3 @@ The goal of traudem is to wrap the [TauDEM CLI](https://hydrology.usu.edu/taudem
 
 ```{r, child="man/fragments/_example-simple.Rmd"}
 ```
-
-```{r, child="man/fragments/_example.Rmd"}
-```
-
-```{r, child="man/fragments/_tip.Rmd"}
-```
-
-
-
-
