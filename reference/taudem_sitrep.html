@@ -47,7 +47,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="" class="logo" alt=""><h1>TauDEM situation report</h1>
-      <small class="dont-index">Source: <a href="https://github.com/lucarraro/traudem/blob/HEAD/R/sitrep.R" class="external-link"><code>R/sitrep.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/lucarraro/traudem/blob/HEAD/R/sitrep.R" class="external-link"><code>R/sitrep.R</code></a>, <a href="https://github.com/lucarraro/traudem/blob/HEAD/R/taudem-exec.R" class="external-link"><code>R/taudem-exec.R</code></a></small>
       <div class="d-none name"><code>taudem_sitrep.Rd</code></div>
     </div>
 
@@ -57,7 +57,9 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">taudem_sitrep</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">taudem_sitrep</span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">can_register_taudem</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -65,6 +67,9 @@
     
 
 <p>None</p>
+
+
+<p>Boolean</p>
     </div>
     <div class="section level2">
     <h2 id="taudem-installation-and-registration">TauDEM installation and registration<a class="anchor" aria-label="anchor" href="#taudem-installation-and-registration"></a></h2>
@@ -83,34 +88,11 @@ and then re-starting R:</p>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \dontrun{</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># interactive() &amp;&amp; traudem::can_register_taudem()</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">taudem_sitrep</span><span class="op">(</span><span class="op">)</span>, silent <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Found GDAL version 3.0.4.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Found HYDRA build details: (MPI).</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Found TauDEM path (<span style="color: #0000BB;">/home/runner/TauDEM/bin</span>).</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Found TauDEM executables directory (<span style="color: #0000BB;">/home/runner/TauDEM/bin</span>).</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Found all TauDEM executables.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Testing TauDEM on an example file (please wait a bit)...</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── TauDEM output ───────────────────────────────────────────────────────────────</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> PitRemove version 5.3.9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Input file DEM.tif has projected coordinate system.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Nodata value input to create partition from file: nan</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Nodata value recast to float used in partition raster: nan</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Processes: 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Header read time: 0.004269</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Data read time: 0.000944</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Compute time: 0.006861</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Write time: 0.003217</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Total time: 0.015291</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">This run may take on the order of 1 minutes to complete.</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">This estimate is very approximate. </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">Run time is highly uncertain as it depends on the complexity of the input data </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">and speed and memory of the computer. This estimate is based on our testing on </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">a dual quad core Dell Xeon E5405 2.0GHz PC with 16GB RAM.</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── End of TauDEM output ────────────────────────────────────────────────────────</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Was able to launch a TauDEM example!</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> Make sure you see no serious error message above.</span>
-<span class="r-in"><span><span class="co"># }</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span><span class="fu">can_register_taudem</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

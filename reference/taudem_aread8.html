@@ -123,74 +123,20 @@ Layer name and layer number should not both be specified.</p></dd>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \dontrun{</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># interactive() &amp;&amp; traudem::can_register_taudem()</span></span></span>
 <span class="r-in"><span><span class="va">test_dir</span> <span class="op">&lt;-</span> <span class="fu">withr</span><span class="fu">::</span><span class="fu"><a href="https://withr.r-lib.org/reference/with_tempfile.html" class="external-link">local_tempdir</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/files2.html" class="external-link">dir.create</a></span><span class="op">(</span><span class="va">test_dir</span><span class="op">)</span></span></span>
 <span class="r-in"><span> <span class="fu"><a href="https://rdrr.io/r/base/files.html" class="external-link">file.copy</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>   <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"test-data"</span>, <span class="st">"DEM.tif"</span>, package <span class="op">=</span> <span class="st">"traudem"</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>   <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">test_dir</span>, <span class="st">"DEM.tif"</span><span class="op">)</span></span></span>
 <span class="r-in"><span> <span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
+<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">filled_pit</span> <span class="op">&lt;-</span> <span class="fu"><a href="taudem_pitremove.html">taudem_pitremove</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">test_dir</span>, <span class="st">"DEM.tif"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> PitRemove version 5.3.9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Input file /tmp/Rtmpjz812w/file4ac5702d453e/DEM.tif has projected coordinate system.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Nodata value input to create partition from file: nan</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Nodata value recast to float used in partition raster: nan</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Processes: 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Header read time: 0.004073</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Data read time: 0.000937</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Compute time: 0.007446</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Write time: 0.035486</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Total time: 0.047942</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">This run may take on the order of 1 minutes to complete.</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">This estimate is very approximate. </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">Run time is highly uncertain as it depends on the complexity of the input data </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">and speed and memory of the computer. This estimate is based on our testing on </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">a dual quad core Dell Xeon E5405 2.0GHz PC with 16GB RAM.</span></span>
 <span class="r-in"><span><span class="va">outputs</span> <span class="op">&lt;-</span> <span class="fu"><a href="taudem_d8flowdir.html">taudem_d8flowdir</a></span><span class="op">(</span><span class="va">filled_pit</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> D8FlowDir version 5.3.9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Input file /tmp/Rtmpjz812w/file4ac5702d453e/DEMfel.tif has projected coordinate system.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Nodata value input to create partition from file: -300000000549775575777803994281145270272.000000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Nodata value recast to float used in partition raster: -300000000549775575777803994281145270272.000000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Processors: 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Header read time: 0.002967</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Data read time: 0.000951</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Compute Slope time: 0.005870</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Write Slope time: 0.002347</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Resolve Flat time: 0.000032</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Write Flat time: 0.001092</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Total time: 0.013259</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">This run may take on the order of 1 minutes to complete.</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">This estimate is very approximate. </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">Run time is highly uncertain as it depends on the complexity of the input data </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">and speed and memory of the computer. This estimate is based on our testing on </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">a dual quad core Dell Xeon E5405 2.0GHz PC with 16GB RAM.</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">All slopes evaluated. 0 flats to resolve.</span></span>
 <span class="r-in"><span><span class="va">outputs</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $output_d8flowdir_grid</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/tmp/Rtmpjz812w/file4ac5702d453e/DEMfeld8flowdir.tif"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $output_d8slopes_grid</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/tmp/Rtmpjz812w/file4ac5702d453e/DEMfeld8slopes.tif"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span><span class="va">contributing_area_grid</span> <span class="op">&lt;-</span> <span class="fu">taudem_aread8</span><span class="op">(</span><span class="va">outputs</span><span class="op">$</span><span class="va">output_d8flowdir_grid</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> AreaD8 version 5.3.9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Input file /tmp/Rtmpjz812w/file4ac5702d453e/DEMfeld8flowdir.tif has projected coordinate system.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Nodata value input to create partition from file: -32768.000000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Nodata value recast to int16_t used in partition raster: -32768</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Number of Processes: 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Read time: 0.003317</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Compute time: 0.007934</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Write time: 0.001578</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Total time: 0.012830</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">This run may take on the order of 1 minutes to complete.</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">This estimate is very approximate. </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">Run time is highly uncertain as it depends on the complexity of the input data </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">and speed and memory of the computer. This estimate is based on our testing on </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">a dual quad core Dell Xeon E5405 2.0GHz PC with 16GB RAM.</span></span>
 <span class="r-in"><span><span class="va">contributing_area_grid</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/tmp/Rtmpjz812w/file4ac5702d453e/DEMfeld8flowdirctb.tif"</span>
-<span class="r-in"><span><span class="co"># }</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
