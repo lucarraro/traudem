@@ -11,7 +11,7 @@ The only required inputs are:
 - EPSG code corresponding to the projection used to express coordinate data (see also http://www.epsg-registry.org);
 - zoom level at which the DEM data are extracted (see `elevatr` [documentation](https://cran.r-project.org/web/packages/elevatr/vignettes/introduction_to_elevatr.html)).
 
-```{r}
+```{r, fig.alt = "Plot of the catchment contour."}
 library(elevatr)
 library(sf)
 library(terra)
@@ -100,12 +100,16 @@ title("Drainage area [no. cells]")
 ```
 
 
-```{r}
+```{r, fig.alt = "Plot of the drainage area, where the number of cells is shown on a log scale with colors ranging from blue to yellow."}
 # total catchment area 
 ssa_log <- ssa
 values(ssa_log) <- log10(values(ssa))
 plot(ssa_log, col = hcl.colors(1000, "viridis"))
 title("Drainage area [log10(no. cells)]")
 
+cellsize <- sqrt(prod(res(z))) # cellsize is geometric mean of downloaded raster resolution
+
+max(values(ssa),na.rm=T)*cellsize^2 # total catchment area in m^2
 ```
-The total area of the extracted catchment is 363.82 km^2^.
+
+The total area of the extracted catchment is `r floor(max(values(ssa),na.rm=T)*cellsize^2/10^6)` km^2.
