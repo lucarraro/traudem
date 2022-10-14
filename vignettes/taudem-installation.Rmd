@@ -20,7 +20,9 @@ Installing TauDEM actually means installing 3 tools:
 * MPI that R will call to launch TauDEM;
 * TauDEM itself.
 
-No matter your operating system, **take notes of the steps you follow**.
+Please follow instructions on how to install TauDEM, GDAL and MPI depending on your operating system, then finalize your installation as specified below.
+
+No matter your operating system, **take note of the steps you follow**.
 This way, if anything goes wrong, you will be able to open an informative bug report and get help more easily.
 
 ## Windows
