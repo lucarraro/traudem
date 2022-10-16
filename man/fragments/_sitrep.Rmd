@@ -24,7 +24,7 @@ TAUDEM_PATH='/usr/local/taudem'
 or, for just the session, running this line of R code:
 
 ```r
-Sys.setenv(TAUDEM_PATH='/usr/local/taudem')
+Sys.setenv(TAUDEM_PATH = "/usr/local/taudem")
 ```
 
 ### Check your installation 
