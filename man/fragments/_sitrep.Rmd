@@ -1,6 +1,6 @@
 ## Finalize your installation
 
-Once you are done,
+Once you are done, you need to register TauDEM in R and check your installation.
 
 ### Register TauDEM in R
 
