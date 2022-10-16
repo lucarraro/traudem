@@ -2,12 +2,12 @@
 #'
 #' Checks installation of TauDEM and provides useful hints.
 #'
-#' @return None
+#' @return For `taudem_sitrep()`: None.
 #' @export
 #'
 #' @section TauDEM installation and registration:
 #'
-#' Once you have installed TauDEM add an environment variable
+#' Once you have installed TauDEM, add an environment variable
 #' pointing to the correct path.
 #' For instance on Ubuntu it could be adding this line in `.Renviron`
 #' (see `usethis::edit_r_environ()`)
@@ -20,7 +20,7 @@
 #' or, for just the session, running this line of R code:
 #'
 #' ```r
-#' Sys.setenv(TAUDEM_PATH='/usr/local/taudem')
+#' Sys.setenv(TAUDEM_PATH = "/usr/local/taudem")
 #' ```
 #'
 #' @examplesIf interactive() && traudem::can_register_taudem()

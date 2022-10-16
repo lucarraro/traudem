@@ -8,7 +8,7 @@
 #' @param threshold_parameter Threshold parameter.
 #' @inheritParams taudem_exec
 #'
-#' @return Path to output file (invisibly)
+#' @return Path to output file (invisibly).
 #' @export
 #'
 #' @examplesIf interactive() && traudem::can_register_taudem()

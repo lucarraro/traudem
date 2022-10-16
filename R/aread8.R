@@ -2,18 +2,18 @@
 #'
 #' @details See <https://hydrology.usu.edu/taudem/taudem5/help53/D8ContributingArea.html>
 #'
-#' @param input_d8flowdir_grid Input flow directions grid
-#' @param output_contributing_area_grid Output contributing area grid
-#' @param check_edge_contamination Whether to check for edge contamination
-#' @param wg_file Input weight grid (optional)
-#' @param outlet_file input outlets file (OGR readable dataset, optional)
+#' @param input_d8flowdir_grid Input flow directions grid.
+#' @param output_contributing_area_grid Output contributing area grid.
+#' @param check_edge_contamination Whether to check for edge contamination.
+#' @param wg_file Input weight grid (optional).
+#' @param outlet_file Input outlets file (OGR readable dataset, optional).
 #' @param outlet_layer_name OGR layer name if outlets are not the first layer in `outlet_file` (optional).
-#' Layer name and layer number should not both be specified.
+#'   Layer name and layer number should not both be specified.
 #' @param outlet_layer_number OGR layer number if outlets are not the first layer in `outlet_file` (optional).
-#' Layer name and layer number should not both be specified.
+#'   Layer name and layer number should not both be specified.
 #' @inheritParams taudem_exec
 #'
-#' @return Path to output file (invisibly)
+#' @return Path to output file (invisibly).
 #' @export
 #'
 #' @examplesIf interactive() && traudem::can_register_taudem()

@@ -25,10 +25,11 @@
 #' # syntax for user-attributed output file name
 #' taudem_exec(
 #'   c(
-#'   "pitremove",
-#'   "-z", file.path(test_dir, "DEM.tif"),
-#'   "-fel", file.path(test_dir,"filled_pits.tif"))
-#'  )
+#'     "pitremove",
+#'     "-z", file.path(test_dir, "DEM.tif"),
+#'     "-fel", file.path(test_dir,"filled_pits.tif")
+#'   )
+#' )
 taudem_exec <- function(args, n_processes = getOption("traudem.n_processes", 1), quiet = getOption("traudem.quiet", FALSE)) {
   if (!can_register_taudem()) {
     rlang::abort(
@@ -92,7 +93,7 @@ is_taudem_envvar <- function() {
 
 #' @rdname taudem_sitrep
 #'
-#' @return Boolean
+#' @return For `can_register_taudem()`: A logical scalar.
 #' @export
 #'
 #' @examples

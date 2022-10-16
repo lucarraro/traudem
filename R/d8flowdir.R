@@ -2,12 +2,12 @@
 #'
 #' @details See <https://hydrology.usu.edu/taudem/taudem5/help53/D8FlowDirections.html>
 #'
-#' @param input_elevation_grid Pit filled elevation input data
-#' @param output_d8flowdir_grid D8 flow directions output
-#' @param output_d8slopes_grid D8 slopes output
+#' @param input_elevation_grid Pit filled elevation input data.
+#' @param output_d8flowdir_grid D8 flow directions output.
+#' @param output_d8slopes_grid D8 slopes output.
 #' @inheritParams taudem_exec
 #'
-#' @return List with the two output filenames
+#' @return List with the two output filenames.
 #' @export
 #'
 #' @examplesIf interactive() && traudem::can_register_taudem()
