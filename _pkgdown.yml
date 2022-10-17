@@ -13,4 +13,6 @@ reference:
     - taudem_moveoutletstostream
     - taudem_pitremove
     - taudem_threshold
+- title: TauDEM direct caller
+  contents:
     - taudem_exec
