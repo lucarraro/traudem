@@ -20,7 +20,9 @@ Installing TauDEM actually means installing 3 tools:
 * MPI that R will call to launch TauDEM;
 * TauDEM itself.
 
-No matter your operating system, **take notes of the steps you follow**.
+Please follow instructions on how to install TauDEM, GDAL and MPI depending on your operating system, then finalize your installation as specified below.
+
+No matter your operating system, **take note of the steps you follow**.
 This way, if anything goes wrong, you will be able to open an informative bug report and get help more easily.
 
 ## Windows
@@ -28,9 +30,6 @@ This way, if anything goes wrong, you will be able to open an informative bug re
 You're in luck! 
 The TauDEM Windows installer will install all three tools at once! 
 Refer to <https://hydrology.usu.edu/taudem/taudem5/downloads.html>.
-
-```{r, child="../man/fragments/_sitrep.Rmd"}
-```
 
 
 ## macOS
@@ -51,9 +50,6 @@ package manager, similar to APT on Linux systems.
     on macOS, since RStudio and the package only see the path added to `/etc/paths.d/`. So add it  
     with the following two commands: `echo "/usr/local/taudem/" > taudem` and `sudo mv taudem /etc/paths.d/`.
 
-```{r, child="../man/fragments/_sitrep.Rmd"}
-```
-
 [1]: https://brew.sh
 [2]: https://github.com/dtarb/TauDEM
 
@@ -66,7 +62,6 @@ You might have installed GDAL in the past for, say, using the sf R package.
 
 If you need to, install GDAL using the official [GDAL docs](https://gdal.org/download.html) (or refer to [TauDEM README](https://github.com/dtarb/TauDEM/) for further suggestions). 
 
-> On macOS this might be as easy as brew install gdal.
 
 ### MPI
 
@@ -75,7 +70,6 @@ If it works and returns something, you do not need to install MPI unless you wan
 
 If you need to, install MPI using the official [MPI docs](https://www.open-mpi.org/software/ompi/v4.1/) (or refer to [TauDEM README](https://github.com/dtarb/TauDEM/) for further suggestions). 
 
-> On macOS this might be as easy as brew install mpich.
 
 ### TauDEM
 
