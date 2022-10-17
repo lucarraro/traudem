@@ -79,10 +79,9 @@
 <h3 id="what-this-package-does">What this package does<a class="anchor" aria-label="anchor" href="#what-this-package-does"></a>
 </h3>
 <ul>
-<li>It provides a guide to installation of TauDEM and its dependencies GDAL and MPI depending on your operating system.</li>
+<li>It provides a guide to installation of TauDEM and its dependencies GDAL and MPI, depending on your operating system.</li>
 <li>It checks that TauDEM and its dependencies are correctly installed and included to the PATH.</li>
-<li>It provides wrapper commands that allow calling TauDEM methods from<ol start="18" style="list-style-type: upper-alpha"><li></ol>
-</li>
+<li>It provides wrapper commands for calling TauDEM methods from R.</li>
 </ul>
 </div>
 <div class="section level3">
@@ -102,7 +101,7 @@
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>Refer to <a href="https://lucarraro.github.io/traudem/articles/taudem-installation.html"><code>vignette("taudem-installation", package = "traudem")</code></a>. In particular after installing the TauDEM CLI and dependencies as well as the R package, please run <code><a href="reference/taudem_sitrep.html">traudem::taudem_sitrep()</a></code>.</p>
+<p>Refer to <a href="https://lucarraro.github.io/traudem/articles/taudem-installation.html"><code>vignette("taudem-installation", package = "traudem")</code></a>. In particular, after installing the TauDEM CLI and dependencies as well as the R package, please run <code><a href="reference/taudem_sitrep.html">traudem::taudem_sitrep()</a></code>.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">traudem</span><span class="fu">::</span><span class="fu"><a href="reference/taudem_sitrep.html">taudem_sitrep</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; ✔ Found GDAL version 3.0.4.</span></span>
@@ -117,11 +116,11 @@
 <span><span class="co">#&gt; Nodata value input to create partition from file: nan</span></span>
 <span><span class="co">#&gt; Nodata value recast to float used in partition raster: nan</span></span>
 <span><span class="co">#&gt; Processes: 1</span></span>
-<span><span class="co">#&gt; Header read time: 0.004954</span></span>
-<span><span class="co">#&gt; Data read time: 0.001717</span></span>
-<span><span class="co">#&gt; Compute time: 0.021168</span></span>
-<span><span class="co">#&gt; Write time: 0.002009</span></span>
-<span><span class="co">#&gt; Total time: 0.029847</span></span>
+<span><span class="co">#&gt; Header read time: 0.005623</span></span>
+<span><span class="co">#&gt; Data read time: 0.001669</span></span>
+<span><span class="co">#&gt; Compute time: 0.027577</span></span>
+<span><span class="co">#&gt; Write time: 0.002573</span></span>
+<span><span class="co">#&gt; Total time: 0.037442</span></span>
 <span><span class="co">#&gt; This run may take on the order of 1 minutes to complete.</span></span>
 <span><span class="co">#&gt; This estimate is very approximate. </span></span>
 <span><span class="co">#&gt; Run time is highly uncertain as it depends on the complexity of the input data </span></span>
@@ -159,24 +158,24 @@
 <span><span class="op">)</span></span>
 <span><span class="va">output</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/taudem_pitremove.html">taudem_pitremove</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">test_dir</span>, <span class="st">"DEM.tif"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; PitRemove version 5.3.9</span></span>
-<span><span class="co">#&gt; Input file /tmp/RtmpbCqswi/file76692b8de111/DEM.tif has projected coordinate system.</span></span>
+<span><span class="co">#&gt; Input file /tmp/Rtmp3U9NX5/file4675312d2bf/DEM.tif has projected coordinate system.</span></span>
 <span><span class="co">#&gt; Nodata value input to create partition from file: nan</span></span>
 <span><span class="co">#&gt; Nodata value recast to float used in partition raster: nan</span></span>
 <span><span class="co">#&gt; Processes: 1</span></span>
-<span><span class="co">#&gt; Header read time: 0.009736</span></span>
-<span><span class="co">#&gt; Data read time: 0.002343</span></span>
-<span><span class="co">#&gt; Compute time: 0.023287</span></span>
-<span><span class="co">#&gt; Write time: 0.001966</span></span>
-<span><span class="co">#&gt; Total time: 0.037332</span></span>
+<span><span class="co">#&gt; Header read time: 0.006115</span></span>
+<span><span class="co">#&gt; Data read time: 0.002128</span></span>
+<span><span class="co">#&gt; Compute time: 0.027181</span></span>
+<span><span class="co">#&gt; Write time: 0.002124</span></span>
+<span><span class="co">#&gt; Total time: 0.037548</span></span>
 <span><span class="co">#&gt; This run may take on the order of 1 minutes to complete.</span></span>
 <span><span class="co">#&gt; This estimate is very approximate. </span></span>
 <span><span class="co">#&gt; Run time is highly uncertain as it depends on the complexity of the input data </span></span>
 <span><span class="co">#&gt; and speed and memory of the computer. This estimate is based on our testing on </span></span>
 <span><span class="co">#&gt; a dual quad core Dell Xeon E5405 2.0GHz PC with 16GB RAM.</span></span>
 <span><span class="va">output</span></span>
-<span><span class="co">#&gt; [1] "/tmp/RtmpbCqswi/file76692b8de111/DEMfel.tif"</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] "/tmp/Rtmp3U9NX5/file4675312d2bf/DEMfel.tif"</span></span></code></pre></div>
 <p>We ran the example above in a temporary directory that <code>withr</code> automatically deletes. If you want to automatically get rid of some of the intermediary files created by TauDEM in one of your pipelines, you might be interested in <code><a href="https://withr.r-lib.org/reference/with_tempfile.html" class="external-link">withr::local_tempfile()</a></code>.</p>
-<p>If you wanted to run this same code without seeing the messages from TauDEM you can either use the <code>quiet</code> argument:</p>
+<p>If you wanted to run this same code without seeing the messages from TauDEM, you can either use the <code>quiet</code> argument:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">test_dir</span> <span class="op">&lt;-</span> <span class="fu">withr</span><span class="fu">::</span><span class="fu"><a href="https://withr.r-lib.org/reference/with_tempfile.html" class="external-link">local_tempdir</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="https://fs.r-lib.org/reference/copy.html" class="external-link">file_copy</a></span><span class="op">(</span></span>
@@ -185,7 +184,7 @@
 <span><span class="op">)</span></span>
 <span><span class="va">output</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/taudem_pitremove.html">taudem_pitremove</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">test_dir</span>, <span class="st">"DEM.tif"</span><span class="op">)</span>, quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="va">output</span></span>
-<span><span class="co">#&gt; [1] "/tmp/RtmpbCqswi/file7669638dda6c/DEMfel.tif"</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] "/tmp/Rtmp3U9NX5/file46753636b70b/DEMfel.tif"</span></span></code></pre></div>
 <p>Or set the <code>traudem.quiet</code> option (<code>options(traudem.quiet = TRUE)</code> or for just the session, <code>withr::local_options(traudem.quiet = TRUE)</code>):</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">withr</span><span class="fu">::</span><span class="fu"><a href="https://withr.r-lib.org/reference/with_options.html" class="external-link">local_options</a></span><span class="op">(</span>traudem.quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
@@ -196,7 +195,7 @@
 <span><span class="op">)</span></span>
 <span><span class="va">output</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/taudem_pitremove.html">taudem_pitremove</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">test_dir</span>, <span class="st">"DEM.tif"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">output</span></span>
-<span><span class="co">#&gt; [1] "/tmp/RtmpbCqswi/file76695855c446/DEMfel.tif"</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] "/tmp/Rtmp3U9NX5/file467544f1fcd5/DEMfel.tif"</span></span></code></pre></div>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
@@ -230,6 +229,7 @@
 <li>University of Zurich <br><small class="roles"> Copyright holder, funder </small>  </li>
 <li>Maëlle Salmon <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0002-2815-0399" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
 <li>Wael Sadek <br><small class="roles"> Author </small>  </li>
+<li>Kirill Müller <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0002-1416-3412" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
 </ul>
 </div>
 
@@ -241,7 +241,7 @@
 
     <footer><div class="pkgdown-footer-left">
   <p></p>
-<p>Developed by Luca Carraro, University of Zurich, Maëlle Salmon, Wael Sadek.</p>
+<p>Developed by Luca Carraro, University of Zurich, Maëlle Salmon, Wael Sadek, Kirill Müller.</p>
 </div>
 
 <div class="pkgdown-footer-right">
