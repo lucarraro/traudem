@@ -5,7 +5,8 @@
 #' Please refer to the relative TauDEM function documentation for the syntax used to specify optional arguments.
 #' See also examples.
 #'
-#' @inheritParams rlang::args_dots_empty
+#' @param These dots are for future extensions and must be empty.
+#' As a consequence, all following arguments must be fully named (see examples).
 #' @param n_processes Number of processes for `mpiexec`. If `NULL` TauDEM is called without mpiexec.
 #' @param program TauDEM command (character). See examples.
 #' @param args Character vector of arguments. See examples.
