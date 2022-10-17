@@ -5,6 +5,7 @@
 #' Please refer to the relative TauDEM function documentation for the syntax used to specify optional arguments.
 #' See also examples.
 #'
+#' @inheritParams rlang::args_dots_empty
 #' @param n_processes Number of processes for `mpiexec`. If `NULL` TauDEM is called without mpiexec.
 #' @param program TauDEM command (character). See examples.
 #' @param args Character vector of arguments. See examples.
@@ -31,7 +32,8 @@
 #'     "-fel", file.path(test_dir,"filled_pits.tif")
 #'   )
 #' )
-taudem_exec <- function(program, args, n_processes = getOption("traudem.n_processes", 1), quiet = getOption("traudem.quiet", FALSE)) {
+taudem_exec <- function(..., program, args, n_processes = getOption("traudem.n_processes", 1), quiet = getOption("traudem.quiet", FALSE)) {
+  rlang::check_dots_empty()
   if (!can_register_taudem()) {
     rlang::abort(
       message = c(

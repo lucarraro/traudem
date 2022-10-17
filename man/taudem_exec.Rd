@@ -5,6 +5,7 @@
 \title{Call TauDEM}
 \usage{
 taudem_exec(
+  ...,
   program,
   args,
   n_processes = getOption("traudem.n_processes", 1),
@@ -12,6 +13,8 @@ taudem_exec(
 )
 }
 \arguments{
+\item{...}{These dots are for future extensions and must be empty.}
+
 \item{program}{TauDEM command (character). See examples.}
 
 \item{args}{Character vector of arguments. See examples.}
