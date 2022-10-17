@@ -23,17 +23,17 @@
 #'    file.path(test_dir, "DEM.tif")
 #'  )
 #'  # Default name for output file, only input command and input filename.
-#' taudem_exec(program = "pitremove", args = file.path(test_dir, "DEM.tif"))
+#' taudem_exec("pitremove", file.path(test_dir, "DEM.tif"))
 #'
 #' # syntax for user-attributed output file name
 #' taudem_exec(
-#'   program = "pitremove",
+#'   "pitremove",
 #'   c(
 #'     "-z", file.path(test_dir, "DEM.tif"),
 #'     "-fel", file.path(test_dir,"filled_pits.tif")
 #'   )
 #' )
-taudem_exec <- function(..., program, args, n_processes = getOption("traudem.n_processes", 1), quiet = getOption("traudem.quiet", FALSE)) {
+taudem_exec <- function(program, args, ..., n_processes = getOption("traudem.n_processes", 1), quiet = getOption("traudem.quiet", FALSE)) {
   rlang::check_dots_empty()
   if (!can_register_taudem()) {
     rlang::abort(
