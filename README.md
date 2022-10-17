@@ -5,9 +5,7 @@
 
 <!-- badges: start -->
 
-[![CRAN
-version](https://www.r-pkg.org/badges/version/traudem)](https://www.r-pkg.org/pkg/traudem)
-[![R-CMD-check](https://github.com/cynkra/traudem/actions/workflows/TauDEM.yaml/badge.svg)](https://github.com/cynkra/traudem/actions/workflows/TauDEM.yaml)
+[![R-CMD-check](https://github.com/lucarraro/traudem/actions/workflows/TauDEM.yaml/badge.svg)](https://github.com/lucarraro/traudem/actions/workflows/TauDEM.yaml)
 <!-- badges: end -->
 
 The goal of traudem is to wrap the [TauDEM
@@ -62,11 +60,11 @@ traudem::taudem_sitrep()
 #> Nodata value input to create partition from file: nan
 #> Nodata value recast to float used in partition raster: nan
 #> Processes: 1
-#> Header read time: 0.002700
-#> Data read time: 0.001043
-#> Compute time: 0.017549
-#> Write time: 0.002000
-#> Total time: 0.023292
+#> Header read time: 0.008763
+#> Data read time: 0.003737
+#> Compute time: 0.033597
+#> Write time: 0.002236
+#> Total time: 0.048333
 #> This run may take on the order of 1 minutes to complete.
 #> This estimate is very approximate. 
 #> Run time is highly uncertain as it depends on the complexity of the input data 
@@ -118,22 +116,22 @@ fs::file_copy(
 )
 output <- taudem_pitremove(file.path(test_dir, "DEM.tif"))
 #> PitRemove version 5.3.9
-#> Input file /tmp/RtmpHOR3Cw/file10bfa6683863a/DEM.tif has projected coordinate system.
+#> Input file /tmp/RtmpoEf2qy/file110784aada156/DEM.tif has projected coordinate system.
 #> Nodata value input to create partition from file: nan
 #> Nodata value recast to float used in partition raster: nan
 #> Processes: 1
-#> Header read time: 0.009463
-#> Data read time: 0.003002
-#> Compute time: 0.024057
-#> Write time: 0.001986
-#> Total time: 0.038506
+#> Header read time: 0.008310
+#> Data read time: 0.002408
+#> Compute time: 0.023698
+#> Write time: 0.001950
+#> Total time: 0.036366
 #> This run may take on the order of 1 minutes to complete.
 #> This estimate is very approximate. 
 #> Run time is highly uncertain as it depends on the complexity of the input data 
 #> and speed and memory of the computer. This estimate is based on our testing on 
 #> a dual quad core Dell Xeon E5405 2.0GHz PC with 16GB RAM.
 output
-#> [1] "/tmp/RtmpHOR3Cw/file10bfa6683863a/DEMfel.tif"
+#> [1] "/tmp/RtmpoEf2qy/file110784aada156/DEMfel.tif"
 ```
 
 We ran the example above in a temporary directory that `withr`
@@ -152,7 +150,7 @@ fs::file_copy(
 )
 output <- taudem_pitremove(file.path(test_dir, "DEM.tif"), quiet = TRUE)
 output
-#> [1] "/tmp/RtmpHOR3Cw/file10bfa522f4d17/DEMfel.tif"
+#> [1] "/tmp/RtmpoEf2qy/file110783a666c67/DEMfel.tif"
 ```
 
 Or set the `traudem.quiet` option (`options(traudem.quiet = TRUE)` or
@@ -167,5 +165,5 @@ fs::file_copy(
 )
 output <- taudem_pitremove(file.path(test_dir, "DEM.tif"))
 output
-#> [1] "/tmp/RtmpHOR3Cw/file10bfa7cdb5bc1/DEMfel.tif"
+#> [1] "/tmp/RtmpoEf2qy/file110784599c1a1/DEMfel.tif"
 ```
