@@ -13,6 +13,9 @@ taudem_exec(
 )
 }
 \arguments{
+\item{...}{These dots are for future extensions and must be empty.
+As a consequence, all following arguments must be fully named (see examples).}
+
 \item{program}{TauDEM command (character). See examples.}
 
 \item{args}{Character vector of arguments. See examples.}
@@ -20,9 +23,6 @@ taudem_exec(
 \item{n_processes}{Number of processes for \code{mpiexec}. If \code{NULL} TauDEM is called without mpiexec.}
 
 \item{quiet}{If \code{FALSE} output from TauDEM CLI is suppressed.}
-
-\item{These}{dots are for future extensions and must be empty.
-As a consequence, all following arguments must be fully named (see examples).}
 }
 \value{
 \code{TRUE} if the call was successful, \code{FALSE} otherwise.
