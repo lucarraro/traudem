@@ -11,7 +11,7 @@ Authors@R: c(
            family = "Müller",
            role = "aut",
            email = "kirill@cynkra.com",
-           comment = c(ORCID = "0000-0002-1416-3412")
+           comment = c(ORCID = "0000-0002-1416-3412"))
   )
 Description: Simple trustworthy utility functions to use 'TauDEM'
     command-line interface.
