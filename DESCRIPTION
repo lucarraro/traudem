@@ -6,7 +6,12 @@ Authors@R: c(
     person("University of Zurich", role = c("cph", "fnd")),
     person("Maëlle", "Salmon", , "maelle@cynkra.com", role = "aut",
            comment = c(ORCID = "0000-0002-2815-0399")),
-    person("Wael", "Sadek", role = "aut")
+    person("Wael", "Sadek", role = "aut"),
+    person(given = "Kirill",
+           family = "Müller",
+           role = "aut",
+           email = "kirill@cynkra.com",
+           comment = c(ORCID = "0000-0002-1416-3412")
   )
 Description: Simple trustworthy utility functions to use 'TauDEM'
     command-line interface.
