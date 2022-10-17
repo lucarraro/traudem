@@ -16,7 +16,7 @@ output
 We ran the example above in a temporary directory that `withr` automatically deletes.
 If you want to automatically get rid of some of the intermediary files created by TauDEM in one of your pipelines, you might be interested in `withr::local_tempfile()`.
 
-If you wanted to run this same code without seeing the messages from TauDEM you can either use the `quiet` argument:
+If you wanted to run this same code without seeing the messages from TauDEM, you can either use the `quiet` argument:
 
 ```{r quiet}
 test_dir <- withr::local_tempdir()

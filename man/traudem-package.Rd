@@ -26,5 +26,10 @@ Authors:
   \item Wael Sadek
 }
 
+Other contributors:
+\itemize{
+  \item University of Zurich [copyright holder, funder]
+}
+
 }
 \keyword{internal}

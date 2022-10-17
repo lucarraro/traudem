@@ -38,17 +38,52 @@ To install the dependencies, [Homebrew][1] is recommended. It is a
 package manager, similar to APT on Linux systems.
 
 1. Open a terminal.
-2. Download and install GDAL and MPICH: `brew install gdal mpich`
+
+2. Download and install GDAL and MPICH:
+    ```sh
+    brew install gdal mpich cmake
+    ```
+    
 3. Go to the [Github page of TauDEM][2] and download the code as ZIP
-4. Extract it and move the folder `TauDEM-Develop` to a convenient place, e.g. `/Users/$USER/Documents/TauDEM`
-5. Go back to the terminal and go into the directory with `cd /Users/$USER/Documents/TauDEM/TauDEM-Develop`
-6. Create a folder where the executables will be installed in: `mkdir bin`
-7. Go into source folder, create a build folder and go into with `cd src && mkdir build && cd build`
-8. Build with `cmake ..`. If not installed yet, use again homebrew `brew install cmake` and retry.
-9. Finalize with `make && sudo make install` and the executable files will end up in `/usr/local/taudem/`.
+
+4. Extract it and move the folder `TauDEM-Develop` to a convenient place, e.g.:
+    ```sh
+    /Users/$USER/Documents/TauDEM
+    ```
+    
+5. Go back to the terminal and go into the directory with:
+    ```sh
+    cd /Users/$USER/Documents/TauDEM/TauDEM-Develop
+    ```
+    
+6. Create a folder where the executables will be installed in:
+    ```sh
+    mkdir bin
+    ```
+    
+7. Go into source folder, create a build folder and go into with: 
+    ```sh
+    cd src && mkdir build && cd build
+    ```
+    
+8. Build with `cmake ..`.
+
+9. Finalize with:
+
+   ```sh
+   make && sudo make install
+   ```
+   
+   The executable files will end up in `/usr/local/taudem/`.
+
 10. Add the location of the executable files to your path environment variable. This is a bit tricky
     on macOS, since RStudio and the package only see the path added to `/etc/paths.d/`. So add it  
-    with the following two commands: `echo "/usr/local/taudem/" > taudem` and `sudo mv taudem /etc/paths.d/`.
+    with the following two commands:
+    
+    ```sh
+    echo "/usr/local/taudem/" > taudem
+    sudo mv taudem /etc/paths.d/
+    ```
 
 [1]: https://brew.sh
 [2]: https://github.com/dtarb/TauDEM

@@ -2,13 +2,13 @@
 #'
 #' @details See <https://hydrology.usu.edu/taudem/taudem5/help53/PitRemove.html>
 #'
-#' @param input_elevation_grid Input elevation grid file
-#' @param output_elevation_grid Output elevation grid file
-#' @param only_4way_neighbors Whether to consider only 4 way neighbors
+#' @param input_elevation_grid Input elevation grid file.
+#' @param output_elevation_grid Output elevation grid file.
+#' @param only_4way_neighbors Whether to consider only 4 way neighbors.
 #' @inheritParams taudem_exec
-#' @param depmask Depression mask file (optional)
+#' @param depmask Depression mask file (optional).
 #'
-#' @return Path to output file (invisibly)
+#' @return Path to output file (invisibly).
 #' @export
 #'
 #' @examplesIf interactive() && traudem::can_register_taudem()
@@ -43,7 +43,6 @@ taudem_pitremove <- function(input_elevation_grid,
   }
 
   args <- c(
-    "pitremove",
     "-z", input_elevation_grid,
     "-fel", output_elevation_grid
   )
@@ -54,7 +53,11 @@ taudem_pitremove <- function(input_elevation_grid,
     args <- c(args, "-depmask", depmask)
   }
 
-  taudem_exec(n_processes = n_processes, args = args, quiet = quiet)
+  taudem_exec(
+    n_processes = n_processes,
+    program = "pitremove", args = args,
+    quiet = quiet
+  )
 
   if (!file.exists(output_elevation_grid)) {
     rlang::abort("TauDEM error, see messages above.")

@@ -2,12 +2,12 @@
 #'
 #' @details See <https://hydrology.usu.edu/taudem/taudem5/help53/D8FlowDirections.html>
 #'
-#' @param input_elevation_grid Pit filled elevation input data
-#' @param output_d8flowdir_grid D8 flow directions output
-#' @param output_d8slopes_grid D8 slopes output
+#' @param input_elevation_grid Pit filled elevation input data.
+#' @param output_d8flowdir_grid D8 flow directions output.
+#' @param output_d8slopes_grid D8 slopes output.
 #' @inheritParams taudem_exec
 #'
-#' @return List with the two output filenames
+#' @return List with the two output filenames.
 #' @export
 #'
 #' @examplesIf interactive() && traudem::can_register_taudem()
@@ -46,12 +46,11 @@ taudem_d8flowdir <- function(input_elevation_grid,
   }
 
   args <- c(
-    "d8flowdir",
     "-fel", input_elevation_grid,
     "-p", output_d8flowdir_grid,
     "-sd8", output_d8slopes_grid
   )
-  taudem_exec(n_processes = n_processes, args = args, quiet = quiet)
+  taudem_exec(n_processes = n_processes, program = "d8flowdir", args = args, quiet = quiet)
 
   output1_exists <- file.exists(output_d8flowdir_grid)
   output2_exists <- file.exists(output_d8slopes_grid)
