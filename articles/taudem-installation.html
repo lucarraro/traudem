@@ -86,11 +86,67 @@
 <li>MPI that R will call to launch TauDEM;</li>
 <li>TauDEM itself.</li>
 </ul>
-<p>No matter your operating system, <strong>take notes of the steps you follow</strong>. This way, if anything goes wrong, you will be able to open an informative bug report and get help more easily.</p>
+<p>Please follow instructions on how to install TauDEM, GDAL and MPI depending on your operating system, then finalize your installation as specified below.</p>
+<p>No matter your operating system, <strong>take note of the steps you follow</strong>. This way, if anything goes wrong, you will be able to open an informative bug report and get help more easily.</p>
 <div class="section level2">
 <h2 id="windows">Windows<a class="anchor" aria-label="anchor" href="#windows"></a>
 </h2>
 <p>You’re in luck! The TauDEM Windows installer will install all three tools at once! Refer to <a href="https://hydrology.usu.edu/taudem/taudem5/downloads.html" class="external-link uri">https://hydrology.usu.edu/taudem/taudem5/downloads.html</a>.</p>
+</div>
+<div class="section level2">
+<h2 id="macos">macOS<a class="anchor" aria-label="anchor" href="#macos"></a>
+</h2>
+<p>To install the dependencies, <a href="https://brew.sh" class="external-link">Homebrew</a> is recommended. It is a package manager, similar to APT on Linux systems.</p>
+<ol style="list-style-type: decimal">
+<li>Open a terminal.</li>
+<li>Download and install GDAL and MPICH: <code>brew install gdal mpich</code>
+</li>
+<li>Go to the <a href="https://github.com/dtarb/TauDEM" class="external-link">Github page of TauDEM</a> and download the code as ZIP</li>
+<li>Extract it and move the folder <code>TauDEM-Develop</code> to a convenient place, e.g. <code>/Users/$USER/Documents/TauDEM</code>
+</li>
+<li>Go back to the terminal and go into the directory with <code>cd /Users/$USER/Documents/TauDEM/TauDEM-Develop</code>
+</li>
+<li>Create a folder where the executables will be installed in: <code>mkdir bin</code>
+</li>
+<li>Go into source folder, create a build folder and go into with <code>cd src &amp;&amp; mkdir build &amp;&amp; cd build</code>
+</li>
+<li>Build with <code>cmake ..</code>. If not installed yet, use again homebrew <code>brew install cmake</code> and retry.</li>
+<li>Finalize with <code>make &amp;&amp; sudo make install</code> and the executable files will end up in <code>/usr/local/taudem/</code>.</li>
+<li>Add the location of the executable files to your path environment variable. This is a bit tricky on macOS, since RStudio and the package only see the path added to <code>/etc/paths.d/</code>. So add it<br>
+with the following two commands: <code>echo "/usr/local/taudem/" &gt; taudem</code> and <code>sudo mv taudem /etc/paths.d/</code>.</li>
+</ol>
+</div>
+<div class="section level2">
+<h2 id="linux">Linux<a class="anchor" aria-label="anchor" href="#linux"></a>
+</h2>
+<div class="section level3">
+<h3 id="gdal">GDAL<a class="anchor" aria-label="anchor" href="#gdal"></a>
+</h3>
+<p>Do you need to install GDAL? In a terminal try <code>gdalinfo --version</code>, if it fails <code>gdal-config --version</code>. If it works and return something you do not need to install GDAL unless you want a newer version. You might have installed GDAL in the past for, say, using the sf R package.</p>
+<p>If you need to, install GDAL using the official <a href="https://gdal.org/download.html" class="external-link">GDAL docs</a> (or refer to <a href="https://github.com/dtarb/TauDEM/" class="external-link">TauDEM README</a> for further suggestions).</p>
+</div>
+<div class="section level3">
+<h3 id="mpi">MPI<a class="anchor" aria-label="anchor" href="#mpi"></a>
+</h3>
+<p>First try running <code>mpiexec --version</code> in a terminal. If it works and returns something, you do not need to install MPI unless you want a newer version.</p>
+<p>If you need to, install MPI using the official <a href="https://www.open-mpi.org/software/ompi/v4.1/" class="external-link">MPI docs</a> (or refer to <a href="https://github.com/dtarb/TauDEM/" class="external-link">TauDEM README</a> for further suggestions).</p>
+</div>
+<div class="section level3">
+<h3 id="taudem">TauDEM<a class="anchor" aria-label="anchor" href="#taudem"></a>
+</h3>
+<p>First you need to obtain TauDEM source for GitHub <a href="https://github.com/dtarb/TauDEM/" class="external-link uri">https://github.com/dtarb/TauDEM/</a>. If you are at ease with this, you can clone the repository. If not, find the green button that allows you to clone, open (with GitHub CLI) or download, and download the ZIP version.</p>
+<p>We recommend using CMake because that is what we did but <a href="https://github.com/dtarb/TauDEM/" class="external-link">TauDEM README</a> also has a method using Make. Therefore,</p>
+<ul>
+<li>install CMake or Make (check it’s not already installed);</li>
+<li>follow <a href="https://github.com/dtarb/TauDEM/" class="external-link">TauDEM README</a> for further suggestions) for either CMake or Make depending on what you decided to use.</li>
+</ul>
+<blockquote>
+<p>If the installation shows errors, try using <a href="https://github.com/maelle/TauDEM/tree/more-mpi-deprecations" class="external-link uri">https://github.com/maelle/TauDEM/tree/more-mpi-deprecations</a> instead.</p>
+</blockquote>
+<blockquote>
+<p>Even for a successful installation you might see many warnings.</p>
+</blockquote>
+</div>
 </div>
 <div class="section level2">
 <h2 id="finalize-your-installation">Finalize your installation<a class="anchor" aria-label="anchor" href="#finalize-your-installation"></a>
@@ -120,133 +176,6 @@
 </div>
 <div class="section level3">
 <h3 id="check-your-installation">Check your installation<a class="anchor" aria-label="anchor" href="#check-your-installation"></a>
-</h3>
-<p>Run <code><a href="../reference/taudem_sitrep.html">traudem::taudem_sitrep()</a></code> and read its output carefully. Pay attention to any error that might indicate part of the installation was not successful.</p>
-<p>If all is well (no error, only normal output from TauDEM), congratulations! Your system is ready to apply TauDEM to your own data.</p>
-</div>
-</div>
-<div class="section level2">
-<h2 id="macos">macOS<a class="anchor" aria-label="anchor" href="#macos"></a>
-</h2>
-<p>To install the dependencies, <a href="https://brew.sh" class="external-link">Homebrew</a> is recommended. It is a package manager, similar to APT on Linux systems.</p>
-<ol style="list-style-type: decimal">
-<li>Open a terminal.</li>
-<li>Download and install GDAL and MPICH: <code>brew install gdal mpich</code>
-</li>
-<li>Go to the <a href="https://github.com/dtarb/TauDEM" class="external-link">Github page of TauDEM</a> and download the code as ZIP</li>
-<li>Extract it and move the folder <code>TauDEM-Develop</code> to a convenient place, e.g. <code>/Users/$USER/Documents/TauDEM</code>
-</li>
-<li>Go back to the terminal and go into the directory with <code>cd /Users/$USER/Documents/TauDEM/TauDEM-Develop</code>
-</li>
-<li>Create a folder where the executables will be installed in: <code>mkdir bin</code>
-</li>
-<li>Go into source folder, create a build folder and go into with <code>cd src &amp;&amp; mkdir build &amp;&amp; cd build</code>
-</li>
-<li>Build with <code>cmake ..</code>. If not installed yet, use again homebrew <code>brew install cmake</code> and retry.</li>
-<li>Finalize with <code>make &amp;&amp; sudo make install</code> and the executable files will end up in <code>/usr/local/taudem/</code>.</li>
-<li>Add the location of the executable files to your path environment variable. This is a bit tricky on macOS, since RStudio and the package only see the path added to <code>/etc/paths.d/</code>. So add it<br>
-with the following two commands: <code>echo "/usr/local/taudem/" &gt; taudem</code> and <code>sudo mv taudem /etc/paths.d/</code>.</li>
-</ol>
-</div>
-<div class="section level2">
-<h2 id="finalize-your-installation-1">Finalize your installation<a class="anchor" aria-label="anchor" href="#finalize-your-installation-1"></a>
-</h2>
-<p>Once you are done,</p>
-<div class="section level3">
-<h3 id="register-taudem-in-r-1">Register TauDEM in R<a class="anchor" aria-label="anchor" href="#register-taudem-in-r-1"></a>
-</h3>
-<div class="section level4">
-<h4 id="add-taudem-to-the-path-1">Add TauDEM to the PATH<a class="anchor" aria-label="anchor" href="#add-taudem-to-the-path-1"></a>
-</h4>
-<ul>
-<li>The Windows installer might have done this automatically.</li>
-<li>For other operating systems (macOS, Linux) use your usual method to add a directory to the PATH.</li>
-</ul>
-</div>
-<div class="section level4">
-<h4 id="or-add-an-environmental-variable-1">OR add an environmental variable<a class="anchor" aria-label="anchor" href="#or-add-an-environmental-variable-1"></a>
-</h4>
-<p>Add an R environmental variable called <code>TAUDEM_PATH</code> that points to the location where the TauDEM executables can be found (on Windows it might be <code>C:\Program Files\TauDEM</code>, on Ubuntu <code>/usr/local/taudem</code>).</p>
-<p>For instance on Ubuntu it could be adding this line in <code>.Renviron</code> (see <code><a href="https://usethis.r-lib.org/reference/edit.html" class="external-link">usethis::edit_r_environ()</a></code>) and then re-starting R:</p>
-<pre><code><span><span class="va">TAUDEM_PATH</span><span class="op">=</span><span class="st">'/usr/local/taudem'</span></span></code></pre>
-<p>or, for just the session, running this line of R code:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Sys.setenv.html" class="external-link">Sys.setenv</a></span><span class="op">(</span>TAUDEM_PATH<span class="op">=</span><span class="st">'/usr/local/taudem'</span><span class="op">)</span></span></code></pre></div>
-</div>
-</div>
-<div class="section level3">
-<h3 id="check-your-installation-1">Check your installation<a class="anchor" aria-label="anchor" href="#check-your-installation-1"></a>
-</h3>
-<p>Run <code><a href="../reference/taudem_sitrep.html">traudem::taudem_sitrep()</a></code> and read its output carefully. Pay attention to any error that might indicate part of the installation was not successful.</p>
-<p>If all is well (no error, only normal output from TauDEM), congratulations! Your system is ready to apply TauDEM to your own data.</p>
-</div>
-</div>
-<div class="section level2">
-<h2 id="linux">Linux<a class="anchor" aria-label="anchor" href="#linux"></a>
-</h2>
-<div class="section level3">
-<h3 id="gdal">GDAL<a class="anchor" aria-label="anchor" href="#gdal"></a>
-</h3>
-<p>Do you need to install GDAL? In a terminal try <code>gdalinfo --version</code>, if it fails <code>gdal-config --version</code>. If it works and return something you do not need to install GDAL unless you want a newer version. You might have installed GDAL in the past for, say, using the sf R package.</p>
-<p>If you need to, install GDAL using the official <a href="https://gdal.org/download.html" class="external-link">GDAL docs</a> (or refer to <a href="https://github.com/dtarb/TauDEM/" class="external-link">TauDEM README</a> for further suggestions).</p>
-<blockquote>
-<p>On macOS this might be as easy as brew install gdal.</p>
-</blockquote>
-</div>
-<div class="section level3">
-<h3 id="mpi">MPI<a class="anchor" aria-label="anchor" href="#mpi"></a>
-</h3>
-<p>First try running <code>mpiexec --version</code> in a terminal. If it works and returns something, you do not need to install MPI unless you want a newer version.</p>
-<p>If you need to, install MPI using the official <a href="https://www.open-mpi.org/software/ompi/v4.1/" class="external-link">MPI docs</a> (or refer to <a href="https://github.com/dtarb/TauDEM/" class="external-link">TauDEM README</a> for further suggestions).</p>
-<blockquote>
-<p>On macOS this might be as easy as brew install mpich.</p>
-</blockquote>
-</div>
-<div class="section level3">
-<h3 id="taudem">TauDEM<a class="anchor" aria-label="anchor" href="#taudem"></a>
-</h3>
-<p>First you need to obtain TauDEM source for GitHub <a href="https://github.com/dtarb/TauDEM/" class="external-link uri">https://github.com/dtarb/TauDEM/</a>. If you are at ease with this, you can clone the repository. If not, find the green button that allows you to clone, open (with GitHub CLI) or download, and download the ZIP version.</p>
-<p>We recommend using CMake because that is what we did but <a href="https://github.com/dtarb/TauDEM/" class="external-link">TauDEM README</a> also has a method using Make. Therefore,</p>
-<ul>
-<li>install CMake or Make (check it’s not already installed);</li>
-<li>follow <a href="https://github.com/dtarb/TauDEM/" class="external-link">TauDEM README</a> for further suggestions) for either CMake or Make depending on what you decided to use.</li>
-</ul>
-<blockquote>
-<p>If the installation shows errors, try using <a href="https://github.com/maelle/TauDEM/tree/more-mpi-deprecations" class="external-link uri">https://github.com/maelle/TauDEM/tree/more-mpi-deprecations</a> instead.</p>
-</blockquote>
-<blockquote>
-<p>Even for a successful installation you might see many warnings.</p>
-</blockquote>
-</div>
-</div>
-<div class="section level2">
-<h2 id="finalize-your-installation-2">Finalize your installation<a class="anchor" aria-label="anchor" href="#finalize-your-installation-2"></a>
-</h2>
-<p>Once you are done,</p>
-<div class="section level3">
-<h3 id="register-taudem-in-r-2">Register TauDEM in R<a class="anchor" aria-label="anchor" href="#register-taudem-in-r-2"></a>
-</h3>
-<div class="section level4">
-<h4 id="add-taudem-to-the-path-2">Add TauDEM to the PATH<a class="anchor" aria-label="anchor" href="#add-taudem-to-the-path-2"></a>
-</h4>
-<ul>
-<li>The Windows installer might have done this automatically.</li>
-<li>For other operating systems (macOS, Linux) use your usual method to add a directory to the PATH.</li>
-</ul>
-</div>
-<div class="section level4">
-<h4 id="or-add-an-environmental-variable-2">OR add an environmental variable<a class="anchor" aria-label="anchor" href="#or-add-an-environmental-variable-2"></a>
-</h4>
-<p>Add an R environmental variable called <code>TAUDEM_PATH</code> that points to the location where the TauDEM executables can be found (on Windows it might be <code>C:\Program Files\TauDEM</code>, on Ubuntu <code>/usr/local/taudem</code>).</p>
-<p>For instance on Ubuntu it could be adding this line in <code>.Renviron</code> (see <code><a href="https://usethis.r-lib.org/reference/edit.html" class="external-link">usethis::edit_r_environ()</a></code>) and then re-starting R:</p>
-<pre><code><span><span class="va">TAUDEM_PATH</span><span class="op">=</span><span class="st">'/usr/local/taudem'</span></span></code></pre>
-<p>or, for just the session, running this line of R code:</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Sys.setenv.html" class="external-link">Sys.setenv</a></span><span class="op">(</span>TAUDEM_PATH<span class="op">=</span><span class="st">'/usr/local/taudem'</span><span class="op">)</span></span></code></pre></div>
-</div>
-</div>
-<div class="section level3">
-<h3 id="check-your-installation-2">Check your installation<a class="anchor" aria-label="anchor" href="#check-your-installation-2"></a>
 </h3>
 <p>Run <code><a href="../reference/taudem_sitrep.html">traudem::taudem_sitrep()</a></code> and read its output carefully. Pay attention to any error that might indicate part of the installation was not successful.</p>
 <p>If all is well (no error, only normal output from TauDEM), congratulations! Your system is ready to apply TauDEM to your own data.</p>
