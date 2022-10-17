@@ -5,13 +5,16 @@
 \title{Call TauDEM}
 \usage{
 taudem_exec(
+  program,
   args,
   n_processes = getOption("traudem.n_processes", 1),
   quiet = getOption("traudem.quiet", FALSE)
 )
 }
 \arguments{
-\item{args}{Character vector of argument, starting with the TauDEM command. See examples.}
+\item{program}{TauDEM command (character). See examples.}
+
+\item{args}{Character vector of arguments. See examples.}
 
 \item{n_processes}{Number of processes for \code{mpiexec}. If \code{NULL} TauDEM is called without mpiexec.}
 
@@ -38,12 +41,12 @@ file.copy(
    file.path(test_dir, "DEM.tif")
  )
  # Default name for output file, only input command and input filename.
-taudem_exec(c("pitremove", file.path(test_dir, "DEM.tif")))
+taudem_exec(program = "pitremove", args = file.path(test_dir, "DEM.tif"))
 
 # syntax for user-attributed output file name
 taudem_exec(
+  program = "pitremove",
   c(
-    "pitremove",
     "-z", file.path(test_dir, "DEM.tif"),
     "-fel", file.path(test_dir,"filled_pits.tif")
   )

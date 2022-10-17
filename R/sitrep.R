@@ -151,7 +151,8 @@ taudem_sitrep <- function() {
     test_dir, {
       taudem_exec(
           n_processes = NULL,
-          c("pitremove", "DEM.tif"),
+          program = "pitremove",
+          args = "DEM.tif",
           quiet = FALSE
      )
     }

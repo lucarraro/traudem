@@ -14,11 +14,10 @@ CLI](https://hydrology.usu.edu/taudem/taudem5/index.html) from R.
 ### What this package does
 
 -   It provides a guide to installation of TauDEM and its dependencies
-    GDAL and MPI depending on your operating system.
+    GDAL and MPI, depending on your operating system.
 -   It checks that TauDEM and its dependencies are correctly installed
     and included to the PATH.
--   It provides wrapper commands that allow calling TauDEM methods from
-    R.
+-   It provides wrapper commands for calling TauDEM methods from R.
 
 ### What this package does not
 
@@ -42,7 +41,7 @@ this repository to add more dedicated wrappers.
 
 Refer to
 [`vignette("taudem-installation", package = "traudem")`](https://lucarraro.github.io/traudem/articles/taudem-installation.html).
-In particular after installing the TauDEM CLI and dependencies as well
+In particular, after installing the TauDEM CLI and dependencies as well
 as the R package, please run `traudem::taudem_sitrep()`.
 
 ``` r
@@ -59,11 +58,11 @@ traudem::taudem_sitrep()
 #> Nodata value input to create partition from file: nan
 #> Nodata value recast to float used in partition raster: nan
 #> Processes: 1
-#> Header read time: 0.004954
-#> Data read time: 0.001717
-#> Compute time: 0.021168
-#> Write time: 0.002009
-#> Total time: 0.029847
+#> Header read time: 0.005623
+#> Data read time: 0.001669
+#> Compute time: 0.027577
+#> Write time: 0.002573
+#> Total time: 0.037442
 #> This run may take on the order of 1 minutes to complete.
 #> This estimate is very approximate. 
 #> Run time is highly uncertain as it depends on the complexity of the input data 
@@ -109,22 +108,22 @@ fs::file_copy(
 )
 output <- taudem_pitremove(file.path(test_dir, "DEM.tif"))
 #> PitRemove version 5.3.9
-#> Input file /tmp/RtmpbCqswi/file76692b8de111/DEM.tif has projected coordinate system.
+#> Input file /tmp/Rtmp3U9NX5/file4675312d2bf/DEM.tif has projected coordinate system.
 #> Nodata value input to create partition from file: nan
 #> Nodata value recast to float used in partition raster: nan
 #> Processes: 1
-#> Header read time: 0.009736
-#> Data read time: 0.002343
-#> Compute time: 0.023287
-#> Write time: 0.001966
-#> Total time: 0.037332
+#> Header read time: 0.006115
+#> Data read time: 0.002128
+#> Compute time: 0.027181
+#> Write time: 0.002124
+#> Total time: 0.037548
 #> This run may take on the order of 1 minutes to complete.
 #> This estimate is very approximate. 
 #> Run time is highly uncertain as it depends on the complexity of the input data 
 #> and speed and memory of the computer. This estimate is based on our testing on 
 #> a dual quad core Dell Xeon E5405 2.0GHz PC with 16GB RAM.
 output
-#> [1] "/tmp/RtmpbCqswi/file76692b8de111/DEMfel.tif"
+#> [1] "/tmp/Rtmp3U9NX5/file4675312d2bf/DEMfel.tif"
 ```
 
 We ran the example above in a temporary directory that `withr`
@@ -133,7 +132,7 @@ the intermediary files created by TauDEM in one of your pipelines, you
 might be interested in `withr::local_tempfile()`.
 
 If you wanted to run this same code without seeing the messages from
-TauDEM you can either use the `quiet` argument:
+TauDEM, you can either use the `quiet` argument:
 
 ``` r
 test_dir <- withr::local_tempdir()
@@ -143,7 +142,7 @@ fs::file_copy(
 )
 output <- taudem_pitremove(file.path(test_dir, "DEM.tif"), quiet = TRUE)
 output
-#> [1] "/tmp/RtmpbCqswi/file7669638dda6c/DEMfel.tif"
+#> [1] "/tmp/Rtmp3U9NX5/file46753636b70b/DEMfel.tif"
 ```
 
 Or set the `traudem.quiet` option (`options(traudem.quiet = TRUE)` or
@@ -158,5 +157,5 @@ fs::file_copy(
 )
 output <- taudem_pitremove(file.path(test_dir, "DEM.tif"))
 output
-#> [1] "/tmp/RtmpbCqswi/file76695855c446/DEMfel.tif"
+#> [1] "/tmp/Rtmp3U9NX5/file467544f1fcd5/DEMfel.tif"
 ```

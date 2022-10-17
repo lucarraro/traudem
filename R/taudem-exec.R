@@ -6,7 +6,8 @@
 #' See also examples.
 #'
 #' @param n_processes Number of processes for `mpiexec`. If `NULL` TauDEM is called without mpiexec.
-#' @param args Character vector of argument, starting with the TauDEM command. See examples.
+#' @param program TauDEM command (character). See examples.
+#' @param args Character vector of arguments. See examples.
 #' @param quiet If `FALSE` output from TauDEM CLI is suppressed.
 #'
 #' @return `TRUE` if the call was successful, `FALSE` otherwise.
@@ -20,17 +21,17 @@
 #'    file.path(test_dir, "DEM.tif")
 #'  )
 #'  # Default name for output file, only input command and input filename.
-#' taudem_exec(c("pitremove", file.path(test_dir, "DEM.tif")))
+#' taudem_exec(program = "pitremove", args = file.path(test_dir, "DEM.tif"))
 #'
 #' # syntax for user-attributed output file name
 #' taudem_exec(
+#'   program = "pitremove",
 #'   c(
-#'     "pitremove",
 #'     "-z", file.path(test_dir, "DEM.tif"),
 #'     "-fel", file.path(test_dir,"filled_pits.tif")
 #'   )
 #' )
-taudem_exec <- function(args, n_processes = getOption("traudem.n_processes", 1), quiet = getOption("traudem.quiet", FALSE)) {
+taudem_exec <- function(program, args, n_processes = getOption("traudem.n_processes", 1), quiet = getOption("traudem.quiet", FALSE)) {
   if (!can_register_taudem()) {
     rlang::abort(
       message = c(
@@ -43,10 +44,9 @@ taudem_exec <- function(args, n_processes = getOption("traudem.n_processes", 1),
 
   if (!is.null(n_processes)) {
     cmd <- "mpiexec"
-    args <- c("-n", n_processes, args)
+    args <- c("-n", n_processes, program, args)
   } else {
-    cmd <- args[1]
-    args <- args[-1]
+    cmd <- program
   }
 
   std_out <- withr::local_tempfile()

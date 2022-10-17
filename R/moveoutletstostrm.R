@@ -52,14 +52,13 @@ taudem_moveoutletstostream <- function(input_d8flowdir_grid,
     output_moved_outlets_file <- sprintf("%smovedoutlet.shp", output_moved_outlets_file_file)
   }
 
-  cmd <- if (on_windows()) {
+  program <- if (on_windows()) {
     "moveoutletstostreams"
   } else {
     "moveoutletstostrm"
   }
 
   args <- c(
-    cmd,
     "-p", input_d8flowdir_grid,
     "-src", input_stream_raster_grid,
     "-o", outlet_file,
@@ -81,7 +80,11 @@ taudem_moveoutletstostream <- function(input_d8flowdir_grid,
   if (!is.null(outlet_layer_number)) {
     args <- c(args, "-lyrno", outlet_layer_number)
   }
-  taudem_exec(n_processes = n_processes, args = args, quiet = quiet)
+  taudem_exec(
+    n_processes = n_processes,
+    program = program, args = args,
+    quiet = quiet
+  )
 
   if (!file.exists(output_moved_outlets_file)) {
     rlang::abort("TauDEM error, see messages above.")

@@ -63,7 +63,6 @@ taudem_aread8 <- function(input_d8flowdir_grid,
   }
 
   args <- c(
-    "aread8",
     "-p", input_d8flowdir_grid,
     "-ad8", output_contributing_area_grid
   )
@@ -88,7 +87,7 @@ taudem_aread8 <- function(input_d8flowdir_grid,
     args <- c(args, "-lyrno", outlet_layer_number)
   }
 
-  taudem_exec(n_processes = n_processes, args = args, quiet = quiet)
+  taudem_exec(n_processes = n_processes, program = "aread8", args = args, quiet = quiet)
   if (!file.exists(output_contributing_area_grid)) {
     rlang::abort("TauDEM error, see messages above.")
   }
