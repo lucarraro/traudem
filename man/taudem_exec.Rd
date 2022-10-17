@@ -43,9 +43,10 @@ taudem_exec(c("pitremove", file.path(test_dir, "DEM.tif")))
 # syntax for user-attributed output file name
 taudem_exec(
   c(
-  "pitremove",
-  "-z", file.path(test_dir, "DEM.tif"),
-  "-fel", file.path(test_dir,"filled_pits.tif"))
- )
+    "pitremove",
+    "-z", file.path(test_dir, "DEM.tif"),
+    "-fel", file.path(test_dir,"filled_pits.tif")
+  )
+)
 \dontshow{\}) # examplesIf}
 }

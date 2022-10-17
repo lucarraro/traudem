@@ -27,7 +27,7 @@ taudem_threshold(
 \item{quiet}{If \code{FALSE} output from TauDEM CLI is suppressed.}
 }
 \value{
-Path to output file (invisibly)
+Path to output file (invisibly).
 }
 \description{
 Stream Definition By Threshold
