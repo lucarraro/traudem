@@ -8,6 +8,12 @@ In particular, after installing the TauDEM CLI and dependencies as well as the R
 traudem::taudem_sitrep()
 ```
 
+You can install traudem from CRAN:
+
+```r
+install.packages("traudem")
+```
+
 You can install the development version of traudem from R-universe:
 
 ```r

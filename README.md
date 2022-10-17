@@ -4,6 +4,10 @@
 # traudem
 
 <!-- badges: start -->
+
+[![CRAN
+version](https://www.r-pkg.org/badges/version/traudem)](https://www.r-pkg.org/pkg/traudem)
+[![R-CMD-check](https://github.com/cynkra/traudem/actions/workflows/TauDEM.yaml/badge.svg)](https://github.com/cynkra/traudem/actions/workflows/TauDEM.yaml)
 <!-- badges: end -->
 
 The goal of traudem is to wrap the [TauDEM
@@ -58,11 +62,11 @@ traudem::taudem_sitrep()
 #> Nodata value input to create partition from file: nan
 #> Nodata value recast to float used in partition raster: nan
 #> Processes: 1
-#> Header read time: 0.005623
-#> Data read time: 0.001669
-#> Compute time: 0.027577
-#> Write time: 0.002573
-#> Total time: 0.037442
+#> Header read time: 0.002700
+#> Data read time: 0.001043
+#> Compute time: 0.017549
+#> Write time: 0.002000
+#> Total time: 0.023292
 #> This run may take on the order of 1 minutes to complete.
 #> This estimate is very approximate. 
 #> Run time is highly uncertain as it depends on the complexity of the input data 
@@ -70,7 +74,13 @@ traudem::taudem_sitrep()
 #> a dual quad core Dell Xeon E5405 2.0GHz PC with 16GB RAM.
 #> ── End of TauDEM output ────────────────────────────────────────────────────────
 #> ✔ Was able to launch a TauDEM example!
-#> ! Make sure you see no serious error message above.
+#> ! Double-check above output for serious error messages.
+```
+
+You can install traudem from CRAN:
+
+``` r
+install.packages("traudem")
 ```
 
 You can install the development version of traudem from R-universe:
@@ -108,22 +118,22 @@ fs::file_copy(
 )
 output <- taudem_pitremove(file.path(test_dir, "DEM.tif"))
 #> PitRemove version 5.3.9
-#> Input file /tmp/Rtmp3U9NX5/file4675312d2bf/DEM.tif has projected coordinate system.
+#> Input file /tmp/RtmpHOR3Cw/file10bfa6683863a/DEM.tif has projected coordinate system.
 #> Nodata value input to create partition from file: nan
 #> Nodata value recast to float used in partition raster: nan
 #> Processes: 1
-#> Header read time: 0.006115
-#> Data read time: 0.002128
-#> Compute time: 0.027181
-#> Write time: 0.002124
-#> Total time: 0.037548
+#> Header read time: 0.009463
+#> Data read time: 0.003002
+#> Compute time: 0.024057
+#> Write time: 0.001986
+#> Total time: 0.038506
 #> This run may take on the order of 1 minutes to complete.
 #> This estimate is very approximate. 
 #> Run time is highly uncertain as it depends on the complexity of the input data 
 #> and speed and memory of the computer. This estimate is based on our testing on 
 #> a dual quad core Dell Xeon E5405 2.0GHz PC with 16GB RAM.
 output
-#> [1] "/tmp/Rtmp3U9NX5/file4675312d2bf/DEMfel.tif"
+#> [1] "/tmp/RtmpHOR3Cw/file10bfa6683863a/DEMfel.tif"
 ```
 
 We ran the example above in a temporary directory that `withr`
@@ -142,7 +152,7 @@ fs::file_copy(
 )
 output <- taudem_pitremove(file.path(test_dir, "DEM.tif"), quiet = TRUE)
 output
-#> [1] "/tmp/Rtmp3U9NX5/file46753636b70b/DEMfel.tif"
+#> [1] "/tmp/RtmpHOR3Cw/file10bfa522f4d17/DEMfel.tif"
 ```
 
 Or set the `traudem.quiet` option (`options(traudem.quiet = TRUE)` or
@@ -157,5 +167,5 @@ fs::file_copy(
 )
 output <- taudem_pitremove(file.path(test_dir, "DEM.tif"))
 output
-#> [1] "/tmp/Rtmp3U9NX5/file467544f1fcd5/DEMfel.tif"
+#> [1] "/tmp/RtmpHOR3Cw/file10bfa7cdb5bc1/DEMfel.tif"
 ```
