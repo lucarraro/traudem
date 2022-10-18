@@ -1,6 +1,6 @@
 Package: traudem
 Title: Use 'TauDEM'
-Version: 0.0.0.9000
+Version: 1.0.0
 Authors@R: c(
     person("Luca", "Carraro", , "Luca.Carraro@eawag.ch", role = c("cre", "aut")),
     person("University of Zurich", role = c("cph", "fnd")),
