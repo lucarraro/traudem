@@ -6,7 +6,7 @@
 \alias{traudem-package}
 \title{traudem: Use TauDEM}
 \description{
-Simple trustworthy utility functions to use TauDEM (Terrain Analysis Using Digital Elevation Models) command-line interface. This package provides a guide to installation of TauDEM and its dependencies GDAL (Geopatial Data Abstraction Library) and MPI (Message Passing Interface) for different operating systems. Moreover, it checks that TauDEM and its dependencies are correctly installed and included to the PATH, and it provides wrapper commands for calling TauDEM methods from R.
+Simple trustworthy utility functions to use TauDEM (Terrain Analysis Using Digital Elevation Models \url{https://hydrology.usu.edu/taudem/taudem5/}) command-line interface. This package provides a guide to installation of TauDEM and its dependencies GDAL (Geopatial Data Abstraction Library) and MPI (Message Passing Interface) for different operating systems. Moreover, it checks that TauDEM and its dependencies are correctly installed and included to the PATH, and it provides wrapper commands for calling TauDEM methods from R.
 }
 \seealso{
 Useful links:

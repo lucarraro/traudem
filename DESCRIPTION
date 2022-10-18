@@ -1,8 +1,8 @@
 Package: traudem
 Title: Use TauDEM
-Version: 0.0.0.9000
+Version: 1.0.1
 Authors@R: c(
-    person("Luca", "Carraro", , "maelle.salmon@yahoo.se", role = c("cre", "aut")),
+    person("Luca", "Carraro", , "Luca.Carraro@eawag.ch", role = c("cre", "aut")),
     person("University of Zurich", role = c("cph", "fnd")),
     person("Maëlle", "Salmon", , "maelle@cynkra.com", role = "aut",
            comment = c(ORCID = "0000-0002-2815-0399")),
