@@ -1,20 +1,21 @@
 Package: traudem
-Title: Use 'TauDEM'
-Version: 1.0.0
+Title: Use TauDEM
+Version: 0.0.0.9000
 Authors@R: c(
-    person("Luca", "Carraro", , "Luca.Carraro@eawag.ch", role = c("cre", "aut")),
+    person("Luca", "Carraro", , "maelle.salmon@yahoo.se", role = c("cre", "aut")),
     person("University of Zurich", role = c("cph", "fnd")),
     person("Maëlle", "Salmon", , "maelle@cynkra.com", role = "aut",
            comment = c(ORCID = "0000-0002-2815-0399")),
     person("Wael", "Sadek", role = "aut"),
-    person(given = "Kirill",
-           family = "Müller",
-           role = "aut",
-           email = "kirill@cynkra.com",
+    person("Kirill", "Müller", , "kirill@cynkra.com", role = "aut",
            comment = c(ORCID = "0000-0002-1416-3412"))
   )
-Description: Simple trustworthy utility functions to use 'TauDEM'
-    command-line interface.
+Description: Simple trustworthy utility functions to use TauDEM 
+    (Terrain Analysis Using Digital Elevation Models <https://hydrology.usu.edu/taudem/taudem5/>) command-line interface.
+    This package provides a guide to installation of TauDEM and its dependencies GDAL (Geopatial Data Abstraction Library) 
+    and MPI (Message Passing Interface) for different operating systems.
+    Moreover, it checks that TauDEM and its dependencies are correctly installed and included to the PATH, 
+    and it provides wrapper commands for calling TauDEM methods from R.
 License: MIT + file LICENSE
 URL: https://lucarraro.github.io/traudem/, https://github.com/lucarraro/traudem
 BugReports: https://github.com/lucarraro/traudem/issues
