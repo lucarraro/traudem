@@ -6,7 +6,10 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/lucarraro/traudem/actions/workflows/TauDEM.yaml/badge.svg)](https://github.com/lucarraro/traudem/actions/workflows/TauDEM.yaml)
+[![CRAN](http://www.r-pkg.org/badges/version/traudem)](http://CRAN.R-project.org/package=traudem) 
+
 <!-- badges: end -->
+
 
 The goal of traudem is to wrap the [TauDEM
 CLI](https://hydrology.usu.edu/taudem/taudem5/index.html) from R.
