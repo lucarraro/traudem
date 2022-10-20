@@ -37,5 +37,5 @@
     Message <cliMessage>
       -- End of TauDEM output --------------------------------------------------------
       v Was able to launch a TauDEM example!
-      ! Make sure you see no serious error message above.
+      ! Double-check above output for serious error messages.
 

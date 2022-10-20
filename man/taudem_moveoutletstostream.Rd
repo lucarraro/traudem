@@ -22,13 +22,13 @@ taudem_moveoutletstostream(
 
 \item{input_stream_raster_grid}{File name for stream raster grid (input).}
 
-\item{output_moved_outlets_file}{Output OGR file where outlets have been moved}
+\item{output_moved_outlets_file}{Output OGR file where outlets have been moved.}
 
-\item{om_layer_name}{layer name in movedoutletsfile (Optional)}
+\item{om_layer_name}{layer name in movedoutletsfile (optional).}
 
-\item{max_dist}{maximum number of grid cells to traverse in moving outlet points (Optional)}
+\item{max_dist}{maximum number of grid cells to traverse in moving outlet points (optional).}
 
-\item{outlet_file}{input outlets file (OGR readable dataset)}
+\item{outlet_file}{input outlets file (OGR readable dataset).}
 
 \item{outlet_layer_name}{OGR layer name if outlets are not the first layer in \code{outlet_file} (optional).
 Layer name and layer number should not both be specified.}
@@ -41,7 +41,7 @@ Layer name and layer number should not both be specified.}
 \item{quiet}{If \code{FALSE} output from TauDEM CLI is suppressed.}
 }
 \value{
-Path to output file (invisibly)
+Path to output file (invisibly).
 }
 \description{
 Move Outlets To Streams

@@ -5,12 +5,14 @@ template:
 reference:
 - title: Setup
   contents:
-  - '`taudem_sitrep`'
+    - taudem_sitrep
 - title: TauDEM wrappers
   contents:
-  - '`taudem_aread8`'
-  - '`taudem_d8flowdir`'
-  - '`taudem_moveoutletstostream`'
-  - '`taudem_pitremove`'
-  - '`taudem_threshold`'
-  - '`taudem_exec`'
+    - taudem_aread8
+    - taudem_d8flowdir
+    - taudem_moveoutletstostream
+    - taudem_pitremove
+    - taudem_threshold
+- title: TauDEM direct caller
+  contents:
+    - taudem_exec

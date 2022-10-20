@@ -4,9 +4,9 @@
 \name{traudem-package}
 \alias{traudem}
 \alias{traudem-package}
-\title{traudem: Use 'TauDEM'}
+\title{traudem: Use TauDEM}
 \description{
-Simple trustworthy utility functions to use 'TauDEM' command-line interface.
+Simple trustworthy utility functions to use TauDEM (Terrain Analysis Using Digital Elevation Models \url{https://hydrology.usu.edu/taudem/taudem5/}) command-line interface. This package provides a guide to installation of TauDEM and its dependencies GDAL (Geopatial Data Abstraction Library) and MPI (Message Passing Interface) for different operating systems. Moreover, it checks that TauDEM and its dependencies are correctly installed and included to the PATH, and it provides wrapper commands for calling TauDEM methods from R.
 }
 \seealso{
 Useful links:
@@ -24,6 +24,12 @@ Authors:
 \itemize{
   \item Maëlle Salmon \email{maelle@cynkra.com} (\href{https://orcid.org/0000-0002-2815-0399}{ORCID})
   \item Wael Sadek
+  \item Kirill Müller \email{kirill@cynkra.com} (\href{https://orcid.org/0000-0002-1416-3412}{ORCID})
+}
+
+Other contributors:
+\itemize{
+  \item University of Zurich [copyright holder, funder]
 }
 
 }

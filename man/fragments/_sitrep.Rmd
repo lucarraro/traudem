@@ -1,6 +1,6 @@
 ## Finalize your installation
 
-Once you are done,
+Once you are done, you need to register TauDEM in R and check your installation.
 
 ### Register TauDEM in R
 
@@ -24,7 +24,7 @@ TAUDEM_PATH='/usr/local/taudem'
 or, for just the session, running this line of R code:
 
 ```r
-Sys.setenv(TAUDEM_PATH='/usr/local/taudem')
+Sys.setenv(TAUDEM_PATH = "/usr/local/taudem")
 ```
 
 ### Check your installation 

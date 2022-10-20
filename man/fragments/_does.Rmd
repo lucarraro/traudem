@@ -2,9 +2,9 @@
 
 ### What this package does
 
-- It provides a guide to installation of TauDEM and its dependencies GDAL and MPI depending on your operating system.
+- It provides a guide to installation of TauDEM and its dependencies GDAL and MPI, depending on your operating system.
 - It checks that TauDEM and its dependencies are correctly installed and included to the PATH. 
-- It provides wrapper commands that allow calling TauDEM methods from R.
+- It provides wrapper commands for calling TauDEM methods from R.
 
 ### What this package does not
 

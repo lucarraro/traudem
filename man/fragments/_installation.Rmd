@@ -1,11 +1,17 @@
 ## Installation
 
 Refer to [`vignette("taudem-installation", package = "traudem")`](https://lucarraro.github.io/traudem/articles/taudem-installation.html).
-In particular after installing the TauDEM CLI and dependencies as well as the R package, please run `traudem::taudem_sitrep()`.
+In particular, after installing the TauDEM CLI and dependencies as well as the R package, please run `traudem::taudem_sitrep()`.
 
 
 ```{r}
 traudem::taudem_sitrep()
+```
+
+You can install traudem from CRAN:
+
+```r
+install.packages("traudem")
 ```
 
 You can install the development version of traudem from R-universe:

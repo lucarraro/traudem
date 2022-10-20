@@ -10,9 +10,9 @@ taudem_sitrep()
 can_register_taudem()
 }
 \value{
-None
+For \code{taudem_sitrep()}: None.
 
-Boolean
+For \code{can_register_taudem()}: A logical scalar.
 }
 \description{
 Checks installation of TauDEM and provides useful hints.
@@ -20,7 +20,7 @@ Checks installation of TauDEM and provides useful hints.
 \section{TauDEM installation and registration}{
 
 
-Once you have installed TauDEM add an environment variable
+Once you have installed TauDEM, add an environment variable
 pointing to the correct path.
 For instance on Ubuntu it could be adding this line in \code{.Renviron}
 (see \code{usethis::edit_r_environ()})
@@ -31,7 +31,7 @@ and then re-starting R:
 
 or, for just the session, running this line of R code:
 
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{Sys.setenv(TAUDEM_PATH='/usr/local/taudem')
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{Sys.setenv(TAUDEM_PATH = "/usr/local/taudem")
 }\if{html}{\out{</div>}}
 }
 

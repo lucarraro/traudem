@@ -2,12 +2,12 @@
 #'
 #' Checks installation of TauDEM and provides useful hints.
 #'
-#' @return None
+#' @return For `taudem_sitrep()`: None.
 #' @export
 #'
 #' @section TauDEM installation and registration:
 #'
-#' Once you have installed TauDEM add an environment variable
+#' Once you have installed TauDEM, add an environment variable
 #' pointing to the correct path.
 #' For instance on Ubuntu it could be adding this line in `.Renviron`
 #' (see `usethis::edit_r_environ()`)
@@ -20,7 +20,7 @@
 #' or, for just the session, running this line of R code:
 #'
 #' ```r
-#' Sys.setenv(TAUDEM_PATH='/usr/local/taudem')
+#' Sys.setenv(TAUDEM_PATH = "/usr/local/taudem")
 #' ```
 #'
 #' @examplesIf interactive() && traudem::can_register_taudem()
@@ -151,7 +151,8 @@ taudem_sitrep <- function() {
     test_dir, {
       taudem_exec(
           n_processes = NULL,
-          c("pitremove", "DEM.tif"),
+          program = "pitremove",
+          args = "DEM.tif",
           quiet = FALSE
      )
     }
@@ -159,12 +160,12 @@ taudem_sitrep <- function() {
   cli::cli_rule(left = "End of TauDEM output")
   if (!inherits(taudem_try, "try-error") && file.exists(file.path(test_dir, "DEMfel.tif"))) {
     cli::cli_alert_success("Was able to launch a TauDEM example!")
-    cli::cli_alert_warning("Make sure you see no serious error message above.")
+    cli::cli_alert_warning("Double-check above output for serious error messages.")
   } else {
     rlang::abort(
       message = c(
         x = "Couldn't launch a TauDEM example.",
-        i = "Please open a bug report in traudem repository"
+        i = "Please open a bug report in the traudem repository."
       )
     )
   }

@@ -5,8 +5,11 @@
 #' Please refer to the relative TauDEM function documentation for the syntax used to specify optional arguments.
 #' See also examples.
 #'
+#' @param ... These dots are for future extensions and must be empty.
+#' As a consequence, all following arguments must be fully named (see examples).
 #' @param n_processes Number of processes for `mpiexec`. If `NULL` TauDEM is called without mpiexec.
-#' @param args Character vector of argument, starting with the TauDEM command. See examples.
+#' @param program TauDEM command (character). See examples.
+#' @param args Character vector of arguments. See examples.
 #' @param quiet If `FALSE` output from TauDEM CLI is suppressed.
 #'
 #' @return `TRUE` if the call was successful, `FALSE` otherwise.
@@ -20,16 +23,18 @@
 #'    file.path(test_dir, "DEM.tif")
 #'  )
 #'  # Default name for output file, only input command and input filename.
-#' taudem_exec(c("pitremove", file.path(test_dir, "DEM.tif")))
+#' taudem_exec("pitremove", file.path(test_dir, "DEM.tif"))
 #'
 #' # syntax for user-attributed output file name
 #' taudem_exec(
-#'   c(
 #'   "pitremove",
-#'   "-z", file.path(test_dir, "DEM.tif"),
-#'   "-fel", file.path(test_dir,"filled_pits.tif"))
-#'  )
-taudem_exec <- function(args, n_processes = getOption("traudem.n_processes", 1), quiet = getOption("traudem.quiet", FALSE)) {
+#'   c(
+#'     "-z", file.path(test_dir, "DEM.tif"),
+#'     "-fel", file.path(test_dir,"filled_pits.tif")
+#'   )
+#' )
+taudem_exec <- function(program, args, ..., n_processes = getOption("traudem.n_processes", 1), quiet = getOption("traudem.quiet", FALSE)) {
+  rlang::check_dots_empty()
   if (!can_register_taudem()) {
     rlang::abort(
       message = c(
@@ -42,10 +47,9 @@ taudem_exec <- function(args, n_processes = getOption("traudem.n_processes", 1),
 
   if (!is.null(n_processes)) {
     cmd <- "mpiexec"
-    args <- c("-n", n_processes, args)
+    args <- c("-n", n_processes, program, args)
   } else {
-    cmd <- args[1]
-    args <- args[-1]
+    cmd <- program
   }
 
   std_out <- withr::local_tempfile()
@@ -92,7 +96,7 @@ is_taudem_envvar <- function() {
 
 #' @rdname taudem_sitrep
 #'
-#' @return Boolean
+#' @return For `can_register_taudem()`: A logical scalar.
 #' @export
 #'
 #' @examples

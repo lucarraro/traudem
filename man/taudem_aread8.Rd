@@ -17,17 +17,17 @@ taudem_aread8(
 )
 }
 \arguments{
-\item{input_d8flowdir_grid}{Input flow directions grid}
+\item{input_d8flowdir_grid}{Input flow directions grid.}
 
-\item{output_contributing_area_grid}{Output contributing area grid}
+\item{output_contributing_area_grid}{Output contributing area grid.}
 
-\item{check_edge_contamination}{Whether to check for edge contamination}
+\item{check_edge_contamination}{Whether to check for edge contamination.}
 
 \item{n_processes}{Number of processes for \code{mpiexec}. If \code{NULL} TauDEM is called without mpiexec.}
 
-\item{wg_file}{Input weight grid (optional)}
+\item{wg_file}{Input weight grid (optional).}
 
-\item{outlet_file}{input outlets file (OGR readable dataset, optional)}
+\item{outlet_file}{Input outlets file (OGR readable dataset, optional).}
 
 \item{outlet_layer_name}{OGR layer name if outlets are not the first layer in \code{outlet_file} (optional).
 Layer name and layer number should not both be specified.}
@@ -38,7 +38,7 @@ Layer name and layer number should not both be specified.}
 \item{quiet}{If \code{FALSE} output from TauDEM CLI is suppressed.}
 }
 \value{
-Path to output file (invisibly)
+Path to output file (invisibly).
 }
 \description{
 D8 Contributing Area

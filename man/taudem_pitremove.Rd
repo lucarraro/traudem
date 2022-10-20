@@ -14,20 +14,20 @@ taudem_pitremove(
 )
 }
 \arguments{
-\item{input_elevation_grid}{Input elevation grid file}
+\item{input_elevation_grid}{Input elevation grid file.}
 
-\item{output_elevation_grid}{Output elevation grid file}
+\item{output_elevation_grid}{Output elevation grid file.}
 
-\item{only_4way_neighbors}{Whether to consider only 4 way neighbors}
+\item{only_4way_neighbors}{Whether to consider only 4 way neighbors.}
 
 \item{n_processes}{Number of processes for \code{mpiexec}. If \code{NULL} TauDEM is called without mpiexec.}
 
-\item{depmask}{Depression mask file (optional)}
+\item{depmask}{Depression mask file (optional).}
 
 \item{quiet}{If \code{FALSE} output from TauDEM CLI is suppressed.}
 }
 \value{
-Path to output file (invisibly)
+Path to output file (invisibly).
 }
 \description{
 Pit Remove

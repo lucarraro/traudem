@@ -13,18 +13,18 @@ taudem_d8flowdir(
 )
 }
 \arguments{
-\item{input_elevation_grid}{Pit filled elevation input data}
+\item{input_elevation_grid}{Pit filled elevation input data.}
 
-\item{output_d8flowdir_grid}{D8 flow directions output}
+\item{output_d8flowdir_grid}{D8 flow directions output.}
 
-\item{output_d8slopes_grid}{D8 slopes output}
+\item{output_d8slopes_grid}{D8 slopes output.}
 
 \item{n_processes}{Number of processes for \code{mpiexec}. If \code{NULL} TauDEM is called without mpiexec.}
 
 \item{quiet}{If \code{FALSE} output from TauDEM CLI is suppressed.}
 }
 \value{
-List with the two output filenames
+List with the two output filenames.
 }
 \description{
 D8 Flow Directions
