@@ -39,7 +39,7 @@ package manager, similar to APT on Linux systems.
 
 1. Open a terminal.
 
-2. Download and install GDAL and MPICH:
+2. Download and install GDAL, MPICH and CMake:
     ```sh
     brew install gdal mpich cmake
     ```
@@ -61,14 +61,24 @@ package manager, similar to APT on Linux systems.
     mkdir bin
     ```
     
-7. Go into source folder, create a build folder and go into with: 
+7. Go into the source folder `src`: 
     ```sh
-    cd src && mkdir build && cd build
+    cd src
     ```
-    
-8. Build with `cmake ..`.
+ 
+8. Create the `build` directory: and go into with: 
+    ```sh
+    mkdir build
+    ``` 
 
-9. Finalize with:
+9. Go into the `build` directory: 
+    ```sh
+    cd build
+    ``` 
+    
+10. Build with `cmake ..`
+
+11. Finalize with:
 
    ```sh
    make && sudo make install
@@ -76,7 +86,7 @@ package manager, similar to APT on Linux systems.
    
    The executable files will end up in `/usr/local/taudem/`.
 
-10. Add the location of the executable files to your path environment variable. This is a bit tricky
+12. Add the location of the executable files to your path environment variable. This is a bit tricky
     on macOS, since RStudio and the package only see the path added to `/etc/paths.d/`. So add it  
     with the following two commands:
     
