@@ -116,6 +116,7 @@ If it works and returns something, you do not need to install MPI unless you wan
 If you need to, install MPI using the official [MPI docs](https://www.open-mpi.org/software/ompi/v4.1/) (or refer to [TauDEM README](https://github.com/dtarb/TauDEM/) for further suggestions). 
 
 
+
 ### TauDEM
 
 First you need to obtain TauDEM source for GitHub <https://github.com/dtarb/TauDEM/>.
@@ -131,6 +132,26 @@ Therefore,
 > If the installation shows errors, try using <https://github.com/maelle/TauDEM/tree/more-mpi-deprecations> instead.
 
 > Even for a successful installation you might see many warnings.
+
+In particular, the following error has been observed in some systems: 
+
+```sh
+linklib.h: In function ‘bool sendLink(int32_t, int)’:
+linklib.h:281:9: error: ‘MPI_Type_extent’ was not declared in this scope; did you mean ‘MPI_Type_get_extent’?
+```
+
+In such a case, execute the following commands on the terminal:
+
+```sh
+mkdir bin
+cd src
+sed -i -e 's/MPI_Type_struct/MPI_Type_create_struct/g' linklib.h
+sed -i -e 's/MPI_Type_extent(MPI_LONG, \&extent)/MPI_Aint lb\;MPI_Type_get_extent(MPI_LONG, \&lb, \&extent)/g' linklib.h
+make
+```
+
+See also <https://github.com/lucarraro/traudem/issues/48#issue-2109770271> for details.
+
 
 ```{r, child="../man/fragments/_sitrep.Rmd"}
 ```
