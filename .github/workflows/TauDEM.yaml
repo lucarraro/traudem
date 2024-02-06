@@ -12,17 +12,9 @@ concurrency:
 
 jobs:
   TauDEM:
-    runs-on: ${{ matrix.config.os }}
+    runs-on: windows-latest
 
-    name: ${{ matrix.config.os }} (${{ matrix.config.r }})
-
-    strategy:
-      fail-fast: false
-      matrix:
-        config:
-          - {os: macOS-latest,   r: 'release'}
-          - {os: windows-latest, r: 'release'}
-          - {os: ubuntu-latest,   r: 'release'}
+    name: windows-release
 
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
@@ -30,47 +22,36 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-
-      - name: Install required pkgs for linux
-        if: runner.os == 'Linux'
-        run: |
-          sudo apt-get update
-          sudo apt-get install gdal-bin libgdal-dev mpich
-
-      - name: Install required pkgs for mac
-        if: runner.os == 'macOS'
-        run: |
-          brew install gdal mpich
-
-      - name: Install TauDEM on linux and mac
-        if: runner.os != 'Windows'
-        run: sh ./TauDEM.sh
-
+      
+      - name: Setup MPI
+        uses: mpi4py/setup-mpi@v1
+        
       - name: Install TauDEM on Windows
-        if: runner.os == 'Windows'
+        # https://www.gisinternals.com/release.php for the gdal msi
         run: |
           cd ~
-          curl -sLO https://download.microsoft.com/download/a/5/2/a5207ca5-1203-491a-8fb8-906fd68ae623/msmpisetup.exe
-          Start-Process -Wait ".\msmpisetup.exe" -ArgumentList "-unattend"
-          curl -sLO https://download.gisinternals.com/sdk/downloads/release-1800-x64-gdal-2-1-3-mapserver-7-0-4/gdal-201-1800-x64-core.msi
-          Start-Process -Wait msiexec.exe -ArgumentList "/I gdal-201-1800-x64-core.msi /quiet"
+          curl -sLO https://download.gisinternals.com/sdk/downloads/release-1930-x64-gdal-3-8-1-mapserver-8-0-1/gdal-3.8.1-1930-x64-core.msi
+          Start-Process -Wait msiexec.exe -ArgumentList "/I gdal-3.8.1-1930-x64-core.msi /quiet"
           mkdir "C:\taudem"
           cd "C:\taudem"
           curl -sLO https://github.com/dtarb/TauDEM/releases/download/v5.3.7/TauDEM537exeWin64.zip
           unzip TauDEM537exeWin64.zip
+          dir
 
-      # - name: Test Taudem
-      #   if: runner.os == 'Windows'
-      #   run: |
-      #     $env:Path += ";C:\Program Files\Microsoft MPI\Bin;C:\Program Files\GDAL;C:\taudem"
-      #     gdalinfo --version
-      #     mpiexec pitremove inst\test-data\DEM.tif
+
+      - name: Test Taudem
+        if: runner.os == 'Windows'
+        run: |
+          $env:Path += ";C:\Program Files\Microsoft MPI\Bin;C:\Program Files\GDAL;C:\taudem"
+           gdalinfo --version
+           mpiexec -h
+           mpiexec pitremove inst\test-data\DEM.tif
 
       - uses: r-lib/actions/setup-pandoc@v2
 
       - uses: r-lib/actions/setup-r@v2
         with:
-          r-version: ${{ matrix.config.r }}
+          r-version: r-release
           use-public-rspm: true
 
       - uses: r-lib/actions/setup-r-dependencies@v2
