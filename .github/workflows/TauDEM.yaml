@@ -38,9 +38,6 @@ jobs:
           unzip TauDEM537exeWin64.zip
           dir
 
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v3
-
       - name: Test Taudem
         if: runner.os == 'Windows'
         run: |
