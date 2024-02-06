@@ -38,13 +38,15 @@ jobs:
           unzip TauDEM537exeWin64.zip
           dir
 
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
 
       - name: Test Taudem
         if: runner.os == 'Windows'
         run: |
           $env:Path += ";C:\Program Files\GDAL;C:\taudem"
-           gdalinfo --version
-           mpiexec pitremove inst\test-data\DEM.tif
+          gdalinfo --version
+          mpiexec pitremove inst\test-data\DEM.tif
 
       - uses: r-lib/actions/setup-pandoc@v2
 
