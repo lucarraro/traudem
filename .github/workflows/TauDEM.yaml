@@ -26,7 +26,7 @@ jobs:
       - name: Setup MPI
         uses: mpi4py/setup-mpi@v1
       - run: dir
-      - run: mpiexec mpi_hello_world
+      - run: mpiexec mpi_hello_world.c
 
       - name: Install TauDEM on Windows
         # https://www.gisinternals.com/release.php for the gdal msi
