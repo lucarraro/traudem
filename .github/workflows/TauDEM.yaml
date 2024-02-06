@@ -52,7 +52,7 @@ jobs:
           cd ~
           curl -sLO https://download.microsoft.com/download/a/5/2/a5207ca5-1203-491a-8fb8-906fd68ae623/msmpisetup.exe
           Start-Process -Wait ".\msmpisetup.exe" -ArgumentList "-unattend"
-          curl -sLO https://download.gisinternals.com/sdk/downloads/release-1800-x64-gdal-2-1-3-mapserver-7-0-4/gdal-201-1800-x64-core.msi
+          curl -sLO https://build2.gisinternals.com/sdk/downloads/release-1800-x64-gdal-2-1-3-mapserver-7-0-4/gdal-201-1800-x64-core.msi
           Start-Process -Wait msiexec.exe -ArgumentList "/I gdal-201-1800-x64-core.msi /quiet"
           mkdir "C:\taudem"
           cd "C:\taudem"
