@@ -22,10 +22,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      
+
       - name: Setup MPI
         uses: mpi4py/setup-mpi@v1
-        
+      - run: mpicc helloworld.c -o helloworld
+      - run: mpiexec -n 2 ./helloworld
+
       - name: Install TauDEM on Windows
         # https://www.gisinternals.com/release.php for the gdal msi
         run: |
@@ -42,9 +44,8 @@ jobs:
       - name: Test Taudem
         if: runner.os == 'Windows'
         run: |
-          $env:Path += ";C:\Program Files\Microsoft MPI\Bin;C:\Program Files\GDAL;C:\taudem"
+          $env:Path += ";C:\Program Files\GDAL;C:\taudem"
            gdalinfo --version
-           mpiexec -h
            mpiexec pitremove inst\test-data\DEM.tif
 
       - uses: r-lib/actions/setup-pandoc@v2
