@@ -30,16 +30,13 @@ jobs:
         # https://www.gisinternals.com/release.php for the gdal msi
         run: |
           cd ~
-          curl -sLO https://download.gisinternals.com/sdk/downloads/release-1930-x64-gdal-3-8-1-mapserver-8-0-1/gdal-3.8.1-1930-x64-core.msi
-          Start-Process -Wait msiexec.exe -ArgumentList "/I gdal-3.8.1-1930-x64-core.msi /quiet"
+          curl -sLO https://download.gisinternals.com/sdk/downloads/release-1800-x64-gdal-2-1-3-mapserver-7-0-4/gdal-201-1800-x64-core.msi
+          Start-Process -Wait msiexec.exe -ArgumentList "/I gdal-201-1800-x64-core.msi /quiet"
           mkdir "C:\taudem"
           cd "C:\taudem"
           curl -sLO https://github.com/dtarb/TauDEM/releases/download/v5.3.7/TauDEM537exeWin64.zip
           unzip TauDEM537exeWin64.zip
           dir
-
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v3
 
       - name: Test Taudem
         if: runner.os == 'Windows'
