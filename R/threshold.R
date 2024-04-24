@@ -48,11 +48,6 @@ taudem_threshold <- function(input_area_grid,
     rlang::abort(sprintf("Can't find file %s (mask_file)", mask_file))
   }
 
-  if (grepl("[^ -~]", input_area_grid) | grepl("[^ -~]", output_stream_raster_grid)){
-    rlang::abort("The path file and/or the working directory contain(s) non-ASCII
-                 characters, which are not supported by MPI.")
-  }
-
   args <- c(
     "-ssa", input_area_grid,
     "-src", output_stream_raster_grid,

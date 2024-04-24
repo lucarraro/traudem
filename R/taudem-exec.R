@@ -45,6 +45,11 @@ taudem_exec <- function(program, args, ..., n_processes = getOption("traudem.n_p
   }
   register_taudem()
 
+  if (grepl("[^ -~]", getwd())){
+    rlang::abort("The working directory contain(s) non-ASCII characters,
+                 which are not supported by MPI.")
+  }
+
   if (!is.null(n_processes)) {
     cmd <- "mpiexec"
     args <- c("-n", n_processes, program, args)

@@ -45,11 +45,6 @@ taudem_d8flowdir <- function(input_elevation_grid,
     output_d8slopes_grid <- sprintf("%s.tif", output_d8slopes_grid_file)
   }
 
-  if (grepl("[^ -~]", input_elevation_grid) | grepl("[^ -~]", output_d8flowdir_grid)){
-    rlang::abort("The path file and/or the working directory contain(s) non-ASCII
-                 characters, which are not supported by MPI.")
-  }
-
   args <- c(
     "-fel", input_elevation_grid,
     "-p", output_d8flowdir_grid,
