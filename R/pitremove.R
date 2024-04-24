@@ -42,6 +42,11 @@ taudem_pitremove <- function(input_elevation_grid,
     rlang::abort(sprintf("Can't find file %s (depmask)", depmask))
   }
 
+  if (grepl("[^ -~]", input_elevation_grid) | grepl("[^ -~]", output_elevation_grid)){
+    rlang::abort("The path file and/or the working directory contain(s) non-ASCII
+                 characters, which are not supported by MPI.")
+  }
+
   args <- c(
     "-z", input_elevation_grid,
     "-fel", output_elevation_grid

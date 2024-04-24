@@ -62,6 +62,11 @@ taudem_aread8 <- function(input_d8flowdir_grid,
     rlang::abort("outlet_layer_name and outlet_layer_number must not both be specified.")
   }
 
+  if (grepl("[^ -~]", input_d8flowdir_grid) | grepl("[^ -~]", output_contributing_area_grid)){
+    rlang::abort("The path file and/or the working directory contain(s) non-ASCII
+                 characters, which are not supported by MPI.")
+  }
+
   args <- c(
     "-p", input_d8flowdir_grid,
     "-ad8", output_contributing_area_grid

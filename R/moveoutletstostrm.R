@@ -58,6 +58,12 @@ taudem_moveoutletstostream <- function(input_d8flowdir_grid,
     "moveoutletstostrm"
   }
 
+  if (grepl("[^ -~]", input_d8flowdir_grid) | grepl("[^ -~]", input_stream_raster_grid) |
+      grepl("[^ -~]",output_moved_outlets_file)){
+    rlang::abort("The path file and/or the working directory contain(s) non-ASCII
+                 characters, which are not supported by MPI.")
+  }
+
   args <- c(
     "-p", input_d8flowdir_grid,
     "-src", input_stream_raster_grid,
